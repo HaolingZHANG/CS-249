@@ -1,5 +1,5 @@
 from os import path, makedirs, remove
-from numpy import ndarray, array, zeros, min, ceil
+from numpy import ndarray, array, zeros, min
 from requests import get
 from typing import Generator, Tuple
 from zipfile import ZipFile
@@ -192,7 +192,8 @@ def fuzzy_location_search(file_path: str,
 
 
 def naive(template: str,
-          detected: str) \
+          detected: str,
+          tolerance: int = 0) \
         -> list:
     """
     Calculate the mapping between template and detected sequences by the naive algorithm.
@@ -203,26 +204,73 @@ def naive(template: str,
     :param detected: detected sequence.
     :type detected: str
 
+    :param tolerance: maximum tolerable number of edit errors.
+    :type tolerance: int
+
     :return: matched locations.
     :rtype: list
     """
     if len(template) == len(detected):
-        for info_1, info_2 in zip(template, detected):
-            if info_1 != info_2:
-                return []
-        return [0]
+        if tolerance == 0:
+            for info_1, info_2 in zip(template, detected):
+                if info_1 != info_2:
+                    return []
+            return [0]
+        else:
+            table = zeros((len(template) + 1, len(detected) + 1), dtype=int)
+            for index in range(len(template) + 1):
+                table[index, 0] = index
+            for index in range(len(detected) + 1):
+                table[0, index] = index
+
+            for index_1 in range(1, len(template) + 1):
+                minimum_value = None
+                for index_2 in range(1, len(detected) + 1):
+                    if template[index_1 - 1] == detected[index_2 - 1]:
+                        table[index_1, index_2] = table[index_1 - 1, index_2 - 1]
+                    else:
+                        table[index_1, index_2] = min([table[index_1 - 1, index_2] + 1,
+                                                       table[index_1, index_2 - 1] + 1,
+                                                       table[index_1 - 1, index_2 - 1] + 1])
+
+                    if minimum_value is not None:
+                        minimum_value = min([minimum_value, table[index_1, index_2]])
+                    else:
+                        minimum_value = table[index_1, index_2]
+
+                if minimum_value > tolerance:
+                    return []
+
+            return [0]
 
     elif len(template) > len(detected):
         matches = []
-        for location in range(len(template) - len(detected) + 1):
-            flag = True
-            for index in range(len(detected)):
-                if template[location + index] != detected[index]:
-                    flag = False
-                    break
+        if tolerance == 0:
+            for location in range(len(template) - len(detected) + 1):
+                flag = True
+                for index in range(len(detected)):
+                    if template[location + index] != detected[index]:
+                        flag = False
+                        break
 
-            if flag:
-                matches.append(location)
+                if flag:
+                    matches.append(location)
+        else:
+            table = zeros((len(template) + 1, len(detected) + 1), dtype=int)
+
+            for index in range(1, len(detected) + 1):
+                table[0, index] = index
+
+            for i in range(1, len(template) + 1):
+                table[i, 0] = 0
+                for j in range(1, len(detected) + 1):
+                    table[i, j] = min([table[i - 1, j] + 1,
+                                       table[i][j - 1] + 1,
+                                       table[i - 1, j - 1] + (0 if template[i - 1] == detected[j - 1] else 1)])
+
+            for location in range(len(detected), len(template) + 1):
+                if table[location, len(detected)] <= tolerance:
+                    matches.append(location - len(detected))
 
         return matches
 
@@ -308,7 +356,7 @@ def q_gram(template: str,
     if tolerance == 0:
         raise ValueError("Error tolerance needs to be greater than 0, otherwise please use the exact location search!")
 
-    best_q = ceil(len(detected) / (tolerance + 1)).astype(int)
+    best_q = int(len(detected) / (tolerance + 1))
 
     if len(template) >= len(detected):
         detected_q_gram_table = {}
