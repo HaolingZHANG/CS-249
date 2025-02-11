@@ -1,5 +1,5 @@
 from os import path, makedirs, remove
-from numpy import ndarray, array, zeros, min
+from numpy import zeros, min
 from requests import get
 from typing import Generator, Tuple
 from zipfile import ZipFile
@@ -56,7 +56,7 @@ def download_genome(url: str,
 def load_genome(file_path: str,
                 batch_length: int,
                 batch_stride: int) \
-        -> Generator[Tuple[int, int, str], None, None]:
+        -> Generator[Tuple[str, int, str], None, None]:
     """
     Yield k-mer genome data from given file path.
 
@@ -72,28 +72,28 @@ def load_genome(file_path: str,
     :return: k-mer genome data generator.
     :rtype: Generator
     """
-    saved_segment, sequence_index, sequence_location = "", -1, 0
+    saved_segment, sequence_index, sequence_location = "", None, 0
     with open(file_path) as handle:
         for line in handle.readlines():
-            line = line.strip().upper()
 
             if line.startswith(">"):
-                sequence_index += 1
-
                 # yield remaining k-mers from the previous sequence.
+                flag = False
                 while len(saved_segment) >= batch_length:
                     yield sequence_index, sequence_location, saved_segment[:batch_length]
+                    if flag:
+                        break
                     if len(saved_segment) >= batch_stride + batch_length:
                         sequence_location += batch_stride
                         saved_segment = saved_segment[batch_stride:]
                     else:
                         sequence_location += len(saved_segment) - batch_length
                         saved_segment = saved_segment[len(saved_segment) - batch_length:]
-
-                saved_segment = ""
+                        flag = True
+                saved_segment, sequence_index = "", line[1:-1]
 
             else:
-                saved_segment += line.upper()
+                saved_segment += line.strip().upper()
                 while len(saved_segment) >= batch_length:
                     yield sequence_index, sequence_location, saved_segment[:batch_length]
                     if len(saved_segment) >= batch_stride + batch_length:
@@ -103,14 +103,18 @@ def load_genome(file_path: str,
                         break
 
     # yield any remaining k-mers at the end of the file.
+    flag = False
     while len(saved_segment) >= batch_length:
         yield sequence_index, sequence_location, saved_segment[:batch_length]
+        if flag:
+            break
         if len(saved_segment) >= batch_stride + batch_length:
             sequence_location += batch_stride
             saved_segment = saved_segment[batch_stride:]
         else:
             sequence_location += len(saved_segment) - batch_length
             saved_segment = saved_segment[len(saved_segment) - batch_length:]
+            flag = True
 
 
 def exact_location_search(file_path: str,
@@ -118,7 +122,7 @@ def exact_location_search(file_path: str,
                           method: callable,
                           length: int,
                           stride: int) \
-        -> Tuple[ndarray, int]:
+        -> Tuple[list, int]:
     """
     Exact search for the location of the template that can match the pattern.
 
@@ -138,7 +142,7 @@ def exact_location_search(file_path: str,
     :type stride: int
 
     :return: matched locations and the matching count.
-    :rtype: numpy.ndarray, int
+    :rtype: list, int
     """
     matched_locations = set()
     for index, location, segment in load_genome(file_path=file_path, batch_length=length, batch_stride=stride):
@@ -146,7 +150,7 @@ def exact_location_search(file_path: str,
         for local_position in matched_local_positions:
             matched_locations.add((index, location + local_position, location + local_position + len(pattern)))
 
-    return array(list(matched_locations)), len(matched_locations)
+    return list(matched_locations), len(matched_locations)
 
 
 def fuzzy_location_search(file_path: str,
@@ -155,7 +159,7 @@ def fuzzy_location_search(file_path: str,
                           length: int,
                           stride: int,
                           tolerance: int) \
-        -> Tuple[ndarray, int]:
+        -> Tuple[list, int]:
     """
     Fuzzy search for the location of the template that can match the pattern.
 
@@ -188,7 +192,7 @@ def fuzzy_location_search(file_path: str,
         for local_position in matched_local_positions:
             matched_locations.add((index, location + local_position, location + local_position + len(pattern)))
 
-    return array(list(matched_locations)), len(matched_locations)
+    return list(matched_locations), len(matched_locations)
 
 
 def naive(template: str,
