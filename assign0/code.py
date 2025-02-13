@@ -75,21 +75,21 @@ def load_genome(file_path: str,
     saved_segment, sequence_index, sequence_location = "", None, 0
     with open(file_path) as handle:
         for line in handle.readlines():
-
             if line.startswith(">"):
                 # yield remaining k-mers from the previous sequence.
-                flag = False
-                while len(saved_segment) >= batch_length:
-                    yield sequence_index, sequence_location, saved_segment[:batch_length]
-                    if flag:
-                        break
-                    if len(saved_segment) >= batch_stride + batch_length:
-                        sequence_location += batch_stride
-                        saved_segment = saved_segment[batch_stride:]
-                    else:
-                        sequence_location += len(saved_segment) - batch_length
-                        saved_segment = saved_segment[len(saved_segment) - batch_length:]
-                        flag = True
+                if len(saved_segment) > 0:
+                    flag = False
+                    while len(saved_segment) >= batch_length:
+                        yield sequence_index, sequence_location, saved_segment[:batch_length]
+                        if flag:
+                            break
+                        if len(saved_segment) >= batch_stride + batch_length:
+                            sequence_location += batch_stride
+                            saved_segment = saved_segment[batch_stride:]
+                        else:
+                            sequence_location += len(saved_segment) - batch_length
+                            saved_segment = saved_segment[len(saved_segment) - batch_length:]
+                            flag = True
                 saved_segment, sequence_index = "", line[1:-1]
 
             else:

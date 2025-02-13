@@ -112,8 +112,8 @@ Here is the table of each Python script:
 To execute them, you can use the following command line:
 
 ```shell
-nohup bash -c "cd /YOUR_TEMP_FOLDER/ && heaptrack python /YOUR_CODE_FOLDER/run_RUN_ID.py" > /hy-tmp/results/output-(RUN_ID).log 2>&1 &
-heaptrack_print "/YOUR_TEMP_FOLDER/heaptrack.python.THE_GIVEN_PID.gz" | tail -n 20
+nohup bash -c "cd /YOUR_TEMP_FOLDER/ && heaptrack python /YOUR_CODE_FOLDER/run_RUN_ID.py" > /YOUR_CODE_FOLDER/logs/output-(RUN_ID).log 2>&1 &
+heaptrack --analyze "/YOUR_TEMP_FOLDER/heaptrack.python.THE_GIVEN_PID.gz"
 ```
 
 In my setup, "/YOUR_TEMP_FOLDER/" and "/YOUR_CODE_FOLDER/" correspond to "./assign0/temp/" and "./assign0/", respectively.
@@ -122,17 +122,97 @@ The "RUN_ID" ranges from "1" to "8" within the "./assign0/" directory.
 
 The "THE_GIVEN_PID", which is system-generated, corresponds to the following values:
 
-| script   | pid  |
-|----------|------|
-| run_1.py | 998  |
-| run_2.py | 1129 |
-| run_3.py | 1258 |
-| run_4.py | 1377 |
-| run_5.py | 1496 |
-| run_6.py | 1613 |
-| run_7.py | 1738 |
-| run_8.py | 1845 |
+| script   | pid    |
+|----------|--------|
+| run_1.py | 153460 |
+| run_2.py | 153461 |
+| run_3.py | 153462 |
+| run_4.py | 153508 |
+| run_5.py | 153509 |
+| run_6.py | 153510 |
+| run_7.py | 153511 |
+| run_8.py | 153512 |
 
 
 ## Results
 
+Using "run_9.py", we can obtain the results.
+
+For the exacting search, the Naïve method and the KMP method both find 3 matches in GRCh38 and both find 2 matches in CHM13v2. 
+
+| method | GRCh38 | CHM13v2 |
+|--------|--------|---------|
+| Naïve  | 3      | 2       |
+| KMP    | 3      | 2       |
+
+The runtime and the peak memory are:
+
+Exact matching using Naïve for GRCh38:
+- total runtime: 6981.62s.
+- bytes allocated in total (ignoring deallocations): 9.91GB (1.42MB/s)
+- calls to allocation functions: 821120 (117/s)
+- temporary memory allocations: 2805 (0/s)
+- peak heap memory consumption: 365.53MB
+- peak RSS (including heaptrack overhead): 91.42GB
+- total memory leaked: 3.64MB
+
+Exact matching using Naïve for CHM13v2:
+- total runtime: 6668.11s.
+- bytes allocated in total (ignoring deallocations): 9.23GB (1.38MB/s)
+- calls to allocation functions: 782830 (117/s)
+- temporary memory allocations: 2802 (0/s)
+- peak heap memory consumption: 325.80MB
+- peak RSS (including heaptrack overhead): 87.88GB
+- total memory leaked: 3.64MB
+
+Exact matching using KMP for GRCh38:
+- total runtime: 106033.95s.
+- bytes allocated in total (ignoring deallocations): 435.58GB (4.11MB/s)
+- calls to allocation functions: 127420488 (1201/s)
+- temporary memory allocations: 84408660 (796/s)
+- peak heap memory consumption: 365.53MB
+- peak RSS (including heaptrack overhead): 91.42GB
+- total memory leaked: 3.56MB
+
+Exact matching using KMP for CHM13v2:
+- total runtime: 99344.00s.
+- bytes allocated in total (ignoring deallocations): 414.95GB (4.18MB/s)
+- calls to allocation functions: 121437228 (1222/s)
+- temporary memory allocations: 80439455 (809/s)
+- peak heap memory consumption: 325.80MB
+- peak RSS (including heaptrack overhead): 87.88GB
+- total memory leaked: 3.64MB
+
+Ideally, the KMP method should be faster than the Naïve method, but this is not the case. 
+A possible explanation is that certain fundamental operations in the Python implementation 
+may involve more complex access costs, leading to significant differences in the execution time of individual steps. 
+Notably, the number of calls to dynamic memory allocation functions in KMP is higher than in the Naïve approach, 
+which may support our hypothesis.
+
+For fuzzy search, as of 2:00 AM on February 13, 2025, the final result has not yet been obtained.
+
+The Q-gram method is faster and has reached the following progress:
+For GRCh38:
+```vbnet
+NC_000004.12 Homo sapiens chromosome 4, GRCh38.p13 Primary Assembly 727387601 8528
+```
+For CHM13v2:
+```vbnet
+NC_060928.1 Homo sapiens isolate CHM13 chromosome 4, alternate assembly T2T-CHM13v2.0 713,718,507 8430
+```
+Under the current conditions, 8528 and 8430 matches have been identified.
+
+It is important to note that these do not represent the final results, 
+especially considering that for a match without errors, its surrounding shifts are also included.
+
+The Naïve method (using Levenshtein distance) just has reached the following progress:
+For GRCh38:
+```vbnet
+NC_000001.11 Homo sapiens chromosome 1, GRCh38.p13 Primary Assembly 5451850 0
+```
+For CHM13v2:
+```vbnet
+NC_060925.1 Homo sapiens isolate CHM13 chromosome 1, alternate assembly T2T-CHM13v2.0 5244443 0
+```
+
+[//]: # (TODO: After completing the run, it will continue to upload!)
