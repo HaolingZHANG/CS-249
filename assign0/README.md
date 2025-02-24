@@ -138,7 +138,8 @@ The "THE_GIVEN_PID", which is system-generated, corresponds to the following val
 
 Using "run_9.py", we can obtain the results.
 
-For the exacting search, the Naïve method and the KMP method both find 3 matches in GRCh38 and both find 2 matches in CHM13v2. 
+For the exacting search, the Naïve method and the KMP method 
+both find 3 matches in GRCh38 and both find 2 matches in CHM13v2. 
 
 | method | GRCh38 | CHM13v2 |
 |--------|--------|---------|
@@ -189,30 +190,35 @@ may involve more complex access costs, leading to significant differences in the
 Notably, the number of calls to dynamic memory allocation functions in KMP is higher than in the Naïve approach, 
 which may support our hypothesis.
 
-For fuzzy search, as of 2:00 AM on February 13, 2025, the final result has not yet been obtained.
+For the fuzzy search, the Naïve method and the Q-gram method 
+both find 3 matches in GRCh38 and both find 2 matches in CHM13v2. 
 
-The Q-gram method is faster and has reached the following progress:
-For GRCh38:
-```vbnet
-NC_000004.12 Homo sapiens chromosome 4, GRCh38.p13 Primary Assembly 727387601 8528
-```
-For CHM13v2:
-```vbnet
-NC_060928.1 Homo sapiens isolate CHM13 chromosome 4, alternate assembly T2T-CHM13v2.0 713,718,507 8430
-```
-Under the current conditions, 8528 and 8430 matches have been identified.
+| method | GRCh38 | CHM13v2 |
+|--------|--------|---------|
+| Naïve  | N.A.   | N.A.    |
+| Q-gram | 37324  | 34369   |
 
-It is important to note that these do not represent the final results, 
+It is important to note that these do not represent the final results,
 especially considering that for a match without errors, its surrounding shifts are also included.
 
-The Naïve method (using Levenshtein distance) just has reached the following progress:
-For GRCh38:
-```vbnet
-NC_000001.11 Homo sapiens chromosome 1, GRCh38.p13 Primary Assembly 5451850 0
-```
-For CHM13v2:
-```vbnet
-NC_060925.1 Homo sapiens isolate CHM13 chromosome 1, alternate assembly T2T-CHM13v2.0 5244443 0
-```
+The runtime and the peak memory are:
 
-[//]: # (TODO: After completing the run, it will continue to upload!)
+Fuzzy matching using Q-gram for GRCh38:
+- total runtime: 598349.68s.
+- bytes allocated in total (ignoring deallocations): 55.12TB (92.12MB/s)
+- calls to allocation functions: 25850921351 (43203/s)
+- temporary memory allocations: 957068 (1/s)
+- peak heap memory consumption: 368.13MB
+- peak RSS (including heaptrack overhead): 91.59GB
+- total memory leaked: 3.70MB
+
+Fuzzy matching using Q-gram for CHM13v2:
+- total runtime: 571141.50s.
+- bytes allocated in total (ignoring deallocations): 53.84TB (94.27MB/s)
+- calls to allocation functions: 25250852356 (44211/s)
+- temporary memory allocations: 845677 (1/s)
+- peak heap memory consumption: 328.40MB
+- peak RSS (including heaptrack overhead): 88.05GB
+- total memory leaked: 3.64MB
+
+The Naïve method for the fuzzy search is still in progress.

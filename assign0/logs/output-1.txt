@@ -1,0 +1,13 @@
+heaptrack output will be written to "/YOUR_TEMP_FOLDER/heaptrack.python.153460.gz"
+starting application, this might take some time...
+Downloaded and extracted: "GRCh38.fa".
+Downloaded and extracted: "CHM13v2.fa".
+free(): invalid pointer
+Aborted (core dumped)
+heaptrack stats:
+	allocations:          	821120
+	leaked allocations:   	1408
+	temporary allocations:	2775
+Heaptrack finished! Now run the following to investigate the data:
+
+  heaptrack --analyze "/YOUR_TEMP_FOLDER/heaptrack.python.153460.gz"

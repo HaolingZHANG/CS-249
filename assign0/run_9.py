@@ -17,3 +17,11 @@ if __name__ == "__main__":
     with open("./results/CHM13v2.kmp.0.pkl", "rb") as file:
         locations, count = load(file=file)
         print(locations, count)
+
+    with open("./results/GRCh38.q-gram.1.pkl", "rb") as file:
+        locations, count = load(file=file)
+        print(locations, count)
+
+    with open("./results/CHM13v2.q-gram.1.pkl", "rb") as file:
+        locations, count = load(file=file)
+        print(locations, count)
