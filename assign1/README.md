@@ -115,7 +115,7 @@ Based on the obtained results (saved in `./data/task_1`), the summary of BLAST-b
 
 The results of the Trie-based methods are presented in Task 1.3. 
 Additionally, both methods exhibit similar performance, 
-with runtimes of approximately 10~20 minutes and memory usage around 120~240 MiB.
+with runtimes of approximately 10 -- 20 minutes and memory usage around 120 -- 240 MiB.
 
 Although both methods apply a mismatch ≤ 1 criterion, 
 BLAST detects local alignments, often matching only a portion of each read. 
