@@ -305,15 +305,15 @@ for the five reference genomes:
 The database construction log is:
 ```text
 Masking low-complexity regions of new file... done.
-Added "/home/horus/Desktop/Projects/task_3/GCF_000005845.2.fasta" to library (/home/horus/Desktop/Projects/database)
+Added "./data/task_3/GCF_000005845.2.fasta" to library (./data/database)
 Masking low-complexity regions of new file... done.
-Added "/home/horus/Desktop/Projects/task_3/GCF_000009045.1.fasta" to library (/home/horus/Desktop/Projects/database)
+Added "./data/task_3/GCF_000009045.1.fasta" to library (./data/database)
 Masking low-complexity regions of new file... done.
-Added "/home/horus/Desktop/Projects/task_3/GCF_000006765.1.fasta" to library (/home/horus/Desktop/Projects/database)
+Added "./data/task_3/GCF_000006765.1.fasta" to library (./data/database)
 Masking low-complexity regions of new file... done.
-Added "/home/horus/Desktop/Projects/task_3/GCF_000013425.1.fasta" to library (/home/horus/Desktop/Projects/database)
+Added "./data/task_3/GCF_000013425.1.fasta" to library (./data/database)
 Masking low-complexity regions of new file... done.
-Added "/home/horus/Desktop/Projects/task_3/GCF_000195955.2.fasta" to library (/home/horus/Desktop/Projects/database)
+Added "./data/task_3/GCF_000195955.2.fasta" to library (./data/database)
 Creating sequence ID to taxonomy ID map (step 1)...
 Sequence ID to taxonomy ID map complete. [0.014s]
 Estimating required capacity (step 2)...
