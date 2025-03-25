@@ -11,18 +11,24 @@ since both the forward and reverse reads originate from the same DNA fragment.
 If independent reads were sufficient, single-end sequencing or long-read sequencing would have been adequate, 
 depending on the target DNA fragment length.
 
-Therefore, in this assignment, we adopt the paired-end perspective.
-That is, for a given DNA molecule, even if both the forward and reverse reads are classified as matches, 
-we count the pair only once. 
-This approach better reflects the experimental intention of metagenomic sequencing. 
-That said, our current implementation does not achieve precise quantification of unique molecules, 
-as we lack prior information such as whether the forward and reverse reads overlap, 
-and if so, the extent of their overlap. 
-These factors may influence the actual matched counts. 
-A more rigorous strategy would involve merging the forward and reverse reads into a single contiguous sequence 
-representing the original DNA molecule before classification. 
-Without such merging, our classification is performed on individual reads, 
-which may lead to overestimation of the matched counts due to potential double-counting of paired reads.
+In this work, we adopt a paired-read approach. 
+That is, for each DNA fragment, if either or both of the forward and reverse reads are successfully classified, 
+the pair is counted only once. 
+This strategy aligns more closely with the biological rationale behind using paired-end sequencing.
+However, our current implementation does not merge the paired reads into a single sequence, 
+due to the lack of prior knowledge such as the presence and extent of overlap between the forward and reverse reads. 
+This limitation is nontrivial: in cases where the reads overlap, 
+sequencing errors in the overlapping region can distort the true sequence and affect downstream classification. 
+Conversely, when there is no overlap, simply concatenating the two reads may produce a sequence that 
+does not exist in the original genome, especially if the inter-read region is unknown. 
+As a result, naively merged reads may fail to match the reference genome, 
+even when each read individually could be mapped successfully.
+
+Therefore, while our counting method avoids double-counting and provides a biologically grounded estimate, 
+it does not attempt to reconstruct the full DNA fragment sequences, 
+and may overestimate the number of true matches depending on 
+the complexity of read structure and sequencing error patterns.
+
 
 The implementation of this function is as follows:
 
