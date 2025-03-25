@@ -1,5 +1,56 @@
 # Assignment 1
 
+## Note on Paired-End Read Processing
+
+As clarified in the communication with the instructor,
+paired-end reads can be processed either as independent reads or as paired reads. 
+From a biological standpoint, the latter approach is more appropriate, 
+as our ultimate goal is to quantify the number of distinct DNA molecules being sequenced. 
+Treating paired-end reads as independent units risks inflating counts, 
+since both the forward and reverse reads originate from the same DNA fragment. 
+If independent reads were sufficient, single-end sequencing or long-read sequencing would have been adequate, 
+depending on the target DNA fragment length.
+
+Therefore, in this assignment, we adopt the paired-end perspective.
+That is, for a given DNA molecule, even if both the forward and reverse reads are classified as matches, 
+we count the pair only once. 
+This approach better reflects the experimental intention of metagenomic sequencing. 
+That said, our current implementation does not achieve precise quantification of unique molecules, 
+as we lack prior information such as whether the forward and reverse reads overlap, 
+and if so, the extent of their overlap. 
+These factors may influence the actual matched counts. 
+A more rigorous strategy would involve merging the forward and reverse reads into a single contiguous sequence 
+representing the original DNA molecule before classification. 
+Without such merging, our classification is performed on individual reads, 
+which may lead to overestimation of the matched counts due to potential double-counting of paired reads.
+
+The implementation of this function is as follows:
+
+```python
+from collections import defaultdict
+
+def merge_paired_matches(r1_matches: dict,
+                         r2_matches: dict) \
+        -> dict:
+    merged = defaultdict(set)
+    for read_id in set(r1_matches) | set(r2_matches):
+        merged[read_id] = r1_matches.get(read_id, set()) | r2_matches.get(read_id, set())
+    return merged
+```
+
+And the marker of reads direction is removed when reading the FASTQ file:
+
+```python
+from Bio import SeqIO
+
+def load_reads_with_id(fastq_file: str):
+    reads = []
+    for record in SeqIO.parse(fastq_file, "fastq"):
+        cleaned_id = record.id.split('/')[0]  # remove here
+        reads.append((cleaned_id, str(record.seq)))
+    return reads
+```
+
 ## Task 1
 
 ### Task 1.1
