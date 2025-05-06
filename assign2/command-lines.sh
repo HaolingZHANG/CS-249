@@ -41,3 +41,5 @@ canu -p genome -d output genomeSize=31k useGrid=false -nanopore-raw synthetic_da
 mv output/genome.contigs.fasta results/canu/ont_noerr.fasta
 canu -p genome -d output genomeSize=31k useGrid=false -nanopore-raw synthetic_dataset/reads/ont_hq_50x.fastq
 mv output/genome.contigs.fasta results/canu/ont_err.fasta
+python quast_metrics.py -i results/canu/ont_noerr.fasta
+python quast_metrics.py -i results/canu/ont_err.fasta
