@@ -54,6 +54,7 @@ def evaluate_assembly(fasta_path):
 
 if __name__ == "__main__":
     parser = ArgumentParser(description="QUAST metrics")
-    parser.add_argument("-i", "--input", required=True, help="input FASTA file of assembled contigs")
+    parser.add_argument("-a", "--assembled", required=True, help="FASTA file of assembled contigs")
+    parser.add_argument("-r", "--reference", required=True, help="reference FASTA file")
     args = parser.parse_args()
     evaluate_assembly(args.input)

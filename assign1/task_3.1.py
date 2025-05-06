@@ -33,7 +33,7 @@ def task():
                        paired_ends=["./data/task_3/simulated_reads_no_errors_10k_R1.fastq",
                                     "./data/task_3/simulated_reads_no_errors_10k_R2.fastq"],
                        output_path="./data/task_3/output.txt", report_path="./data/task_3/report.txt")
-    print("Please check the result in \"./data/task_3/report.txt\" file.")
+    print("Please check the result in \"./data/task_3/report_1.txt\" file.")
     remove("./data/task_3/output.txt")
 
 

@@ -1,15 +1,29 @@
 # Assignment 2
 
-
 ## Task 1
 
-The QUAST metris pipeline is implemented
-[here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/quast_metrics.py).
-Please
+We check if the installation of QUAST is successful 
+
 ```shell
-cd assign2
+python quast.py -h
 ```
-and then
+
+If it is successfully, we can obtain the message:
+
+```text
+QUAST: Quality Assessment Tool for Genome Assemblies
+Version: 5.2.0
+
+Usage: python quast.py [options] <files_with_contigs>
+
+......
+
+Online QUAST manual is available at https://quast.sf.net/manual
+```
+
+I also implemented my own QUAST metris pipeline is implemented
+[here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/quast_metrics.py).
+
 ```shell
 python quast_metrics.py -h
 ```
@@ -17,24 +31,13 @@ python quast_metrics.py -h
 The help message outlines the command-line interface:
 ```text
 usage: quast_metrics.py [-h] -i INPUT
-
-QUAST metrics
-
-options:
-  -h, --help            show this help message and exit
-  -i INPUT, --input INPUT
-                        input FASTA file of assembled contigs
 ```
 
 ### Task 1.1
 
 The de Bruijn Graph assembly algorithm is implemented 
 [here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/dbg_assembler.py).
-Please
-```shell
-cd assign2
-```
-and then
+
 ```shell
 python dbg_assembler.py -h
 ```
@@ -59,11 +62,7 @@ options:
 
 The overlap-layout-consensus assembly algorithm is implemented 
 [here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/olc_assembler.py).
-Please
-```shell
-cd assign2
-```
-and then
+
 ```shell
 python olc_assembler.py -h
 ```
@@ -118,6 +117,7 @@ In addition, we can run the QUAST analysis by the following command-lines:
 ```shell
 python quast_metrics.py -i results/dbg/b_k40_contigs.fasta
 python quast_metrics.py -i toy_dataset/reference_b.fasta
+python quast.py results/dbg/b_k40_contigs.fasta -r toy_dataset/reference_b.fasta -o tmp
 ```
 
 We evaluated the performance of our De Bruijn Graph (DBG)-based assembler 
@@ -125,15 +125,38 @@ on the synthetic toy dataset `b` using a k-mer size of 40.
 The resulting contigs were compared against the provided reference genome using basic QUAST metrics. 
 The comparison results are summarized in the following table:
 
-| Metric            | DBG Assembly (`b_k40_contigs.fasta`) | Reference (`reference_b.fasta`) |
-|-------------------|--------------------------------------|---------------------------------|
-| Total Length      | 1046                                 | 1000                            |
-| Number of Contigs | 2                                    | 1                               |
-| GC Content (%)    | 51.91                                | 52.00                           |
-| Longest Contig    | 761                                  | 1000                            |
-| N50               | 761                                  | 1000                            |
-| N90               | 285                                  | 1000                            |
-| L50               | 1                                    | 1                               |
+| label                      | value         |
+|----------------------------|---------------|
+| Assembly                   | b_k40_contigs | 
+| # contigs (>= 0 bp)        | 2             | 
+| # contigs (>= 1000 bp)     | 0             | 
+| # contigs (>= 5000 bp)     | 0             | 
+| # contigs (>= 10000 bp)    | 0             | 
+| # contigs (>= 25000 bp)    | 0             | 
+| # contigs (>= 50000 bp)    | 0             | 
+| Total length (>= 0 bp)     | 1046          | 
+| Total length (>= 1000 bp)  | 0             | 
+| Total length (>= 5000 bp)  | 0             | 
+| Total length (>= 10000 bp) | 0             |  
+| Total length (>= 25000 bp) | 0             |  
+| Total length (>= 50000 bp) | 0             |  
+| # contigs                  | 1             |  
+| Largest contig             | 761           |  
+| Total length               | 761           |  
+| Reference length           | 1000          |  
+| GC (%)                     | 52.30         | 
+| Reference GC (%)           | 52.00         | 
+| N50                        | 761           |  
+| NG50                       | 761           |  
+| N90                        | 761           |  
+| NG90                       | -             |   
+| auN                        | 761.0         |   
+| auNG                       | 579.1         |  
+| L50                        | 1             |  
+| LG50                       | 1             |   
+| L90                        | 1             |   
+| LG90                       | -             |   
+| # N's per 100 kbp          | 0.00          | 
 
 Overall, the assembly successfully reconstructed the full sequence content of the reference genome. 
 The total assembled length was 1046 base pairs, slightly longer than the 1000 bp reference, 
@@ -167,25 +190,45 @@ python dbg_assembler.py -i toy_dataset/reads_r.fastq -o results/dbg/r_k45_contig
 In addition, we can run the QUAST analysis by the following command-lines:
 
 ```shell
-# k = 35
-python quast_metrics.py -i results/dbg/r_k35_contigs.fasta
+python quast.py results/dbg/r_k35_contigs.fasta -r toy_dataset/reference_b.fasta -o tmp
+python quast.py results/dbg/r_k45_contigs.fasta -r toy_dataset/reference_b.fasta -o tmp
 Bandage image results/gfa/r_k35_graph.gfa results/images/r_k35_graph.png
-# k = 45
-python quast_metrics.py -i results/dbg/r_k45_contigs.fasta
 Bandage image results/gfa/r_k45_graph.gfa results/images/r_k45_graph.png
 ```
 
 The full set of QUAST statistics is presented below:
 
-| Metric            | DBG Assembly (k=35) | DBG Assembly (k=45) | Reference (`reference_r.fasta`) |
-|-------------------|---------------------|---------------------|---------------------------------|
-| Total Length      | 1092                | 1118                | 1040                            |
-| Number of Contigs | 3                   | 3                   | 1                               |
-| GC Content (%)    | 51.65               | 51.61               | 51.25                           |
-| Longest Contig    | 616                 | 632                 | 1040                            |
-| N50               | 616                 | 632                 | 1040                            |
-| N90               | 376                 | 376                 | 1040                            |
-| L50               | 1                   | 1                   | 1                               |
+| Metric                    | r_k35_contigs | r_k45_contigs |
+|---------------------------|---------------|---------------|
+| # contigs (≥ 0 bp)        | 3             | 3             |
+| # contigs (≥ 1000 bp)     | 0             | 0             |
+| # contigs (≥ 5000 bp)     | 0             | 0             |
+| # contigs (≥ 10000 bp)    | 0             | 0             |
+| # contigs (≥ 25000 bp)    | 0             | 0             |
+| # contigs (≥ 50000 bp)    | 0             | 0             |
+| Total length (≥ 0 bp)     | 1092          | 1118          |
+| Total length (≥ 1000 bp)  | 0             | 0             |
+| Total length (≥ 5000 bp)  | 0             | 0             |
+| Total length (≥ 10000 bp) | 0             | 0             |
+| Total length (≥ 25000 bp) | 0             | 0             |
+| Total length (≥ 50000 bp) | 0             | 0             |
+| # contigs                 | 1             | 1             |
+| Largest contig            | 616           | 632           |
+| Total length              | 616           | 632           |
+| Reference length          | 1040          | 1040          |
+| GC (%)                    | 50.97         | 51.11         |
+| Reference GC (%)          | 51.25         | 51.25         |
+| N50                       | 616           | 632           |
+| NG50                      | 616           | 632           |
+| N90                       | 616           | 632           |
+| NG90                      | -             | -             |
+| auN                       | 616.0         | 632.0         |
+| auNG                      | 364.9         | 384.1         |
+| L50                       | 1             | 1             |
+| LG50                      | 1             | 1             |
+| L90                       | 1             | 1             |
+| LG90                      | -             | -             |
+| # N's per 100 kbp         | 0.00          | 0.00          |
 
 For k = 35, the Bandage graph is:
 
@@ -231,35 +274,54 @@ python olc_assembler.py -i synthetic_dataset/reads/no_error_ont_hq_50x.fastq    
 python olc_assembler.py -i synthetic_dataset/reads/ont_hq_50x.fastq              -o results/olc/ont_err.fasta     -n 50
 ```
 
-Here, for HiSeq data, `n` is suggested as `30`, and for ONT data, `n` is suggested as `50`.
+Notably, for HiSeq data, `n` is suggested as `30`, and for ONT data, `n` is suggested as `50`.
 
 In addition, we can run the QUAST analysis by the following command-lines:
 
 ```shell
-python quast_metrics.py -i results/dbg/hiseq_noerr.fasta
-python quast_metrics.py -i results/dbg/hiseq_err.fasta  
-python quast_metrics.py -i results/dbg/ont_noerr.fasta
-python quast_metrics.py -i results/dbg/ont_err.fasta
-python quast_metrics.py -i results/olc/hiseq_noerr.fasta
-python quast_metrics.py -i results/olc/hiseq_err.fasta
-python quast_metrics.py -i results/olc/ont_noerr.fasta
-python quast_metrics.py -i results/olc/ont_err.fasta
-python quast_metrics.py -i synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna
+python quast.py results/dbg/hiseq_noerr.fasta -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/dbg/hiseq_err.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/dbg/ont_noerr.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/dbg/ont_err.fasta     -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/olc/hiseq_noerr.fasta -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/olc/hiseq_err.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/olc/ont_noerr.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/olc/ont_err.fasta     -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
 ```
 
 The full set of QUAST statistics is presented below:
 
-| Assembler | Dataset          | Errors | Total Length | #Contigs | GC (%) | Longest Contig | N50     | N90    | L50 |
-|-----------|------------------|--------|--------------|----------|--------|----------------|---------|--------|-----|
-| DBG       | HiSeq            | No     | 30,000       | 16       | 41.27  | 11,004         | 6,294   | 625    | 2   |
-| DBG       | HiSeq            | Yes    | 43,421       | 25       | 41.22  | 15,400         | 8,765   | 973    | 2   |
-| DBG       | ONT              | No     | 30,021       | 8        | 41.28  | 25,724         | 25,724  | 1,560  | 1   |
-| DBG       | ONT              | Yes    | 730,813      | 72       | 41.10  | 333,439        | 229,982 | 99,792 | 2   |
-| OLC       | HiSeq            | No     | 30,194       | 7        | 41.30  | 13,510         | 11,087  | 4,409  | 2   |
-| OLC       | HiSeq            | Yes    | 50,378       | 97       | 41.21  | 29,139         | 29,139  | 126    | 1   |
-| OLC       | ONT              | No     | 141,365      | 13       | 41.10  | 28,921         | 10,492  | 8,096  | 5   |
-| OLC       | ONT              | Yes    | 37,293       | 2        | 40.69  | 20,439         | 20,439  | 16,854 | 1   |
-| —         | Reference (MERS) | —      | 30,119       | 1        | 41.24  | 30,119         | 30,119  | 30,119 | 1   |
+| Assembly                   | dbg_hiseq_noerr | dbg_hiseq_err | dbg_ont_noerr | dbg_ont_err | olc_hiseq_noerr | olc_hiseq_err | olc_ont_noerr | olc_ont_err |
+|----------------------------|-----------------|---------------|---------------|-------------|-----------------|---------------|---------------|-------------|
+| # contigs (>= 0 bp)        | 16              | 25            | 8             | 72          | 7               | 97            | 13            | 2           |
+| # contigs (>= 1000 bp)     | 5               | 7             | 2             | 9           | 3               | 2             | 13            | 2           |
+| # contigs (>= 5000 bp)     | 3               | 3             | 1             | 5           | 2               | 2             | 12            | 2           |
+| # contigs (>= 10000 bp)    | 1               | 1             | 1             | 4           | 2               | 1             | 6             | 2           |
+| # contigs (>= 25000 bp)    | 0               | 0             | 1             | 4           | 0               | 1             | 1             | 0           |
+| # contigs (>= 50000 bp)    | 0               | 0             | 0             | 3           | 0               | 0             | 0             | 0           |
+| Total length (>= 0 bp)     | 30000           | 43421         | 30021         | 730813      | 30194           | 50378         | 141365        | 37293       |
+| Total length (>= 1000 bp)  | 25128           | 37891         | 27284         | 720138      | 29006           | 37392         | 141365        | 37293       |
+| Total length (>= 5000 bp)  | 22304           | 31465         | 25724         | 712482      | 24597           | 37392         | 137549        | 37293       |
+| Total length (>= 10000 bp) | 11004           | 15400         | 25724         | 703293      | 24597           | 29139         | 84863         | 37293       |
+| Total length (>= 25000 bp) | 0               | 0             | 25724         | 703293      | 0               | 29139         | 28921         | 0           |
+| Total length (>= 50000 bp) | 0               | 0             | 0             | 663213      | 0               | 0             | 0             | 0           |
+| # contigs                  | 11              | 11            | 5             | 11          | 4               | 3             | 13            | 2           |
+| Largest contig             | 11004           | 15400         | 25724         | 333439      | 13510           | 29139         | 28921         | 20439       |
+| Total length               | 29229           | 41476         | 29330         | 721647      | 29716           | 38305         | 141365        | 37293       |
+| Reference length           | 30119           | 30119         | 30119         | 30119       | 30119           | 30119         | 30119         | 30119       |
+| GC (%)                     | 41.31           | 41.30         | 41.15         | 41.10       | 41.26           | 41.36         | 41.10         | 40.69       |
+| Reference GC (%)           | 41.24           | 41.24         | 41.24         | 41.24       | 41.24           | 41.24         | 41.24         | 41.24       |
+| N50                        | 6294            | 8765          | 25724         | 229982      | 11087           | 29139         | 10492         | 20439       |
+| NG50                       | 6294            | 15400         | 25724         | 333439      | 11087           | 29139         | 28921         | 20439       |
+| N90                        | 873             | 1154          | 1560          | 99792       | 4409            | 8253          | 8096          | 16854       |
+| NG90                       | 625             | 7300          | 1560          | 333439      | 4409            | 29139         | 28921         | 16854       |
+| auN                        | 6596.5          | 9207.5        | 22693.2       | 243524.3    | 10949.8         | 23966.2       | 13779.8       | 18818.8     |
+| auNG                       | 6401.6          | 12679.4       | 22098.7       | 5834808.4   | 10803.3         | 30480.0       | 64676.3       | 23301.2     |
+| L50                        | 2               | 2             | 1             | 2           | 2               | 1             | 5             | 1           |
+| LG50                       | 2               | 1             | 1             | 1           | 2               | 1             | 1             | 1           |
+| L90                        | 7               | 7             | 2             | 3           | 3               | 2             | 11            | 2           |
+| LG90                       | 8               | 3             | 2             | 1           | 3               | 1             | 1             | 2           |
+| # N's per 100 kbp          | 0.00            | 0.00          | 0.00          | 0.00        | 0.00            | 0.00          | 0.00          | 0.00        |
 
 Here we used QUAST to evaluate all assembled contigs and compared them against the MERS reference genome. 
 The table above summarizes the results across both DBG and OLC assemblers, tested on HiSeq and ONT read sets,
@@ -322,7 +384,7 @@ example: canu -d run1 -p godzilla genomeSize=1g -nanopore-raw reads/*.fasta.gz
 
 ......
 
-Complete documentation at http://canu.readthedocs.org/en/latest/
+Complete documentation at https://canu.readthedocs.org/en/latest/
 ```
 
 Now, we repeat the same assembly using the Canu assembler on the ONT datasets (setting `genomeSize` as `31k`), 
@@ -338,16 +400,44 @@ mv output/genome.contigs.fasta results/canu/ont_err.fasta
 The QUAST results were compared with those obtained from our custom DBG and OLC implementations.
 
 ```shell
-python quast_metrics.py -i results/canu/ont_noerr.fasta
-python quast_metrics.py -i results/canu/ont_err.fasta
+
+python quast.py results/canu/ont_noerr.fasta -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/canu/ont_err.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
 ```
 
 Then, we can construct the following table:
 
-| Dataset     | Total Length | #Contigs | GC Content | Longest Contig | N50    | N90    | L50 |
-|-------------|--------------|----------|------------|----------------|--------|--------|-----|
-| No Error    | 28,655       | 1        | 41.05%     | 28,655         | 28,655 | 28,655 | 1   |
-| With Error  | 28,564       | 1        | 41.06%     | 28,564         | 28,564 | 28,564 | 1   |
+| Assembly                   | ont_noerr | ont_err |
+|----------------------------|-----------|---------|
+| # contigs (>= 0 bp)        | 1         | 1       |
+| # contigs (>= 1000 bp)     | 1         | 1       |
+| # contigs (>= 5000 bp)     | 1         | 1       |
+| # contigs (>= 10000 bp)    | 1         | 1       |
+| # contigs (>= 25000 bp)    | 1         | 1       |
+| # contigs (>= 50000 bp)    | 0         | 0       |
+| Total length (>= 0 bp)     | 28655     | 28564   |
+| Total length (>= 1000 bp)  | 28655     | 28564   |
+| Total length (>= 5000 bp)  | 28655     | 28564   |
+| Total length (>= 10000 bp) | 28655     | 28564   |
+| Total length (>= 25000 bp) | 28655     | 28564   |
+| Total length (>= 50000 bp) | 0         | 0       |
+| # contigs                  | 1         | 1       |
+| Largest contig             | 28655     | 28564   |
+| Total length               | 28655     | 28564   |
+| Reference length           | 30119     | 30119   |
+| GC (%)                     | 41.05     | 41.06   |
+| Reference GC (%)           | 41.24     | 41.24   |
+| N50                        | 28655     | 28564   |
+| NG50                       | 28655     | 28564   |
+| N90                        | 28655     | 28564   |
+| NG90                       | 28655     | 28564   |
+| auN                        | 28655.0   | 28564.0 |
+| auNG                       | 27262.2   | 27089.3 |
+| L50                        | 1         | 1       |
+| LG50                       | 1         | 1       |
+| L90                        | 1         | 1       |
+| LG90                       | 1         | 1       |
+| # N's per 100 kbp          | 0.00      | 0.00    |
 
 Compared to the reference genome (30,119 bp),
 Canu produced a nearly complete reconstruction with only a minor loss in total length. 
@@ -366,3 +456,7 @@ Although Canu is OLC-based, it significantly outperformed the baseline OLC assem
 likely due to its improved overlap detection, error correction, and consensus-building mechanisms. 
 These findings support the use of Canu as a reliable and accurate assembler for long-read ONT data, 
 particularly in viral genome assembly scenarios.
+
+## Task 2
+
+TODO
