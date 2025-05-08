@@ -462,7 +462,6 @@ particularly in viral genome assembly scenarios.
 All command lines of Task 1 is attached in the `assign2/exec` folder, see
 [here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/execution_1.sh).
 
-
 ## Task 2
 
 In this task, we used IBEX to execute our works.
@@ -496,7 +495,7 @@ The sbatch script is shown below (named `step_1.slurm` in our project location, 
 module load hifiasm
 
 in_file="/ibex/reference/course/cs249/lizard/input/pacbio/lizard_liver.fastq.gz"
-out_file="/ibex/user/zhanh0m/proj/cs249/lizard.asm"
+out_file="/ibex/user/zhanh0m/proj/cs249/raw/lizard.asm"
 
 hifiasm -o "$out_file" -t 32 "$in_file"
 ```
@@ -517,6 +516,7 @@ The execution log is attached
 Since `Hifiasm` did not produce a FASTA file, we manually converted the output using the following command line:
 
 ```shell
+cd raw
 awk '/^S/{print ">"$2"\n"$3}' lizard.asm.bp.p_ctg.gfa > lizard.asm.bp.p_ctg.fa
 ```
 
@@ -526,4 +526,8 @@ Finally, the assembly results are shown below:
 
 ### Task 2.2
 
-TODO
+Here we use `QUAST`, `BUSCO`, `Merqury`, and `Flagger` to evaluate our assembly.
+
+The sbatch script is shown below (named `step_2.slurm` in our project location, also is attached
+[here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/step_2.slurm)):
+
