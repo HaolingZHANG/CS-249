@@ -11,28 +11,28 @@
 
 module load quast
 module load busco
-module load meryl
 module load merqury
 module load minimap2
 module load samtools
 module load flagger
 
-
 fasta_file="/ibex/user/zhanh0m/proj/cs249/raw/lizard.asm.bp.p_ctg.fa"
 reads_file="/ibex/reference/course/cs249/lizard/input/pacbio/lizard_liver.fastq.gz"
 
-quast_output="/ibex/user/zhanh0m/proj/cs249/quast/"
-busco_output="/ibex/user/zhanh0m/proj/cs249/busco/"
-merqury_output="/ibex/user/zhanh0m/proj/cs249/merqury/"
-merqury_database="/ibex/user/zhanh0m/proj/cs249/raw/reads.meryl"
-flagger_output="/ibex/user/zhanh0m/proj/cs249/flagger/"
-samtool_output="/ibex/user/zhanh0m/proj/cs249/raw/aln.sorted.bam"
+project_folder="/ibex/user/zhanh0m/proj/cs249/"
+quast_output="${project_folder}quast/"
+merqury_output="${project_folder}merqury/"
+merqury_database="${project_folder}raw/reads.meryl"
+flagger_output="${project_folder}flagger/"
+samtool_output="${project_folder}raw/aln.sorted.bam"
 
 # Step 1: QUAST
 quast.py "$fasta_file" -o "$quast_output" -t 32
 
 # Step 2: BUSCO
-busco -i "$fasta_file" -o "$busco_output" -l "sauropsida_odb10" -m genome -c 32
+export JAVA_TOOL_OPTIONS="-Xmx64g"
+export BBMAP_JAVA_MEM="-Xmx64g"
+busco -i "$fasta_file" -o busco -l "sauropsida_odb10" -m genome -c 32 --out_path "$project_folder" -f --no_stats
 
 # Step 3: Merqury
 if [ ! -d "$merqury_database" ]; then
