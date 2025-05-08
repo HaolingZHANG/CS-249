@@ -1,5 +1,8 @@
 # Assignment 2
 
+
+In this task, we used personal laptop to execute our works.
+
 ## Task 1
 
 We check if the installation of QUAST is successful 
@@ -467,13 +470,15 @@ All command lines of Task 1 is attached in the `assign2/exec` folder, see
 
 In this task, we used IBEX to execute our works.
 
+### Task 2.1
+
 Firstly, we go to our own project location:
 
 ```shell
 cd /ibex/user/zhanh0m/proj/cs249/
 ```
 
-Here we use Hifiasm to assemble the *Scincus mitranus* genome. 
+Here we use `Hifiasm` to assemble the *Scincus mitranus* genome. 
 The sbatch script is shown below (named `step_1.slurm` in our project location, also is attached
 [here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/step_1.slurm)):
 
@@ -502,13 +507,24 @@ Notably, we used the computational resource parameters recommended by ChatGPT fo
 i.e., `32` cpus and `120G` memory.
 
 We run it by the following command line:
+
 ```shell
 sbatch step_1.slurm
 ```
 
 The execution log is attached 
-[here](https://github.com/HaolingZHANG/CS-249/tree/main/assign2/results/log/step_1.txt) 
-and the screenshot of the assembly results is shown below:
+[here](https://github.com/HaolingZHANG/CS-249/tree/main/assign2/results/log/step_1.txt).
+
+Since Hifiasm did not produce a FASTA file, we manually converted the output using the following command line:
+
+```shell
+awk '/^S/{print ">"$2"\n"$3}' lizard.asm.bp.p_ctg.gfa > lizard.asm.bp.p_ctg.fa
+```
+
+Finally, the assembly results are shown below:
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/assembly_screenshot.png)
 
+### Task 2.2
+
+TODO
