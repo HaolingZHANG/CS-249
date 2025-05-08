@@ -457,6 +457,58 @@ likely due to its improved overlap detection, error correction, and consensus-bu
 These findings support the use of Canu as a reliable and accurate assembler for long-read ONT data, 
 particularly in viral genome assembly scenarios.
 
+### Summary
+
+All command lines of Task 1 is attached in the `assign2/exec` folder, see
+[here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/execution_1.sh).
+
+
 ## Task 2
 
-TODO
+In this task, we used IBEX to execute our works.
+
+Firstly, we go to our own project location:
+
+```shell
+cd /ibex/user/zhanh0m/proj/cs249/
+```
+
+Here we use Hifiasm to assemble the *Scincus mitranus* genome. 
+The sbatch script is shown below (named `step_1.slurm` in our project location, also is attached
+[here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/step_1.slurm)):
+
+```shell
+#!/bin/bash
+#SBATCH --job-name=194913_lizard
+#SBATCH --account=cs249
+#SBATCH --output=run.out
+#SBATCH --error=run.err
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=120G
+#SBATCH --time=48:00:00
+#SBATCH --partition=batch
+
+module load hifiasm
+
+in_file="/ibex/reference/course/cs249/lizard/input/pacbio/lizard_liver.fastq.gz"
+out_file="/ibex/user/zhanh0m/proj/cs249/lizard.asm"
+
+hifiasm -o "$out_file" -t 32 "$in_file"
+```
+
+The source data is `lizard_liver.fastq.gz`, mentioned by Olga Mashkova in the email. 
+Notably, we used the computational resource parameters recommended by ChatGPT for analyzing PacBio HiFi data:
+i.e., `32` cpus and `120G` memory.
+
+We run it by the following command line:
+```shell
+sbatch step_1.slurm
+```
+
+The execution log is attached 
+[here](https://github.com/HaolingZHANG/CS-249/tree/main/assign2/results/log/step_1.txt) 
+and the screenshot of the assembly results is shown below:
+
+![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/assembly_screenshot.png)
+
