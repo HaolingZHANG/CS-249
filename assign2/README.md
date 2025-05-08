@@ -469,6 +469,8 @@ All command lines of Task 1 is attached in the `assign2/exec` folder, see
 ## Task 2
 
 In this task, we used IBEX to execute our works.
+As the assignment document indicates that all required software is already installed on IBEX, 
+we did not perform additional checks.
 
 ### Task 2.1
 
@@ -515,7 +517,7 @@ sbatch step_1.slurm
 The execution log is attached 
 [here](https://github.com/HaolingZHANG/CS-249/tree/main/assign2/results/log/step_1.txt).
 
-Since Hifiasm did not produce a FASTA file, we manually converted the output using the following command line:
+Since `Hifiasm` did not produce a FASTA file, we manually converted the output using the following command line:
 
 ```shell
 awk '/^S/{print ">"$2"\n"$3}' lizard.asm.bp.p_ctg.gfa > lizard.asm.bp.p_ctg.fa
