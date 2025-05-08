@@ -118,8 +118,6 @@ could potentially further improve the contiguity.
 In addition, we can run the QUAST analysis by the following command-lines:
 
 ```shell
-python quast_metrics.py -i results/dbg/b_k40_contigs.fasta
-python quast_metrics.py -i toy_dataset/reference_b.fasta
 python quast.py results/dbg/b_k40_contigs.fasta -r toy_dataset/reference_b.fasta -o tmp
 ```
 
@@ -403,7 +401,6 @@ mv output/genome.contigs.fasta results/canu/ont_err.fasta
 The QUAST results were compared with those obtained from our custom DBG and OLC implementations.
 
 ```shell
-
 python quast.py results/canu/ont_noerr.fasta -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
 python quast.py results/canu/ont_err.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
 ```
