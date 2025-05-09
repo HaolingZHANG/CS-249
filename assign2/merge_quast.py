@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 
 
-def evaluate_assembly(number):
+def evaluate_assembly(number: int):
     data = []
     for index in range(1, number + 1):
         with open("./tmp/report_" + str(index) + ".txt") as file:

@@ -6,6 +6,7 @@ from typing import List
 
 
 class OLCAssembler:
+
     def __init__(self,
                  reads: list,
                  minimum_overlap: int):

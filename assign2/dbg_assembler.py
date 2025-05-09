@@ -6,6 +6,7 @@ from typing import List
 
 
 class DeBruijnGraph:
+
     def __init__(self,
                  k: int,
                  reads: list):

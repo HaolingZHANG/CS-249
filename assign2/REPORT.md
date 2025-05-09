@@ -129,8 +129,6 @@ indicating that the dataset is clean and has good k-mer connectivity.
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/b_k40_graph.png)
 
-[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/b_k40_graph.png&#41;)
-
 Such visualization allows identification of structural ambiguities that could result in fragmented contigs. 
 In this case, minimal ambiguity exists, and additional graph cleaning (e.g., bubble removal) 
 could potentially further improve the contiguity.
@@ -263,13 +261,9 @@ For k = 35, the Bandage graph is:
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/r_k35_graph.png)
 
-[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/r_k35_graph.png&#41;)
-
 For k = 45, the  Bandage graph is:
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/r_k45_graph.png)
-
-[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/r_k45_graph.png&#41;)
 
 In both k-mer settings, the assembler produced three contigs, 
 indicating that the underlying graph could not be traversed in a single Eulerian path. 
@@ -559,7 +553,7 @@ likely due to its improved overlap detection, error correction, and consensus-bu
 These findings support the use of Canu as a reliable and accurate assembler for long-read ONT data, 
 particularly in viral genome assembly scenarios.
 
-### Summary
+### Repeatability
 
 All command lines of Task 1 (`execution_1.sh`) is attached in the `assign2/exec` folder, see
 [here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/execution_1.sh).
@@ -625,8 +619,6 @@ awk '/^S/{print ">"$2"\n"$3}' lizard.asm.bp.p_ctg.gfa > lizard.asm.bp.p_ctg.fa
 Finally, the assembly results are shown below:
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/screenshot.png)
-
-[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/screenshot.png&#41;)
 
 ### Task 2.2: Assembly evaluation
 
@@ -781,8 +773,6 @@ and the detailed *k*-mer distribution is (plotted by
 [distribution_plot.py](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/distribution_plot.py)):
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/distribution.png)
-
-[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/distribution.png&#41;)
 
 The Merqury evaluation highlights both high consensus accuracy and solid assembly completeness. 
 The assembly achieved a QV (Quality Value) of 73.5765, corresponding to an estimated base-level error rate of 4.39e-08, 
@@ -972,6 +962,14 @@ Based on current runtime estimates, the final result is unlikely to be available
 Nonetheless, based on prior experience, 
 I anticipate that the assembly quality from the filtered dataset will surpass previous results. 
 For instance, the QV reported by Merqury may reach or exceed 80, and the QV reported by Inspector may reach or exceed 45.
+
+### Repeatability
+
+All command lines of Task 2.1 and 2.2 (`execution_2.sh`) is attached in the `assign2/exec` folder, see
+[here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/execution_2.sh).
+
+All command lines of Task 2.3 (`execution_3.sh`) is attached in the `assign2/exec` folder, see
+[here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/execution_3.sh).
 
 ## Discussion of challenges encountered and solutions applied
 
