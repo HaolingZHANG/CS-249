@@ -110,7 +110,7 @@ The assembly and detailed report files of Task 2.3 are attached in `/ibex/user/z
 
 ## LLM usage declaration
 
-I used ChatGPT in following specific situations:
+I used ChatGPT (GPT-4o) in following specific situations:
 
 - ChatGPT recommended Computational resource parameters for all the computational tools (for Task 2 only). 
 Given the execution time of each task, I'm unable to incrementally debug from low to high resource allocations.
