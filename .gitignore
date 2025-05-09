@@ -174,10 +174,8 @@ cython_debug/
 
 *.fa
 *.gz
-*.fasta
 *.fastq
 *.fna
-*.gfa
 
 assign1/data/task_3/database_1
 assign1/data/task_3/database_2

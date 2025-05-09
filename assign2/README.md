@@ -96,6 +96,18 @@ options:
                         minimum overlap length
 ```
 
+## Files
+
+All assembly and report files of Task 1 are attached in `assign2/results/` (see 
+[here](https://github.com/HaolingZHANG/CS-249/tree/main/assign2/results))
+
+The report files of Task 2.1 and 2.2 are attached in `assign2/results/hifiasm` (see
+[here](https://github.com/HaolingZHANG/CS-249/tree/main/assign2/results/hifiasm)).
+
+The assembly and detailed report files of Task 2.1 and 2.2 are attached in `/ibex/user/zhanh0m/proj/cs249/`.
+
+The assembly and detailed report files of Task 2.3 are attached in `/ibex/user/zhanh0m/proj/cs249a/`.
+
 ## LLM usage declaration
 
 I used ChatGPT in following specific situations:
