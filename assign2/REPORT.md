@@ -846,7 +846,6 @@ while Inspector captures alignment-based mismatches and structural anomalies.
 Together, the results highlight both the strengths and residual imperfections of the current assembly 
 and underscore the need for multi-faceted quality assessment.
 
-
 In this task, we used the following tools:
 `QUAST`, `BUSCO`, `Merqury` and `Inspector`.
 Here we explain the significance of these tools with respect to genome assembly evaluation, 
@@ -871,3 +870,118 @@ by aligning reads back to the assembly and analyzing inconsistencies.
     - Relevance: It identifies local or global misassemblies that affect structural correctness.
     - Improvement: If structural artifacts are detected, consider hybrid scaffolding using optical maps, Hi-C data, 
 or alignment against a high-quality reference to resolve misassemblies.
+
+### Task 2.3: Assembly improvement (optional)
+
+To improve assembly quality, 
+we applied additional preprocessing steps to the sequencing reads. 
+First, we used the `fastp` tool to perform quality and length filtering, 
+where bases with Phred scores below `20` or reads with length less than `1000` were considered low quality and filtered out. 
+Next, we used `Kraken2` to taxonomically classify the reads and remove potential contaminants assigned to 
+`Bacteria` (Taxonomy ID = 2), `Viruses` (Taxonomy ID = 10239), `Homo sapiens` (Taxonomy ID = 9606), 
+and `Fungi` (Taxonomy ID = 4751). 
+Notably, since IBEX does not provide a pre-installed reference database, 
+we used the official MiniKraken2 database (~8 gigabytes), 
+which offers a balance between resource efficiency and classification accuracy:
+avoiding the large storage requirements (often >100 gigabytes) and long build times (several hours) of full databases. 
+The filtered reads were then reassembled using `Hifiasm`.
+
+The sbatch script is shown below (named `step_3.slurm` in our project location, also is attached
+[here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/step_3.slurm)):
+
+```shell
+#!/bin/bash
+#SBATCH --job-name=194913_lizard_clean
+#SBATCH --account=cs249
+#SBATCH --output=run.out
+#SBATCH --error=run.err
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=400G
+#SBATCH --time=48:00:00
+#SBATCH --partition=batch
+
+module load fastp
+module load kraken2
+module load seqtk
+module load hifiasm
+
+reads_file="/ibex/reference/course/cs249/lizard/input/pacbio/lizard_liver.fastq.gz"
+source_path="/ibex/user/zhanh0m/proj/cs249a/"
+raw_folder="${source_path}raw/"
+clean_1_folder="${source_path}clean_1/"
+clean_2_folder="${source_path}clean_2/"
+out_file="${source_path}raw/lizard.asm"
+
+zcat "$reads_file" > "${raw_folder}reads.fastq"
+
+fastp -i "${raw_folder}reads.fastq" -o "${clean_1_folder}reads.fastq" \
+      --qualified_quality_phred 20 --length_required 1000 --thread 32 \
+      --html "${clean_1_folder}fastp_report.html" \
+      --json "${clean_1_folder}qc_report/fastp_report.json "\
+      --report_title "HiFi Read QC (Liver)"
+
+cd "$clean_2_folder"
+wget https://genome-idx.s3.amazonaws.com/kraken/k2_standard_08gb_20230605.tar.gz
+tar -xzf k2_standard_08gb_20230605.tar.gz
+rm k2_standard_08gb_20230605.tar.gz
+
+cd "$source_path"
+kraken2 --db "$clean_2_folder" --threads 32 \
+        --output "${clean_2_folder}kraken2.out" \
+        --report "${clean_2_folder}kraken2.report" \
+        "${clean_1_folder}reads.fastq"
+
+awk '($1 == "U") || ($1 == "C" && $3 != 2 && $3 != 10239 && $3 != 9606 && $3 != 4751)' \
+ "${clean_2_folder}kraken2.out" | cut -f2 > "${clean_2_folder}keep_clean_ids.txt"
+seqtk subseq "${clean_1_folder}reads.fastq" \
+ "${clean_2_folder}keep_clean_ids.txt" > "${clean_2_folder}reads.fastq"
+
+hifiasm -o "$out_file" -t 32 "${clean_2_folder}reads.fastq"
+```
+
+The filtering process was carefully documented, 
+with detailed execution logs available 
+[online](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/log/step_3.txt). 
+The quality control report from fastp and the taxonomic classification report from Kraken2 can be found in 
+[fastp_report.html](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/clean/fastp_report.html) and 
+[kraken2.report](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/clean/kraken2.report), 
+respectively.
+Since `fastp_report.html` is provided in HTML format, 
+I recommend downloading it locally and opening it directly in a web browser for proper viewing.
+
+Overall, we filtered out ~49.88% of the reads.
+The original dataset `lizard_liver.fastq.gz` contained 5421293 sequences. 
+After processing with `fastp`, 22 sequences were removed due to low quality and 
+105 were filtered out due to insufficient length, 
+resulting in a total of 5421166 retained reads.
+Following taxonomic filtering with kraken2, a final set of 2716940 reads was retained. 
+The filtering procedure is summarized as follows:
+
+```shell
+source_path="/ibex/user/zhanh0m/proj/cs249a/"
+clean_2_folder="${source_path}clean_2/"
+read_count=$(($(wc -l < "${clean_2_folder}/reads.fastq") / 4))
+echo "Total reads in cleaned FASTQ: $read_count"
+```
+
+The genome assembly step using `Hifiasm` is still in progress. 
+It was initiated around 11:30 PM on May 10, 2025, 
+and has been running for approximately two hours now. 
+Based on current runtime estimates, the final result is unlikely to be available before 8:00 AM on May 11, 2025.
+Nonetheless, based on prior experience, 
+I anticipate that the assembly quality from the filtered dataset will surpass previous results. 
+For instance, the QV reported by Merqury may reach or exceed 80, and the QV reported by Inspector may reach or exceed 45.
+
+## Discussion of challenges encountered and solutions applied
+
+To obtain results as quickly as possible, I rely on heuristics — such as estimates provided by ChatGPT — 
+to assess the time and memory requirements of each task. 
+However, resource limitations present a parallel challenge: 
+since computational resources are not unlimited, 
+I routinely monitor current resource allocations (e.g., using squeue -A cs249) 
+and actively reduce resource requests when necessary. 
+My typical strategy is to reduce the number of requested CPUs whenever a job cannot be scheduled promptly. 
+This helps prevent jobs from being indefinitely queued, 
+which could delay the entire analysis pipeline—particularly since many steps are interdependent and sequential, 
+such as performance evaluation that can only proceed after assembly is complete.

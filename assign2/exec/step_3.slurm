@@ -43,4 +43,7 @@ kraken2 --db "$clean_2_folder" --threads 32 \
 awk '($1 == "U") || ($1 == "C" && $3 != 2 && $3 != 10239 && $3 != 9606 && $3 != 4751)'  "${clean_2_folder}kraken2.out" | cut -f2 > "${clean_2_folder}keep_clean_ids.txt"
 seqtk subseq "${clean_1_folder}reads.fastq" "${clean_2_folder}keep_clean_ids.txt" > "${clean_2_folder}reads.fastq"
 
+read_count=$(($(wc -l < "${clean_2_folder}/reads.fastq") / 4))
+echo "Total reads in cleaned FASTQ: $read_count"
+
 hifiasm -o "$out_file" -t 32 "${clean_2_folder}reads.fastq"

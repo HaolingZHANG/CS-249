@@ -55,6 +55,8 @@ Loading database information... done.
   3278256 sequences classified (60.47%)
   2142910 sequences unclassified (39.53%)
 
+Total reads in cleaned FASTQ: 2716940
+
 [M::ha_analyze_count] lowest: count[90] = 50337
 [M::ha_analyze_count] highest: count[91] = 51132
 [M::ha_hist_line]     2: ****************************************************************************************************> 89256032
