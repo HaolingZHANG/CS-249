@@ -1,9 +1,15 @@
 # Assignment 2
 
+We used ChatGPT in following specific situations:
+
+- Computational resource parameters recommended for all the computational tools (for Task 2 only); and
+- Debugging and usage of `Inspector`. This tool cannot be activated correctly through `module load inspector` in IBEX (cannot be directly provided as an executable command).
+
+## Task 1
 
 In this task, we used personal laptop to execute our works.
 
-## Task 1
+### Preparation
 
 We check if the installation of QUAST is successful 
 
@@ -522,19 +528,11 @@ awk '/^S/{print ">"$2"\n"$3}' lizard.asm.bp.p_ctg.gfa > lizard.asm.bp.p_ctg.fa
 
 Finally, the assembly results are shown below:
 
-![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/assembly_screenshot.png)
+![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/screenshot.png)
 
 ### Task 2.2
 
-Here we use `QUAST`, `BUSCO`, `Merqury`, and `Flagger` to evaluate our assembly.
-
-Before execution, we found that `Flagger` is not installed on IBEX, so we run the following command lines:
-```shell
-cd /ibex/user/zhanh0m/proj/cs249/softw/
-git clone https://github.com/mobinasri/flagger.git
-cd flagger
-make
-```
+Here we use `QUAST`, `BUSCO`, `Merqury`, and `Inspector` to evaluate our assembly.
 
 The sbatch script is shown below (named `step_2.slurm` in our project location, also is attached
 [here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/step_2.slurm)):
@@ -583,10 +581,18 @@ fi
 merqury.sh "$merqury_database" "$fasta_file" "$merqury_output/lizard"
 
 # Step 4: Inspector
-minimap2 -t 32 -ax map-hifi "$fasta_file" "$reads_file" | samtools sort -@ 16 -o "$samtool_output"
-samtools index "$samtool_output"
-inspector -r "$fasta_file" -b "$samtool_output" -o "$inspector_output"
+python /ibex/sw/rl9c/inspector/1.3/rl9.4_conda3/Miniconda3/envs/python2.7/bin/inspector.py \
+  -c "${project_folder}raw/lizard.asm.bp.p_ctg.fa" -r "$reads_file" -d hifi -t 32 -o "$inspector_output"
 ```
+
+We run it by the following command line:
+
+```shell
+sbatch step_2.slurm
+```
+
+The execution log is attached 
+[here](https://github.com/HaolingZHANG/CS-249/tree/main/assign2/results/log/step_2.txt).
 
 All the reports (from different tools) as shown in `assign2/results/hifiasm` folder, specifically:
 
@@ -599,4 +605,5 @@ All the reports (from different tools) as shown in `assign2/results/hifiasm` fol
 , and [lizard.completeness.stats](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[lizard.completeness].stats)
 - Inspector:
 
-TODO
+Based on these reports, we can summarize the following tables:
+

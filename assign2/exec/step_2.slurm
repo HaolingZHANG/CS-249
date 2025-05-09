@@ -23,7 +23,6 @@ project_folder="/ibex/user/zhanh0m/proj/cs249/"
 quast_output="${project_folder}quast/"
 merqury_database="${project_folder}raw/reads.meryl"
 inspector_output="${project_folder}inspector/"
-samtool_output="${project_folder}samtool/aln.sorted.bam"
 
 # Step 1: QUAST
 quast.py "$fasta_file" -o "$quast_output" -t 32
@@ -40,6 +39,5 @@ fi
 merqury.sh "$merqury_database" "$fasta_file" "merqury/lizard"
 
 # Step 4: Inspector
-minimap2 -t 32 -ax map-hifi "$fasta_file" "$reads_file" | samtools sort -@ 16 -o "$samtool_output"
-samtools index "$samtool_output"
-python /ibex/sw/rl9c/inspector/1.3/rl9.4_conda3/Miniconda3/envs/python2.7/bin/inspector.py -r "$fasta_file" -b "$samtool_output" -o "$inspector_output"
+python /ibex/sw/rl9c/inspector/1.3/rl9.4_conda3/Miniconda3/envs/python2.7/bin/inspector.py \
+  -c "${project_folder}raw/lizard.asm.bp.p_ctg.fa" -r "$reads_file" -d hifi -t 32 -o "$inspector_output"
