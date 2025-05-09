@@ -39,6 +39,12 @@ usage: quast_metrics.py [-h] -i INPUT
 
 ### Task 1.1: de Bruijn Graph (DBG) Assembly
 
+I implemented a de Bruijn graph-based assembler that constructs a k-mer graph from input reads. 
+Each (k−1)-mer is treated as a node, and edges represent overlapping k-mers. 
+The graph is built by sliding a k-mer window across all reads.
+To reconstruct sequences, I extract Eulerian paths from the graph, which represent valid assemblies.
+The implementation supports GFA output for graph visualization and uses Biopython for I/O operations.
+
 The de Bruijn Graph assembly algorithm is implemented 
 [here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/dbg_assembler.py).
 
@@ -63,6 +69,13 @@ options:
 ```
 
 ### Task 1.2: Overlap-Layout-Consensus (OLC) Assembly
+
+My OLC assembler builds an overlap graph by comparing all read pairs and 
+identifying overlaps above a user-defined threshold. 
+The layout phase constructs assembly paths by greedily traversing edges with maximal overlap. 
+In the consensus phase, overlapping reads are merged to form contigs. 
+The algorithm preserves read order and overlap integrity. 
+It was implemented using Biopython and Python standard libraries for parsing, layout, and consensus generation.
 
 The overlap-layout-consensus assembly algorithm is implemented 
 [here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/olc_assembler.py).
@@ -94,7 +107,11 @@ options:
 To execute the sub-task 1, we can run the following command-lines:
 
 ```shell
-python dbg_assembler.py -i toy_dataset/reads_b.fastq -o results/dbg/b_k40_contigs.fasta -k 40 -g results/gfa/b_k40_graph.gfa
+python dbg_assembler.py \
+       -i toy_dataset/reads_b.fastq \
+       -o results/dbg/b_k40_contigs.fasta \
+       -k 40 \
+       -g results/gfa/b_k40_graph.gfa
 Bandage image results/gfa/b_k40_graph.gfa results/images/b_k40_graph.png
 ```
 
@@ -111,6 +128,8 @@ The overall graph is compact and largely unambiguous,
 indicating that the dataset is clean and has good k-mer connectivity.
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/b_k40_graph.png)
+
+[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/b_k40_graph.png&#41;)
 
 Such visualization allows identification of structural ambiguities that could result in fragmented contigs. 
 In this case, minimal ambiguity exists, and additional graph cleaning (e.g., bubble removal) 
@@ -183,17 +202,25 @@ and yield an even more contiguous assembly.
 To execute the sub-task 2, we can run the following command-lines:
 
 ```shell
-# k = 35
-python dbg_assembler.py -i toy_dataset/reads_r.fastq -o results/dbg/r_k35_contigs.fasta -k 35 -g results/gfa/r_k35_graph.gfa
-# k = 45
-python dbg_assembler.py -i toy_dataset/reads_r.fastq -o results/dbg/r_k45_contigs.fasta -k 45 -g results/gfa/r_k45_graph.gfa
+python dbg_assembler.py \
+       -i toy_dataset/reads_r.fastq \
+       -o results/dbg/r_k35_contigs.fasta \
+       -k 35 \
+       -g results/gfa/r_k35_graph.gfa
+python dbg_assembler.py \
+       -i toy_dataset/reads_r.fastq \
+       -o results/dbg/r_k45_contigs.fasta \
+       -k 45 \
+       -g results/gfa/r_k45_graph.gfa
 ```
 
 In addition, we can run the QUAST analysis by the following command-lines:
 
 ```shell
-python quast.py results/dbg/r_k35_contigs.fasta -r toy_dataset/reference_b.fasta -o tmp
-python quast.py results/dbg/r_k45_contigs.fasta -r toy_dataset/reference_b.fasta -o tmp
+python quast.py results/dbg/r_k35_contigs.fasta \
+       -r toy_dataset/reference_b.fasta -o tmp
+python quast.py results/dbg/r_k45_contigs.fasta \
+       -r toy_dataset/reference_b.fasta -o tmp
 Bandage image results/gfa/r_k35_graph.gfa results/images/r_k35_graph.png
 Bandage image results/gfa/r_k45_graph.gfa results/images/r_k45_graph.png
 ```
@@ -236,9 +263,13 @@ For k = 35, the Bandage graph is:
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/r_k35_graph.png)
 
+[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/r_k35_graph.png&#41;)
+
 For k = 45, the  Bandage graph is:
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/r_k45_graph.png)
+
+[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/r_k45_graph.png&#41;)
 
 In both k-mer settings, the assembler produced three contigs, 
 indicating that the underlying graph could not be traversed in a single Eulerian path. 
@@ -265,15 +296,39 @@ To execute the sub-task 3, we can run the following command-lines:
 
 ```shell
 # The de Bruijn Graph assembly algorithm is used
-python dbg_assembler.py -i synthetic_dataset/reads/no_error_reads_hiseq_5k.fastq -o results/dbg/hiseq_noerr.fasta -k 40
-python dbg_assembler.py -i synthetic_dataset/reads/reads_hiseq_5k.fastq          -o results/dbg/hiseq_err.fasta   -k 40
-python dbg_assembler.py -i synthetic_dataset/reads/no_error_ont_hq_50x.fastq     -o results/dbg/ont_noerr.fasta   -k 40
-python dbg_assembler.py -i synthetic_dataset/reads/ont_hq_50x.fastq              -o results/dbg/ont_err.fasta     -k 40
+python dbg_assembler.py \
+       -i synthetic_dataset/reads/no_error_reads_hiseq_5k.fastq \
+       -o results/dbg/hiseq_noerr.fasta \
+       -k 40
+python dbg_assembler.py \
+       -i synthetic_dataset/reads/reads_hiseq_5k.fastq \
+       -o results/dbg/hiseq_err.fasta \
+       -k 40
+python dbg_assembler.py \
+       -i synthetic_dataset/reads/no_error_ont_hq_50x.fastq \
+       -o results/dbg/ont_noerr.fasta \
+       -k 40
+python dbg_assembler.py \
+       -i synthetic_dataset/reads/ont_hq_50x.fastq \
+       -o results/dbg/ont_err.fasta \
+       -k 40
 # The overlap-layout-consensus assembly algorithm is used
-python olc_assembler.py -i synthetic_dataset/reads/no_error_reads_hiseq_5k.fastq -o results/olc/hiseq_noerr.fasta -n 30
-python olc_assembler.py -i synthetic_dataset/reads/reads_hiseq_5k.fastq          -o results/olc/hiseq_err.fasta   -n 30
-python olc_assembler.py -i synthetic_dataset/reads/no_error_ont_hq_50x.fastq     -o results/olc/ont_noerr.fasta   -n 50
-python olc_assembler.py -i synthetic_dataset/reads/ont_hq_50x.fastq              -o results/olc/ont_err.fasta     -n 50
+python olc_assembler.py \
+       -i synthetic_dataset/reads/no_error_reads_hiseq_5k.fastq \
+       -o results/olc/hiseq_noerr.fasta \
+       -n 30
+python olc_assembler.py \
+       -i synthetic_dataset/reads/reads_hiseq_5k.fastq \
+       -o results/olc/hiseq_err.fasta \
+       -n 30
+python olc_assembler.py \
+       -i synthetic_dataset/reads/no_error_ont_hq_50x.fastq \
+       -o results/olc/ont_noerr.fasta \
+       -n 50
+python olc_assembler.py \
+       -i synthetic_dataset/reads/ont_hq_50x.fastq \
+       -o results/olc/ont_err.fasta \
+       -n 50
 ```
 
 Notably, for HiSeq data, `n` is suggested as `30`, and for ONT data, `n` is suggested as `50`.
@@ -281,49 +336,91 @@ Notably, for HiSeq data, `n` is suggested as `30`, and for ONT data, `n` is sugg
 In addition, we can run the QUAST analysis by the following command-lines:
 
 ```shell
-python quast.py results/dbg/hiseq_noerr.fasta -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
-python quast.py results/dbg/hiseq_err.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
-python quast.py results/dbg/ont_noerr.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
-python quast.py results/dbg/ont_err.fasta     -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
-python quast.py results/olc/hiseq_noerr.fasta -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
-python quast.py results/olc/hiseq_err.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
-python quast.py results/olc/ont_noerr.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
-python quast.py results/olc/ont_err.fasta     -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/dbg/hiseq_noerr.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/dbg/hiseq_err.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/dbg/ont_noerr.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/dbg/ont_err.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/olc/hiseq_noerr.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/olc/hiseq_err.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/olc/ont_noerr.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/olc/ont_err.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
 ```
 
 The full set of QUAST statistics is presented below:
 
-| Assembly                   | dbg_hiseq_noerr | dbg_hiseq_err | dbg_ont_noerr | dbg_ont_err | olc_hiseq_noerr | olc_hiseq_err | olc_ont_noerr | olc_ont_err |
-|----------------------------|-----------------|---------------|---------------|-------------|-----------------|---------------|---------------|-------------|
-| # contigs (>= 0 bp)        | 16              | 25            | 8             | 72          | 7               | 97            | 13            | 2           |
-| # contigs (>= 1000 bp)     | 5               | 7             | 2             | 9           | 3               | 2             | 13            | 2           |
-| # contigs (>= 5000 bp)     | 3               | 3             | 1             | 5           | 2               | 2             | 12            | 2           |
-| # contigs (>= 10000 bp)    | 1               | 1             | 1             | 4           | 2               | 1             | 6             | 2           |
-| # contigs (>= 25000 bp)    | 0               | 0             | 1             | 4           | 0               | 1             | 1             | 0           |
-| # contigs (>= 50000 bp)    | 0               | 0             | 0             | 3           | 0               | 0             | 0             | 0           |
-| Total length (>= 0 bp)     | 30000           | 43421         | 30021         | 730813      | 30194           | 50378         | 141365        | 37293       |
-| Total length (>= 1000 bp)  | 25128           | 37891         | 27284         | 720138      | 29006           | 37392         | 141365        | 37293       |
-| Total length (>= 5000 bp)  | 22304           | 31465         | 25724         | 712482      | 24597           | 37392         | 137549        | 37293       |
-| Total length (>= 10000 bp) | 11004           | 15400         | 25724         | 703293      | 24597           | 29139         | 84863         | 37293       |
-| Total length (>= 25000 bp) | 0               | 0             | 25724         | 703293      | 0               | 29139         | 28921         | 0           |
-| Total length (>= 50000 bp) | 0               | 0             | 0             | 663213      | 0               | 0             | 0             | 0           |
-| # contigs                  | 11              | 11            | 5             | 11          | 4               | 3             | 13            | 2           |
-| Largest contig             | 11004           | 15400         | 25724         | 333439      | 13510           | 29139         | 28921         | 20439       |
-| Total length               | 29229           | 41476         | 29330         | 721647      | 29716           | 38305         | 141365        | 37293       |
-| Reference length           | 30119           | 30119         | 30119         | 30119       | 30119           | 30119         | 30119         | 30119       |
-| GC (%)                     | 41.31           | 41.30         | 41.15         | 41.10       | 41.26           | 41.36         | 41.10         | 40.69       |
-| Reference GC (%)           | 41.24           | 41.24         | 41.24         | 41.24       | 41.24           | 41.24         | 41.24         | 41.24       |
-| N50                        | 6294            | 8765          | 25724         | 229982      | 11087           | 29139         | 10492         | 20439       |
-| NG50                       | 6294            | 15400         | 25724         | 333439      | 11087           | 29139         | 28921         | 20439       |
-| N90                        | 873             | 1154          | 1560          | 99792       | 4409            | 8253          | 8096          | 16854       |
-| NG90                       | 625             | 7300          | 1560          | 333439      | 4409            | 29139         | 28921         | 16854       |
-| auN                        | 6596.5          | 9207.5        | 22693.2       | 243524.3    | 10949.8         | 23966.2       | 13779.8       | 18818.8     |
-| auNG                       | 6401.6          | 12679.4       | 22098.7       | 5834808.4   | 10803.3         | 30480.0       | 64676.3       | 23301.2     |
-| L50                        | 2               | 2             | 1             | 2           | 2               | 1             | 5             | 1           |
-| LG50                       | 2               | 1             | 1             | 1           | 2               | 1             | 1             | 1           |
-| L90                        | 7               | 7             | 2             | 3           | 3               | 2             | 11            | 2           |
-| LG90                       | 8               | 3             | 2             | 1           | 3               | 1             | 1             | 2           |
-| # N's per 100 kbp          | 0.00            | 0.00          | 0.00          | 0.00        | 0.00            | 0.00          | 0.00          | 0.00        |
+| Assembly                   | dbg_hiseq_noerr | dbg_hiseq_err | dbg_ont_noerr | dbg_ont_err |
+|----------------------------|-----------------|---------------|---------------|-------------|
+| # contigs (>= 0 bp)        | 16              | 25            | 8             | 72          | 
+| # contigs (>= 1000 bp)     | 5               | 7             | 2             | 9           | 
+| # contigs (>= 5000 bp)     | 3               | 3             | 1             | 5           | 
+| # contigs (>= 10000 bp)    | 1               | 1             | 1             | 4           | 
+| # contigs (>= 25000 bp)    | 0               | 0             | 1             | 4           |
+| # contigs (>= 50000 bp)    | 0               | 0             | 0             | 3           | 
+| Total length (>= 0 bp)     | 30000           | 43421         | 30021         | 730813      | 
+| Total length (>= 1000 bp)  | 25128           | 37891         | 27284         | 720138      | 
+| Total length (>= 5000 bp)  | 22304           | 31465         | 25724         | 712482      | 
+| Total length (>= 10000 bp) | 11004           | 15400         | 25724         | 703293      | 
+| Total length (>= 25000 bp) | 0               | 0             | 25724         | 703293      | 
+| Total length (>= 50000 bp) | 0               | 0             | 0             | 663213      | 
+| # contigs                  | 11              | 11            | 5             | 11          | 
+| Largest contig             | 11004           | 15400         | 25724         | 333439      | 
+| Total length               | 29229           | 41476         | 29330         | 721647      | 
+| Reference length           | 30119           | 30119         | 30119         | 30119       |
+| GC (%)                     | 41.31           | 41.30         | 41.15         | 41.10       | 
+| Reference GC (%)           | 41.24           | 41.24         | 41.24         | 41.24       | 
+| N50                        | 6294            | 8765          | 25724         | 229982      |
+| NG50                       | 6294            | 15400         | 25724         | 333439      |
+| N90                        | 873             | 1154          | 1560          | 99792       | 
+| NG90                       | 625             | 7300          | 1560          | 333439      | 
+| auN                        | 6596.5          | 9207.5        | 22693.2       | 243524.3    | 
+| auNG                       | 6401.6          | 12679.4       | 22098.7       | 5834808.4   | 
+| L50                        | 2               | 2             | 1             | 2           | 
+| LG50                       | 2               | 1             | 1             | 1           | 
+| L90                        | 7               | 7             | 2             | 3           | 
+| LG90                       | 8               | 3             | 2             | 1           |
+| # N's per 100 kbp          | 0.00            | 0.00          | 0.00          | 0.00        | 
+
+
+
+| Assembly                   | olc_hiseq_noerr | olc_hiseq_err | olc_ont_noerr | olc_ont_err |
+|----------------------------|-----------------|---------------|---------------|-------------|
+| # contigs (>= 0 bp)        | 7               | 97            | 13            | 2           |
+| # contigs (>= 1000 bp)     | 3               | 2             | 13            | 2           |
+| # contigs (>= 5000 bp)     | 2               | 2             | 12            | 2           |
+| # contigs (>= 10000 bp)    | 2               | 1             | 6             | 2           |
+| # contigs (>= 25000 bp)    | 0               | 1             | 1             | 0           |
+| # contigs (>= 50000 bp)    | 0               | 0             | 0             | 0           |
+| Total length (>= 0 bp)     | 30194           | 50378         | 141365        | 37293       |
+| Total length (>= 1000 bp)  | 29006           | 37392         | 141365        | 37293       |
+| Total length (>= 5000 bp)  | 24597           | 37392         | 137549        | 37293       |
+| Total length (>= 10000 bp) | 24597           | 29139         | 84863         | 37293       |
+| Total length (>= 25000 bp) | 0               | 29139         | 28921         | 0           |
+| Total length (>= 50000 bp) | 0               | 0             | 0             | 0           |
+| # contigs                  | 4               | 3             | 13            | 2           |
+| Largest contig             | 13510           | 29139         | 28921         | 20439       |
+| Total length               | 29716           | 38305         | 141365        | 37293       |
+| Reference length           | 30119           | 30119         | 30119         | 30119       |
+| GC (%)                     | 41.26           | 41.36         | 41.10         | 40.69       |
+| Reference GC (%)           | 41.24           | 41.24         | 41.24         | 41.24       |
+| N50                        | 11087           | 29139         | 10492         | 20439       |
+| NG50                       | 11087           | 29139         | 28921         | 20439       |
+| N90                        | 4409            | 8253          | 8096          | 16854       |
+| NG90                       | 4409            | 29139         | 28921         | 16854       |
+| auN                        | 10949.8         | 23966.2       | 13779.8       | 18818.8     |
+| auNG                       | 10803.3         | 30480.0       | 64676.3       | 23301.2     |
+| L50                        | 2               | 1             | 5             | 1           |
+| LG50                       | 2               | 1             | 1             | 1           |
+| L90                        | 3               | 2             | 11            | 2           |
+| LG90                       | 3               | 1             | 1             | 2           |
+| # N's per 100 kbp          | 0.00            | 0.00          | 0.00          | 0.00        |
 
 Here we used QUAST to evaluate all assembled contigs and compared them against the MERS reference genome. 
 The table above summarizes the results across both DBG and OLC assemblers, tested on HiSeq and ONT read sets,
@@ -393,17 +490,21 @@ Now, we repeat the same assembly using the Canu assembler on the ONT datasets (s
 both with and without sequencing errors. 
 
 ```shell
-canu -p genome -d output genomeSize=31k useGrid=false -nanopore-raw synthetic_dataset/reads/no_error_ont_hq_50x.fastq
+canu -p genome -d output genomeSize=31k useGrid=false \
+     -nanopore-raw synthetic_dataset/reads/no_error_ont_hq_50x.fastq
 mv output/genome.contigs.fasta results/canu/ont_noerr.fasta
-canu -p genome -d output genomeSize=31k useGrid=false -nanopore-raw synthetic_dataset/reads/ont_hq_50x.fastq
+canu -p genome -d output genomeSize=31k useGrid=false \
+     -nanopore-raw synthetic_dataset/reads/ont_hq_50x.fastq
 mv output/genome.contigs.fasta results/canu/ont_err.fasta
 ```
 
 The QUAST results were compared with those obtained from our custom DBG and OLC implementations.
 
 ```shell
-python quast.py results/canu/ont_noerr.fasta -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
-python quast.py results/canu/ont_err.fasta   -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/canu/ont_noerr.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
+python quast.py results/canu/ont_err.fasta \
+       -r synthetic_dataset/GCF_000901155.1_ViralProj183710_genomic.fna -o tmp
 ```
 
 Then, we can construct the following table:
@@ -525,6 +626,8 @@ Finally, the assembly results are shown below:
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/screenshot.png)
 
+[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/screenshot.png&#41;)
+
 ### Task 2.2: Assembly evaluation
 
 Here we use `QUAST`, `BUSCO`, `Merqury`, and `Inspector` to evaluate our assembly.
@@ -567,7 +670,8 @@ quast.py "$fasta_file" -o "$quast_output" -t 32
 # Step 2: BUSCO
 export JAVA_TOOL_OPTIONS="-Xmx64g"
 export BBMAP_JAVA_MEM="-Xmx64g"
-busco -i "$fasta_file" -o busco -l "sauropsida_odb10" -m genome -c 32 --out_path "$project_folder" -f
+busco -i "$fasta_file" -o busco -l "sauropsida_odb10" \
+      -m genome -c 32 --out_path "$project_folder" -f
 
 # Step 3: Merqury
 if [ ! -d "$merqury_database" ]; then
@@ -577,7 +681,8 @@ merqury.sh "$merqury_database" "$fasta_file" "$merqury_output/lizard"
 
 # Step 4: Inspector
 python /ibex/sw/rl9c/inspector/1.3/rl9.4_conda3/Miniconda3/envs/python2.7/bin/inspector.py \
-  -c "${project_folder}raw/lizard.asm.bp.p_ctg.fa" -r "$reads_file" -d hifi -t 32 -o "$inspector_output"
+       -c "${project_folder}raw/lizard.asm.bp.p_ctg.fa" \
+       -r "$reads_file" -d hifi -t 32 -o "$inspector_output"
 ```
 
 We run it by the following command line:
@@ -591,14 +696,14 @@ The execution log is attached
 
 All the reports (from different tools) as shown in `assign2/results/hifiasm` folder, specifically:
 
-- QUAST: [report.txt](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/quast[report].txt)
-- BUSCO: [report.json](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/busco[report].json)
-- Merqury: [spectra-cn.hist](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[spectra-cn].hist) 
-, [lizard.qv](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[lizard].qv)
-, [lizard.lizard.asm.bp.p_ctg.qv](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[lizard.lizard.asm.bp.p_ctg].qv)
-, [lizard.lizard.asm.bp.p_ctg.only.hist](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[lizard.lizard.asm.bp.p_ctg.only].hist)
-, and [lizard.completeness.stats](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[lizard.completeness].stats)
-- Inspector:
+- QUAST: [report.txt](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/quast%5Breport%5D.txt).
+- BUSCO: [report.json](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/busco%5Breport%5D.json).
+- Merqury: [spectra-cn.hist](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury%5Bspectra-cn%5D.hist),
+[lizard.qv](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury%5Blizard%5D.qv),
+[lizard.lizard.asm.bp.p_ctg.qv](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury%5Blizard.lizard.asm.bp.p_ctg%5D.qv),
+[lizard.lizard.asm.bp.p_ctg.only.hist](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury%5Blizard.lizard.asm.bp.p_ctg.only%5D.hist),
+and [lizard.completeness.stats](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury%5Blizard.completeness%5D.stats).
+- Inspector: [summary_statistics.txt](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/inspector%5Bsummary_statistics%5D.txt).
 
 Based on these reports, we can summarize the following tables.
 
@@ -677,6 +782,8 @@ and the detailed *k*-mer distribution is (plotted by
 
 ![Pikachu](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/images/distribution.png)
 
+[//]: # (![image]&#40;D://courses/CS-249/CS-249/assign2/results/images/distribution.png&#41;)
+
 The Merqury evaluation highlights both high consensus accuracy and solid assembly completeness. 
 The assembly achieved a QV (Quality Value) of 73.5765, corresponding to an estimated base-level error rate of 4.39e-08, 
 indicating excellent sequence accuracy. 
@@ -687,7 +794,58 @@ with minimal missing or duplicated sequence content.
 
 For `Inspector`:
 
-XX
+| Content                     | Metric                               | Value      |
+|-----------------------------|--------------------------------------|------------|
+| Statics of contigs          | Number of contigs                    | 88         |
+| Statics of contigs          | Number of contigs > 10000 bp         | 88         |
+| Statics of contigs          | Number of contigs > 1000000 bp       | 18         |
+| Statics of contigs          | Total length                         | 1806549621 |
+| Statics of contigs          | Total length > 10000 bp              | 1806549621 |
+| Statics of contigs          | Total length > 1000000 bp            | 1794976501 |
+| Statics of contigs          | Longest contig                       | 341991134  |
+| Statics of contigs          | Second longest contig                | 285525539  |
+| Statics of contigs          | N50                                  | 138412277  |
+| Statics of contigs          | N50 of contigs > 1Mbp                | 138412277  |
+| Read to Contig alignment    | Mapping rate (%)                     | 100        |
+| Read to Contig alignment    | Split-read rate (%)                  | 7.12       |
+| Read to Contig alignment    | Depth in large conigs                | 49.3716    |
+| Read to Contig alignment    | Mapping rate in large contigs (%)    | 99.23      |
+| Read to Contig alignment    | Split-read rate in large contigs (%) | 7.18       |
+| Read to Contig alignment    | Depth in large contigs               | 49.3153    |
+| Structural Errors           | Total structural errors              | 181        |
+| Structural Errors           | Expansion                            | 107        |
+| Structural Errors           | Collapse                             | 31         |
+| Structural Errors           | Haplotype switch                     | 37         |
+| Structural Errors           | Inversion                            | 6          |
+| Small-Scale Assembly Errors | Small-scale errors per Mbp           | 17.3131143 |
+| Small-Scale Assembly Errors | Total small-scale errors             | 31277      |
+| Small-Scale Assembly Errors | Base substitution                    | 26340      |
+| Small-Scale Assembly Errors | Small-scale expansion                | 2983       |
+| Small-Scale Assembly Errors | Small-scale collapse                 | 1954       |
+| Summary                     | Inspector QV                         | 38.0872458 |
+
+
+The assembly consists of 88 contigs totaling ~1.81 Gbp, with an N50 of 138 Mbp and 18 contigs longer than 1 Mbp.
+Read alignment metrics show excellent completeness, with a 100% mapping rate and ~49× depth,
+although ~7.1% of reads are split-mapped—suggesting potential misassemblies or structural complexity. 
+Inspector identified 181 structural errors, including 107 expansions and 37 haplotype switches, 
+and reported 31,277 small-scale errors, dominated by base substitutions. 
+The Inspector-estimated QV is 38.09, reflecting localized mismatches.
+
+Overall, the Hifiasm-based assembly, built solely from PacBio HiFi reads, comprises 88 contigs totaling ~1.81 Gbp, 
+with an N50 of 138 Mbp and 18 contigs exceeding 1 Mbp. 
+QUAST and BUSCO evaluations indicate high contiguity and completeness, 
+with 98.2% of *sauropsida* BUSCOs fully recovered. 
+Read mapping shows a 100% alignment rate at ~49× depth, 
+though ~7.1% of reads are split-mapped, suggesting potential structural complexity. 
+Merqury reports a high consensus QV of 73.58 based on k-mer concordance, 
+while Inspector yields a more conservative QV of 38.09 by identifying 181 structural and over 31,000 small-scale errors. 
+The discrepancy reflects methodological differences: 
+Merqury measures base-level agreement using k-mers, 
+while Inspector captures alignment-based mismatches and structural anomalies. 
+Together, the results highlight both the strengths and residual imperfections of the current assembly 
+and underscore the need for multi-faceted quality assessment.
+
 
 In this task, we used the following tools:
 `QUAST`, `BUSCO`, `Merqury` and `Inspector`.
@@ -713,7 +871,3 @@ by aligning reads back to the assembly and analyzing inconsistencies.
     - Relevance: It identifies local or global misassemblies that affect structural correctness.
     - Improvement: If structural artifacts are detected, consider hybrid scaffolding using optical maps, Hi-C data, 
 or alignment against a high-quality reference to resolve misassemblies.
-
-### Task 2.3: Assembly improvement
-
-TODO
