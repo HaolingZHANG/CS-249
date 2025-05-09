@@ -1,0 +1,2243 @@
+Loading module for BLAST
+BLAST 2.13.0 is now loaded
+Loading module for quast
+quast 5.2.0 module now loaded
+
+Loading quast/5.2.0
+  Loading requirement: blast/2.13.0
+Loading module for BUSCO
+BUSCO 5.8.3 is now loaded
+Loading module for JDK
+Java Development Kit version 19.0.1 is now loaded
+GNU 12.2.0 is now loaded
+Loading module for BEDTools
+BEDTools-2.30.0 modules now loaded
+Loading module for Samtools
+Samtools 1.16.1 is now loaded
+Loading module for R
+
+R 4.3.0, JDK 19.0.1 and GNU 12.2.0 are now loaded
+Loading module for Merqury
+
+Use: $MERQURY/merqury.sh --help
+
+Merqury 1.3 is now loaded
+
+Loading merqury/1.3
+  Loading requirement: java/19.0.1 gcc/12.2.0 bedtools/2.30.0 samtools/1.16.1
+    R/4.3.0/gnu-12.2.0
+Loading module for Minimap2
+Minimap2 2.24 is now loaded
+Loading module for Inspector
+Inspector 1.3.1 is now loaded
+/ibex/sw/rl9c/quast/5.2.0/rl9_conda3/quast-5.2.0/quast.py /ibex/user/zhanh0m/proj/cs249/raw/lizard.asm.bp.p_ctg.fa -o /ibex/user/zhanh0m/proj/cs249/quast/ -t 32
+
+Version: 5.2.0
+
+System information:
+  OS: Linux-5.14.0-427.20.1.el9_4.0.1.x86_64-x86_64-with-redhat-9.4-Blue_Onyx (linux_64)
+  Python version: 2.7.17
+  CPUs number: 128
+
+Started: 2025-05-09 01:02:21
+
+Logging to /ibex/user/zhanh0m/proj/cs249/quast/quast.log
+
+CWD: /ibex/user/zhanh0m/proj/cs249
+Main parameters:
+  MODE: default, threads: 32, min contig length: 500, min alignment length: 65, min alignment IDY: 95.0, \
+  ambiguity: one, min local misassembly length: 200, min extensive misassembly length: 1000
+
+WARNING: Can't draw plots: python-matplotlib is missing or corrupted.
+
+Contigs:
+  Pre-processing...
+  /ibex/user/zhanh0m/proj/cs249/raw/lizard.asm.bp.p_ctg.fa ==> lizard.asm.bp.p_ctg
+
+2025-05-09 01:03:03
+Running Basic statistics processor...
+  Contig files:
+    lizard.asm.bp.p_ctg
+  Calculating N50 and L50...
+    lizard.asm.bp.p_ctg, N50 = 138412277, L50 = 4, auN = 176120794.7, Total length = 1806549621, GC % = 45.47, # N's per 100 kbp =  0.00
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2025-05-09 01:04:22
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 1: Creating Icarus viewers...
+Done
+
+2025-05-09 01:04:40
+RESULTS:
+  Text versions of total report are saved to /ibex/user/zhanh0m/proj/cs249/quast/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /ibex/user/zhanh0m/proj/cs249/quast/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /ibex/user/zhanh0m/proj/cs249/quast/report.html
+  Icarus (contig browser) is saved to /ibex/user/zhanh0m/proj/cs249/quast/icarus.html
+  Log is saved to /ibex/user/zhanh0m/proj/cs249/quast/quast.log
+
+Finished: 2025-05-09 01:04:40
+Elapsed time: 0:02:18.577043
+NOTICEs: 1; WARNINGs: 1; non-fatal ERRORs: 0
+
+Thank you for using QUAST!
+2025-05-09 01:04:41 INFO:	***** Start a BUSCO v5.8.3 analysis, current time: 05/09/2025 01:04:41 *****
+2025-05-09 01:04:41 INFO:	Configuring BUSCO with local environment
+2025-05-09 01:04:41 INFO:	Running genome mode
+2025-05-09 01:04:41 INFO:	'Force' option selected; overwriting previous results directory
+2025-05-09 01:04:41 INFO:	Downloading information on latest versions of BUSCO data...
+2025-05-09 01:04:44 INFO:	Input file is /ibex/user/zhanh0m/proj/cs249/raw/lizard.asm.bp.p_ctg.fa
+2025-05-09 01:04:48 INFO:	Running BUSCO using lineage dataset sauropsida_odb10 (eukaryota, 2024-01-08)
+2025-05-09 01:04:48 INFO:	Running 1 job(s) on bbtools, starting at 05/09/2025 01:04:48
+2025-05-09 01:04:50 INFO:	[bbtools]	1 of 1 task(s) completed
+2025-05-09 01:04:50 INFO:	Running 1 job(s) on miniprot_index, starting at 05/09/2025 01:04:50
+2025-05-09 01:05:17 INFO:	[miniprot_index]	1 of 1 task(s) completed
+2025-05-09 01:05:17 INFO:	Running 1 job(s) on miniprot_align, starting at 05/09/2025 01:05:17
+2025-05-09 01:19:19 INFO:	[miniprot_align]	1 of 1 task(s) completed
+2025-05-09 01:32:51 INFO:	***** Run HMMER on gene sequences *****
+2025-05-09 01:33:17 INFO:	Running 7474 job(s) on hmmsearch, starting at 05/09/2025 01:33:17
+2025-05-09 01:33:58 INFO:	[hmmsearch]	748 of 7474 task(s) completed
+2025-05-09 01:34:05 INFO:	[hmmsearch]	1495 of 7474 task(s) completed
+2025-05-09 01:34:12 INFO:	[hmmsearch]	2243 of 7474 task(s) completed
+2025-05-09 01:34:19 INFO:	[hmmsearch]	2990 of 7474 task(s) completed
+2025-05-09 01:34:25 INFO:	[hmmsearch]	3737 of 7474 task(s) completed
+2025-05-09 01:34:32 INFO:	[hmmsearch]	4485 of 7474 task(s) completed
+2025-05-09 01:34:38 INFO:	[hmmsearch]	5232 of 7474 task(s) completed
+2025-05-09 01:34:45 INFO:	[hmmsearch]	5980 of 7474 task(s) completed
+2025-05-09 01:34:51 INFO:	[hmmsearch]	6727 of 7474 task(s) completed
+2025-05-09 01:35:09 INFO:	[hmmsearch]	7474 of 7474 task(s) completed
+2025-05-09 01:35:17 INFO:	174 candidate overlapping regions found
+2025-05-09 01:35:17 INFO:	77497 exons in total
+2025-05-09 01:35:43 WARNING:	169 of 7349 Complete matches (2.3%) contain internal stop codons in Miniprot gene predictions
+2025-05-09 01:35:54 INFO:
+
+    -------------------------------------------------------------------------------------------
+    |Results from dataset sauropsida_odb10                                                     |
+    -------------------------------------------------------------------------------------------
+    |C:98.2%[S:97.4%,D:0.8%],F:0.2%,M:1.6%,n:7480,E:2.3%                                       |
+    |7349    Complete BUSCOs (C)    (of which 169 contain internal stop codons)                |
+    |7287    Complete and single-copy BUSCOs (S)                                               |
+    |62    Complete and duplicated BUSCOs (D)                                                  |
+    |15    Fragmented BUSCOs (F)                                                               |
+    |116    Missing BUSCOs (M)                                                                 |
+    |7480    Total BUSCO groups searched                                                       |
+    -------------------------------------------------------------------------------------------
+2025-05-09 01:35:54 INFO:	BUSCO analysis done with WARNING(s). Total running time: 1870 seconds
+
+***** Summary of warnings: *****
+2025-05-09 01:35:43 WARNING:busco.busco_tools.hmmer	169 of 7349 Complete matches (2.3%) contain internal stop codons in Miniprot gene predictions
+
+2025-05-09 01:35:54 INFO:	Results written in /ibex/user/zhanh0m/proj/cs249/busco
+2025-05-09 01:35:54 INFO:	For assistance with interpreting the results, please consult the userguide: https://busco.ezlab.org/busco_userguide.html
+
+2025-05-09 01:35:54 INFO:	Visit this page https://gitlab.com/ezlab/busco#how-to-cite-busco to see how to cite BUSCO
+read: reads.meryl
+
+Enabling 32 threads.
+
+Counting 157 (estimated) billion canonical 21-mers from 1 input file:
+    sequence-file: /ibex/reference/course/cs249/lizard/input/pacbio/lizard_liver.fastq.gz
+
+
+SIMPLE MODE
+-----------
+
+  Disabled for mers larger than 20.
+
+
+COMPLEX MODE
+------------
+
+prefix     # of   struct   kmers/    segs/      min     data    total
+  bits   prefix   memory   prefix   prefix   memory   memory   memory
+------  -------  -------  -------  -------  -------  -------  -------
+     1     2  P   100 MB    78 GM  6452 kS   128 kB   806 GB   806 GB
+     2     4  P    98 MB    39 GM  3147 kS   256 kB   786 GB   786 GB
+     3     8  P    95 MB    19 GM  1534 kS   512 kB   767 GB   767 GB
+     4    16  P    93 MB     9 GM   747 kS  1024 kB   747 GB   747 GB
+     5    32  P    90 MB  5036 MM   363 kS  2048 kB   727 GB   728 GB
+     6    64  P    88 MB  2518 MM   177 kS  4096 kB   708 GB   708 GB
+     7   128  P    86 MB  1259 MM    86 kS  8192 kB   688 GB   688 GB
+     8   256  P    83 MB   629 MM    41 kS    16 MB   668 GB   668 GB
+     9   512  P    81 MB   314 MM    20 kS    32 MB   649 GB   649 GB
+    10  1024  P    78 MB   157 MM     9 kS    64 MB   629 GB   629 GB
+    11  2048  P    76 MB    78 MM  4879  S   128 MB   609 GB   609 GB
+    12  4096  P    74 MB    39 MM  2361  S   256 MB   590 GB   590 GB
+    13  8192  P    72 MB    19 MM  1142  S   512 MB   571 GB   571 GB
+    14    16 kP    70 MB     9 MM   551  S  1024 MB   551 GB   551 GB
+    15    32 kP    70 MB  5036 kM   266  S  2048 MB   532 GB   532 GB
+    16    64 kP    71 MB  2518 kM   128  S  4096 MB   512 GB   512 GB
+    17   128 kP    76 MB  1259 kM    62  S  8192 MB   496 GB   496 GB
+    18   256 kP    88 MB   629 kM    30  S    16 GB   480 GB   480 GB
+    19   512 kP   116 MB   314 kM    15  S    32 GB   480 GB   480 GB
+    20  1024 kP   168 MB   157 kM     7  S    64 GB   448 GB   448 GB  Best Value!
+    21  2048 kP   288 MB    78 kM     4  S   128 GB   512 GB   512 GB
+    22  4096 kP   512 MB    39 kM     2  S   256 GB   512 GB   512 GB
+    23  8192 kP   960 MB    19 kM     1  S   512 GB   512 GB   512 GB
+    24    16 MP  1920 MB     9 kM     1  S  1024 GB  1024 GB  1025 GB
+    25    32 MP  3840 MB  5037  M     1  S  2048 GB  2048 GB  2051 GB
+    26    64 MP  7680 MB  2519  M     1  S  4096 GB  4096 GB  4103 GB
+    27   128 MP    15 GB  1260  M     1  S  8192 GB  8192 GB  8207 GB
+
+
+FINAL CONFIGURATION
+-------------------
+
+WARNING:
+WARNING: Cannot fit into 503 GB memory limit.
+WARNING: Will split into up to 2 (possibly 3) batches, and merge them at the end.
+WARNING:
+
+Configured complex mode for 448.164 GB memory per batch, and up to 2 batches.
+
+kmerCountFileWriter()-- Creating '/ibex/user/zhanh0m/proj/cs249/raw/reads.meryl' for 21-mers, with prefixSize 20 suffixSize 22 numFiles 64
+Loading kmers from '/ibex/reference/course/cs249/lizard/input/pacbio/lizard_liver.fastq.gz' into buckets.
+Used 24.534 GB out of 503.670 GB to store        10440 kmers.
+Used 24.675 GB out of 503.670 GB to store        48452 kmers.
+Used 24.805 GB out of 503.670 GB to store        88645 kmers.
+Used 24.956 GB out of 503.670 GB to store       140113 kmers.
+Used 25.096 GB out of 503.670 GB to store       193453 kmers.
+Used 25.250 GB out of 503.670 GB to store       259391 kmers.
+Used 25.420 GB out of 503.670 GB to store       358740 kmers.
+Used 25.566 GB out of 503.670 GB to store       438851 kmers.
+Used 25.708 GB out of 503.670 GB to store       538864 kmers.
+Used 25.860 GB out of 503.670 GB to store       662718 kmers.
+Used 26.003 GB out of 503.670 GB to store       783503 kmers.
+Used 26.152 GB out of 503.670 GB to store       929837 kmers.
+Used 26.285 GB out of 503.670 GB to store      1071954 kmers.
+Used 26.425 GB out of 503.670 GB to store      1273150 kmers.
+Used 26.550 GB out of 503.670 GB to store      1459632 kmers.
+Used 26.684 GB out of 503.670 GB to store      1711485 kmers.
+Used 26.812 GB out of 503.670 GB to store      1991011 kmers.
+Used 26.938 GB out of 503.670 GB to store      2304499 kmers.
+Used 27.068 GB out of 503.670 GB to store      2692243 kmers.
+Used 27.193 GB out of 503.670 GB to store      3162189 kmers.
+Used 27.318 GB out of 503.670 GB to store      3690862 kmers.
+Used 27.444 GB out of 503.670 GB to store      4377144 kmers.
+Used 27.571 GB out of 503.670 GB to store      5230822 kmers.
+Used 27.697 GB out of 503.670 GB to store      6292389 kmers.
+Used 27.822 GB out of 503.670 GB to store      7652431 kmers.
+Used 27.948 GB out of 503.670 GB to store      9434465 kmers.
+Used 28.073 GB out of 503.670 GB to store     12072377 kmers.
+Used 28.198 GB out of 503.670 GB to store     15571369 kmers.
+Used 28.324 GB out of 503.670 GB to store     21576216 kmers.
+Used 28.449 GB out of 503.670 GB to store     32209072 kmers.
+Used 28.574 GB out of 503.670 GB to store     55304388 kmers.
+Used 28.699 GB out of 503.670 GB to store    137660885 kmers.
+Used 28.824 GB out of 503.670 GB to store    300234507 kmers.
+Used 28.949 GB out of 503.670 GB to store    403380567 kmers.
+Used 29.074 GB out of 503.670 GB to store    484348943 kmers.
+Used 29.199 GB out of 503.670 GB to store    555548552 kmers.
+Used 29.324 GB out of 503.670 GB to store    622570511 kmers.
+Used 29.449 GB out of 503.670 GB to store    685809577 kmers.
+Used 29.574 GB out of 503.670 GB to store    747179012 kmers.
+Used 29.699 GB out of 503.670 GB to store    806852788 kmers.
+Used 29.824 GB out of 503.670 GB to store    866105227 kmers.
+Used 29.949 GB out of 503.670 GB to store    924624784 kmers.
+Used 30.074 GB out of 503.670 GB to store    982070328 kmers.
+Used 30.199 GB out of 503.670 GB to store   1039056388 kmers.
+Used 30.324 GB out of 503.670 GB to store   1095007106 kmers.
+Used 30.449 GB out of 503.670 GB to store   1150655764 kmers.
+Used 30.574 GB out of 503.670 GB to store   1206431534 kmers.
+Used 30.699 GB out of 503.670 GB to store   1262116310 kmers.
+Used 30.824 GB out of 503.670 GB to store   1316783011 kmers.
+Used 30.949 GB out of 503.670 GB to store   1371778873 kmers.
+Used 31.074 GB out of 503.670 GB to store   1426023668 kmers.
+Used 31.199 GB out of 503.670 GB to store   1479692886 kmers.
+Used 31.325 GB out of 503.670 GB to store   1534015860 kmers.
+Used 31.450 GB out of 503.670 GB to store   1587357483 kmers.
+Used 31.575 GB out of 503.670 GB to store   1641251171 kmers.
+Used 31.700 GB out of 503.670 GB to store   1694767181 kmers.
+Used 31.825 GB out of 503.670 GB to store   1748111497 kmers.
+Used 31.950 GB out of 503.670 GB to store   1801744086 kmers.
+Used 32.075 GB out of 503.670 GB to store   1855063658 kmers.
+Used 32.200 GB out of 503.670 GB to store   1907925220 kmers.
+Used 32.325 GB out of 503.670 GB to store   1960538042 kmers.
+Used 32.450 GB out of 503.670 GB to store   2013356549 kmers.
+Used 32.575 GB out of 503.670 GB to store   2066113647 kmers.
+Used 32.700 GB out of 503.670 GB to store   2118486450 kmers.
+Used 32.825 GB out of 503.670 GB to store   2171113613 kmers.
+Used 32.950 GB out of 503.670 GB to store   2223495731 kmers.
+Used 33.075 GB out of 503.670 GB to store   2276036057 kmers.
+Used 33.200 GB out of 503.670 GB to store   2328416318 kmers.
+Used 33.325 GB out of 503.670 GB to store   2380413259 kmers.
+Used 33.450 GB out of 503.670 GB to store   2432463470 kmers.
+Used 33.575 GB out of 503.670 GB to store   2484670352 kmers.
+Used 33.700 GB out of 503.670 GB to store   2536691852 kmers.
+Used 33.825 GB out of 503.670 GB to store   2588648505 kmers.
+Used 33.950 GB out of 503.670 GB to store   2640365286 kmers.
+Used 34.075 GB out of 503.670 GB to store   2691877436 kmers.
+Used 34.200 GB out of 503.670 GB to store   2743773998 kmers.
+Used 34.325 GB out of 503.670 GB to store   2795455930 kmers.
+Used 34.450 GB out of 503.670 GB to store   2846790107 kmers.
+Used 34.575 GB out of 503.670 GB to store   2898155110 kmers.
+Used 34.700 GB out of 503.670 GB to store   2949364158 kmers.
+Used 34.825 GB out of 503.670 GB to store   3000693691 kmers.
+Used 34.950 GB out of 503.670 GB to store   3051867427 kmers.
+Used 35.075 GB out of 503.670 GB to store   3103037389 kmers.
+Used 35.200 GB out of 503.670 GB to store   3153979557 kmers.
+Used 35.325 GB out of 503.670 GB to store   3204551175 kmers.
+Used 35.450 GB out of 503.670 GB to store   3255290540 kmers.
+Used 35.575 GB out of 503.670 GB to store   3306011066 kmers.
+Used 35.700 GB out of 503.670 GB to store   3356900986 kmers.
+Used 35.825 GB out of 503.670 GB to store   3407825096 kmers.
+Used 35.950 GB out of 503.670 GB to store   3458312262 kmers.
+Used 36.075 GB out of 503.670 GB to store   3509056963 kmers.
+Used 36.200 GB out of 503.670 GB to store   3559873814 kmers.
+Used 36.325 GB out of 503.670 GB to store   3610166902 kmers.
+Used 36.451 GB out of 503.670 GB to store   3660901529 kmers.
+Used 36.576 GB out of 503.670 GB to store   3711556478 kmers.
+Used 36.701 GB out of 503.670 GB to store   3762158679 kmers.
+Used 36.826 GB out of 503.670 GB to store   3812572780 kmers.
+Used 36.951 GB out of 503.670 GB to store   3862585565 kmers.
+Used 37.076 GB out of 503.670 GB to store   3912713388 kmers.
+Used 37.201 GB out of 503.670 GB to store   3962694930 kmers.
+Used 37.326 GB out of 503.670 GB to store   4013106753 kmers.
+Used 37.451 GB out of 503.670 GB to store   4063565577 kmers.
+Used 37.576 GB out of 503.670 GB to store   4113795802 kmers.
+Used 37.701 GB out of 503.670 GB to store   4163722439 kmers.
+Used 37.826 GB out of 503.670 GB to store   4214014994 kmers.
+Used 37.951 GB out of 503.670 GB to store   4264129244 kmers.
+Used 38.076 GB out of 503.670 GB to store   4314357920 kmers.
+Used 38.201 GB out of 503.670 GB to store   4364602179 kmers.
+Used 38.326 GB out of 503.670 GB to store   4414523035 kmers.
+Used 38.451 GB out of 503.670 GB to store   4464610178 kmers.
+Used 38.576 GB out of 503.670 GB to store   4514636334 kmers.
+Used 38.701 GB out of 503.670 GB to store   4564623646 kmers.
+Used 38.826 GB out of 503.670 GB to store   4614535646 kmers.
+Used 38.951 GB out of 503.670 GB to store   4664332127 kmers.
+Used 39.076 GB out of 503.670 GB to store   4714103825 kmers.
+Used 39.201 GB out of 503.670 GB to store   4764200417 kmers.
+Used 39.326 GB out of 503.670 GB to store   4814098554 kmers.
+Used 39.451 GB out of 503.670 GB to store   4864141358 kmers.
+Used 39.576 GB out of 503.670 GB to store   4914298448 kmers.
+Used 39.701 GB out of 503.670 GB to store   4964280701 kmers.
+Used 39.826 GB out of 503.670 GB to store   5013675181 kmers.
+Used 39.951 GB out of 503.670 GB to store   5063588833 kmers.
+Used 40.076 GB out of 503.670 GB to store   5113418596 kmers.
+Used 40.201 GB out of 503.670 GB to store   5163355749 kmers.
+Used 40.326 GB out of 503.670 GB to store   5212735378 kmers.
+Used 40.451 GB out of 503.670 GB to store   5262472615 kmers.
+Used 40.576 GB out of 503.670 GB to store   5311995886 kmers.
+Used 40.701 GB out of 503.670 GB to store   5361208608 kmers.
+Used 40.826 GB out of 503.670 GB to store   5410840491 kmers.
+Used 40.951 GB out of 503.670 GB to store   5460285008 kmers.
+Used 41.076 GB out of 503.670 GB to store   5510320122 kmers.
+Used 41.201 GB out of 503.670 GB to store   5560024357 kmers.
+Used 41.326 GB out of 503.670 GB to store   5609673148 kmers.
+Used 41.451 GB out of 503.670 GB to store   5659355134 kmers.
+Used 41.576 GB out of 503.670 GB to store   5709279557 kmers.
+Used 41.702 GB out of 503.670 GB to store   5758559700 kmers.
+Used 41.827 GB out of 503.670 GB to store   5807696399 kmers.
+Used 41.952 GB out of 503.670 GB to store   5857069500 kmers.
+Used 42.077 GB out of 503.670 GB to store   5907120885 kmers.
+Used 42.202 GB out of 503.670 GB to store   5956402409 kmers.
+Used 42.327 GB out of 503.670 GB to store   6005615749 kmers.
+Used 42.452 GB out of 503.670 GB to store   6054970921 kmers.
+Used 42.577 GB out of 503.670 GB to store   6104764023 kmers.
+Used 42.702 GB out of 503.670 GB to store   6154255139 kmers.
+Used 42.827 GB out of 503.670 GB to store   6203876571 kmers.
+Used 42.952 GB out of 503.670 GB to store   6253079047 kmers.
+Used 43.077 GB out of 503.670 GB to store   6301892975 kmers.
+Used 43.202 GB out of 503.670 GB to store   6351433063 kmers.
+Used 43.327 GB out of 503.670 GB to store   6400896485 kmers.
+Used 43.452 GB out of 503.670 GB to store   6450270218 kmers.
+Used 43.577 GB out of 503.670 GB to store   6499299096 kmers.
+Used 43.702 GB out of 503.670 GB to store   6548804310 kmers.
+Used 43.827 GB out of 503.670 GB to store   6598181219 kmers.
+Used 43.952 GB out of 503.670 GB to store   6647971849 kmers.
+Used 44.077 GB out of 503.670 GB to store   6697112854 kmers.
+Used 44.202 GB out of 503.670 GB to store   6746292868 kmers.
+Used 44.327 GB out of 503.670 GB to store   6795589204 kmers.
+Used 44.452 GB out of 503.670 GB to store   6844880809 kmers.
+Used 44.577 GB out of 503.670 GB to store   6894081273 kmers.
+Used 44.702 GB out of 503.670 GB to store   6943226791 kmers.
+Used 44.827 GB out of 503.670 GB to store   6992545959 kmers.
+Used 44.952 GB out of 503.670 GB to store   7041571346 kmers.
+Used 45.077 GB out of 503.670 GB to store   7091139351 kmers.
+Used 45.202 GB out of 503.670 GB to store   7140694769 kmers.
+Used 45.327 GB out of 503.670 GB to store   7189854983 kmers.
+Used 45.452 GB out of 503.670 GB to store   7238591223 kmers.
+Used 45.577 GB out of 503.670 GB to store   7288042296 kmers.
+Used 45.702 GB out of 503.670 GB to store   7337193069 kmers.
+Used 45.827 GB out of 503.670 GB to store   7386619024 kmers.
+Used 45.952 GB out of 503.670 GB to store   7436117190 kmers.
+Used 46.077 GB out of 503.670 GB to store   7485185223 kmers.
+Used 46.202 GB out of 503.670 GB to store   7534626551 kmers.
+Used 46.327 GB out of 503.670 GB to store   7583805155 kmers.
+Used 46.452 GB out of 503.670 GB to store   7633242577 kmers.
+Used 46.577 GB out of 503.670 GB to store   7682011298 kmers.
+Used 46.703 GB out of 503.670 GB to store   7731212167 kmers.
+Used 46.828 GB out of 503.670 GB to store   7780115424 kmers.
+Used 46.953 GB out of 503.670 GB to store   7829295353 kmers.
+Used 47.078 GB out of 503.670 GB to store   7878536894 kmers.
+Used 47.203 GB out of 503.670 GB to store   7927633230 kmers.
+Used 47.328 GB out of 503.670 GB to store   7976318089 kmers.
+Used 47.453 GB out of 503.670 GB to store   8025496305 kmers.
+Used 47.578 GB out of 503.670 GB to store   8075012881 kmers.
+Used 47.703 GB out of 503.670 GB to store   8124470084 kmers.
+Used 47.828 GB out of 503.670 GB to store   8173693050 kmers.
+Used 47.953 GB out of 503.670 GB to store   8222530732 kmers.
+Used 48.078 GB out of 503.670 GB to store   8271375798 kmers.
+Used 48.203 GB out of 503.670 GB to store   8320619497 kmers.
+Used 48.328 GB out of 503.670 GB to store   8369743802 kmers.
+Used 48.453 GB out of 503.670 GB to store   8418843596 kmers.
+Used 48.578 GB out of 503.670 GB to store   8467916945 kmers.
+Used 48.703 GB out of 503.670 GB to store   8517010220 kmers.
+Used 48.828 GB out of 503.670 GB to store   8566601555 kmers.
+Used 48.953 GB out of 503.670 GB to store   8615602732 kmers.
+Used 49.078 GB out of 503.670 GB to store   8664394700 kmers.
+Used 49.203 GB out of 503.670 GB to store   8713778427 kmers.
+Used 49.328 GB out of 503.670 GB to store   8762498586 kmers.
+Used 49.453 GB out of 503.670 GB to store   8811864038 kmers.
+Used 49.578 GB out of 503.670 GB to store   8861463011 kmers.
+Used 49.703 GB out of 503.670 GB to store   8910431814 kmers.
+Used 49.828 GB out of 503.670 GB to store   8959728912 kmers.
+Used 49.953 GB out of 503.670 GB to store   9008275089 kmers.
+Used 50.078 GB out of 503.670 GB to store   9057461282 kmers.
+Used 50.203 GB out of 503.670 GB to store   9106424271 kmers.
+Used 50.328 GB out of 503.670 GB to store   9155875225 kmers.
+Used 50.453 GB out of 503.670 GB to store   9204784820 kmers.
+Used 50.578 GB out of 503.670 GB to store   9253679396 kmers.
+Used 50.703 GB out of 503.670 GB to store   9302845086 kmers.
+Used 50.828 GB out of 503.670 GB to store   9351894810 kmers.
+Used 50.953 GB out of 503.670 GB to store   9400929778 kmers.
+Used 51.079 GB out of 503.670 GB to store   9450057147 kmers.
+Used 51.204 GB out of 503.670 GB to store   9499093756 kmers.
+Used 51.329 GB out of 503.670 GB to store   9548482934 kmers.
+Used 51.454 GB out of 503.670 GB to store   9597522943 kmers.
+Used 51.579 GB out of 503.670 GB to store   9647011360 kmers.
+Used 51.704 GB out of 503.670 GB to store   9695822268 kmers.
+Used 51.829 GB out of 503.670 GB to store   9744795228 kmers.
+Used 51.954 GB out of 503.670 GB to store   9793874991 kmers.
+Used 52.079 GB out of 503.670 GB to store   9843315759 kmers.
+Used 52.204 GB out of 503.670 GB to store   9892231508 kmers.
+Used 52.329 GB out of 503.670 GB to store   9941439103 kmers.
+Used 52.454 GB out of 503.670 GB to store   9990483218 kmers.
+Used 52.579 GB out of 503.670 GB to store  10039411482 kmers.
+Used 52.704 GB out of 503.670 GB to store  10087946250 kmers.
+Used 52.829 GB out of 503.670 GB to store  10137339229 kmers.
+Used 52.954 GB out of 503.670 GB to store  10186285207 kmers.
+Used 53.079 GB out of 503.670 GB to store  10235225563 kmers.
+Used 53.204 GB out of 503.670 GB to store  10284128668 kmers.
+Used 53.329 GB out of 503.670 GB to store  10332762188 kmers.
+Used 53.454 GB out of 503.670 GB to store  10381985648 kmers.
+Used 53.579 GB out of 503.670 GB to store  10430971089 kmers.
+Used 53.704 GB out of 503.670 GB to store  10480288464 kmers.
+Used 53.829 GB out of 503.670 GB to store  10529346189 kmers.
+Used 53.954 GB out of 503.670 GB to store  10578484094 kmers.
+Used 54.079 GB out of 503.670 GB to store  10627021191 kmers.
+Used 54.204 GB out of 503.670 GB to store  10675790445 kmers.
+Used 54.329 GB out of 503.670 GB to store  10724652741 kmers.
+Used 54.454 GB out of 503.670 GB to store  10773957459 kmers.
+Used 54.579 GB out of 503.670 GB to store  10822597849 kmers.
+Used 54.704 GB out of 503.670 GB to store  10871543551 kmers.
+Used 54.829 GB out of 503.670 GB to store  10920651843 kmers.
+Used 54.954 GB out of 503.670 GB to store  10969618817 kmers.
+Used 55.079 GB out of 503.670 GB to store  11018607491 kmers.
+Used 55.204 GB out of 503.670 GB to store  11067945060 kmers.
+Used 55.329 GB out of 503.670 GB to store  11116833405 kmers.
+Used 55.455 GB out of 503.670 GB to store  11165982166 kmers.
+Used 55.580 GB out of 503.670 GB to store  11215249754 kmers.
+Used 55.705 GB out of 503.670 GB to store  11264085271 kmers.
+Used 55.830 GB out of 503.670 GB to store  11312992166 kmers.
+Used 55.955 GB out of 503.670 GB to store  11362614181 kmers.
+Used 56.080 GB out of 503.670 GB to store  11411699113 kmers.
+Used 56.205 GB out of 503.670 GB to store  11460471113 kmers.
+Used 56.330 GB out of 503.670 GB to store  11508941817 kmers.
+Used 56.455 GB out of 503.670 GB to store  11557863044 kmers.
+Used 56.580 GB out of 503.670 GB to store  11606926314 kmers.
+Used 56.705 GB out of 503.670 GB to store  11655909757 kmers.
+Used 56.830 GB out of 503.670 GB to store  11705123108 kmers.
+Used 56.955 GB out of 503.670 GB to store  11754392751 kmers.
+Used 57.080 GB out of 503.670 GB to store  11803308220 kmers.
+Used 57.205 GB out of 503.670 GB to store  11852347319 kmers.
+Used 57.330 GB out of 503.670 GB to store  11901011902 kmers.
+Used 57.455 GB out of 503.670 GB to store  11949856207 kmers.
+Used 57.580 GB out of 503.670 GB to store  11998674356 kmers.
+Used 57.705 GB out of 503.670 GB to store  12047440354 kmers.
+Used 57.830 GB out of 503.670 GB to store  12096355783 kmers.
+Used 57.955 GB out of 503.670 GB to store  12145609697 kmers.
+Used 58.080 GB out of 503.670 GB to store  12194446770 kmers.
+Used 58.205 GB out of 503.670 GB to store  12242993320 kmers.
+Used 58.330 GB out of 503.670 GB to store  12291995964 kmers.
+Used 58.455 GB out of 503.670 GB to store  12341153723 kmers.
+Used 58.580 GB out of 503.670 GB to store  12389996174 kmers.
+Used 58.705 GB out of 503.670 GB to store  12439050450 kmers.
+Used 58.830 GB out of 503.670 GB to store  12487707543 kmers.
+Used 58.955 GB out of 503.670 GB to store  12536544662 kmers.
+Used 59.080 GB out of 503.670 GB to store  12585396305 kmers.
+Used 59.205 GB out of 503.670 GB to store  12634061308 kmers.
+Used 59.330 GB out of 503.670 GB to store  12683230476 kmers.
+Used 59.455 GB out of 503.670 GB to store  12732340834 kmers.
+Used 59.580 GB out of 503.670 GB to store  12781373654 kmers.
+Used 59.705 GB out of 503.670 GB to store  12830486498 kmers.
+Used 59.830 GB out of 503.670 GB to store  12879466920 kmers.
+Used 59.955 GB out of 503.670 GB to store  12928594833 kmers.
+Used 60.080 GB out of 503.670 GB to store  12977858337 kmers.
+Used 60.205 GB out of 503.670 GB to store  13026719293 kmers.
+Used 60.330 GB out of 503.670 GB to store  13075321527 kmers.
+Used 60.455 GB out of 503.670 GB to store  13124380754 kmers.
+Used 60.580 GB out of 503.670 GB to store  13173039131 kmers.
+Used 60.705 GB out of 503.670 GB to store  13222048026 kmers.
+Used 60.830 GB out of 503.670 GB to store  13270932417 kmers.
+Used 60.955 GB out of 503.670 GB to store  13319988983 kmers.
+Used 61.081 GB out of 503.670 GB to store  13369076279 kmers.
+Used 61.206 GB out of 503.670 GB to store  13417565397 kmers.
+Used 61.331 GB out of 503.670 GB to store  13466427736 kmers.
+Used 61.456 GB out of 503.670 GB to store  13515217494 kmers.
+Used 61.581 GB out of 503.670 GB to store  13564427293 kmers.
+Used 61.706 GB out of 503.670 GB to store  13613430314 kmers.
+Used 61.831 GB out of 503.670 GB to store  13662243756 kmers.
+Used 61.956 GB out of 503.670 GB to store  13711098963 kmers.
+Used 62.081 GB out of 503.670 GB to store  13760287080 kmers.
+Used 62.206 GB out of 503.670 GB to store  13809400932 kmers.
+Used 62.331 GB out of 503.670 GB to store  13857971883 kmers.
+Used 62.456 GB out of 503.670 GB to store  13906865258 kmers.
+Used 62.581 GB out of 503.670 GB to store  13956155653 kmers.
+Used 62.706 GB out of 503.670 GB to store  14004824113 kmers.
+Used 62.831 GB out of 503.670 GB to store  14053769637 kmers.
+Used 62.956 GB out of 503.670 GB to store  14102906574 kmers.
+Used 63.081 GB out of 503.670 GB to store  14151846884 kmers.
+Used 63.206 GB out of 503.670 GB to store  14200855764 kmers.
+Used 63.331 GB out of 503.670 GB to store  14249492159 kmers.
+Used 63.456 GB out of 503.670 GB to store  14298405216 kmers.
+Used 63.581 GB out of 503.670 GB to store  14347299495 kmers.
+Used 63.706 GB out of 503.670 GB to store  14396120735 kmers.
+Used 63.831 GB out of 503.670 GB to store  14445472610 kmers.
+Used 63.956 GB out of 503.670 GB to store  14494688754 kmers.
+Used 64.081 GB out of 503.670 GB to store  14543121549 kmers.
+Used 64.206 GB out of 503.670 GB to store  14592221648 kmers.
+Used 64.331 GB out of 503.670 GB to store  14641057545 kmers.
+Used 64.456 GB out of 503.670 GB to store  14689856331 kmers.
+Used 64.581 GB out of 503.670 GB to store  14738673521 kmers.
+Used 64.706 GB out of 503.670 GB to store  14787716235 kmers.
+Used 64.831 GB out of 503.670 GB to store  14836905944 kmers.
+Used 64.956 GB out of 503.670 GB to store  14885703005 kmers.
+Used 65.081 GB out of 503.670 GB to store  14934751894 kmers.
+Used 65.206 GB out of 503.670 GB to store  14983720334 kmers.
+Used 65.331 GB out of 503.670 GB to store  15032223975 kmers.
+Used 65.456 GB out of 503.670 GB to store  15081272415 kmers.
+Used 65.581 GB out of 503.670 GB to store  15130111682 kmers.
+Used 65.706 GB out of 503.670 GB to store  15178865113 kmers.
+Used 65.831 GB out of 503.670 GB to store  15228028421 kmers.
+Used 65.956 GB out of 503.670 GB to store  15276968173 kmers.
+Used 66.081 GB out of 503.670 GB to store  15326062824 kmers.
+Used 66.206 GB out of 503.670 GB to store  15375246992 kmers.
+Used 66.331 GB out of 503.670 GB to store  15424087079 kmers.
+Used 66.456 GB out of 503.670 GB to store  15473089658 kmers.
+Used 66.582 GB out of 503.670 GB to store  15522271601 kmers.
+Used 66.707 GB out of 503.670 GB to store  15570917587 kmers.
+Used 66.832 GB out of 503.670 GB to store  15619591276 kmers.
+Used 66.957 GB out of 503.670 GB to store  15668358904 kmers.
+Used 67.082 GB out of 503.670 GB to store  15717370876 kmers.
+Used 67.207 GB out of 503.670 GB to store  15766261422 kmers.
+Used 67.332 GB out of 503.670 GB to store  15814944515 kmers.
+Used 67.457 GB out of 503.670 GB to store  15863815617 kmers.
+Used 67.582 GB out of 503.670 GB to store  15912787856 kmers.
+Used 67.707 GB out of 503.670 GB to store  15961493729 kmers.
+Used 67.832 GB out of 503.670 GB to store  16010889523 kmers.
+Used 67.957 GB out of 503.670 GB to store  16059436090 kmers.
+Used 68.082 GB out of 503.670 GB to store  16108219894 kmers.
+Used 68.207 GB out of 503.670 GB to store  16157177579 kmers.
+Used 68.332 GB out of 503.670 GB to store  16206085024 kmers.
+Used 68.457 GB out of 503.670 GB to store  16255372193 kmers.
+Used 68.582 GB out of 503.670 GB to store  16304149384 kmers.
+Used 68.707 GB out of 503.670 GB to store  16353240441 kmers.
+Used 68.832 GB out of 503.670 GB to store  16402317946 kmers.
+Used 68.957 GB out of 503.670 GB to store  16451303319 kmers.
+Used 69.082 GB out of 503.670 GB to store  16500036208 kmers.
+Used 69.207 GB out of 503.670 GB to store  16548633029 kmers.
+Used 69.332 GB out of 503.670 GB to store  16597541866 kmers.
+Used 69.457 GB out of 503.670 GB to store  16646013626 kmers.
+Used 69.582 GB out of 503.670 GB to store  16694984695 kmers.
+Used 69.707 GB out of 503.670 GB to store  16744326907 kmers.
+Used 69.832 GB out of 503.670 GB to store  16793581600 kmers.
+Used 69.957 GB out of 503.670 GB to store  16842243130 kmers.
+Used 70.082 GB out of 503.670 GB to store  16891177615 kmers.
+Used 70.207 GB out of 503.670 GB to store  16939992017 kmers.
+Used 70.332 GB out of 503.670 GB to store  16988907836 kmers.
+Used 70.457 GB out of 503.670 GB to store  17038361179 kmers.
+Used 70.582 GB out of 503.670 GB to store  17087116534 kmers.
+Used 70.707 GB out of 503.670 GB to store  17136184998 kmers.
+Used 70.832 GB out of 503.670 GB to store  17184716194 kmers.
+Used 70.957 GB out of 503.670 GB to store  17233739907 kmers.
+Used 71.083 GB out of 503.670 GB to store  17283028181 kmers.
+Used 71.208 GB out of 503.670 GB to store  17331970070 kmers.
+Used 71.333 GB out of 503.670 GB to store  17380589063 kmers.
+Used 71.458 GB out of 503.670 GB to store  17429502053 kmers.
+Used 71.583 GB out of 503.670 GB to store  17478157802 kmers.
+Used 71.708 GB out of 503.670 GB to store  17527120763 kmers.
+Used 71.833 GB out of 503.670 GB to store  17575949660 kmers.
+Used 71.958 GB out of 503.670 GB to store  17625063659 kmers.
+Used 72.083 GB out of 503.670 GB to store  17674016612 kmers.
+Used 72.208 GB out of 503.670 GB to store  17722987056 kmers.
+Used 72.333 GB out of 503.670 GB to store  17772058546 kmers.
+Used 72.458 GB out of 503.670 GB to store  17820948191 kmers.
+Used 72.583 GB out of 503.670 GB to store  17869688864 kmers.
+Used 72.708 GB out of 503.670 GB to store  17918957520 kmers.
+Used 72.833 GB out of 503.670 GB to store  17967849656 kmers.
+Used 72.958 GB out of 503.670 GB to store  18016781707 kmers.
+Used 73.083 GB out of 503.670 GB to store  18065313525 kmers.
+Used 73.208 GB out of 503.670 GB to store  18113774315 kmers.
+Used 73.333 GB out of 503.670 GB to store  18162839361 kmers.
+Used 73.458 GB out of 503.670 GB to store  18211857885 kmers.
+Used 73.583 GB out of 503.670 GB to store  18260973014 kmers.
+Used 73.708 GB out of 503.670 GB to store  18309666055 kmers.
+Used 73.833 GB out of 503.670 GB to store  18358387620 kmers.
+Used 73.958 GB out of 503.670 GB to store  18407323699 kmers.
+Used 74.083 GB out of 503.670 GB to store  18456136917 kmers.
+Used 74.208 GB out of 503.670 GB to store  18505224543 kmers.
+Used 74.333 GB out of 503.670 GB to store  18553848487 kmers.
+Used 74.458 GB out of 503.670 GB to store  18603135651 kmers.
+Used 74.583 GB out of 503.670 GB to store  18651930388 kmers.
+Used 74.708 GB out of 503.670 GB to store  18700908852 kmers.
+Used 74.833 GB out of 503.670 GB to store  18749642197 kmers.
+Used 74.958 GB out of 503.670 GB to store  18799222122 kmers.
+Used 75.083 GB out of 503.670 GB to store  18847659705 kmers.
+Used 75.208 GB out of 503.670 GB to store  18896244580 kmers.
+Used 75.334 GB out of 503.670 GB to store  18944513907 kmers.
+Used 75.459 GB out of 503.670 GB to store  18993729199 kmers.
+Used 75.584 GB out of 503.670 GB to store  19043196914 kmers.
+Used 75.709 GB out of 503.670 GB to store  19092422160 kmers.
+Used 75.834 GB out of 503.670 GB to store  19141485545 kmers.
+Used 75.959 GB out of 503.670 GB to store  19190521794 kmers.
+Used 76.084 GB out of 503.670 GB to store  19239466319 kmers.
+Used 76.209 GB out of 503.670 GB to store  19288163026 kmers.
+Used 76.334 GB out of 503.670 GB to store  19336623438 kmers.
+Used 76.459 GB out of 503.670 GB to store  19385903051 kmers.
+Used 76.584 GB out of 503.670 GB to store  19434691670 kmers.
+Used 76.709 GB out of 503.670 GB to store  19483479373 kmers.
+Used 76.834 GB out of 503.670 GB to store  19532285580 kmers.
+Used 76.959 GB out of 503.670 GB to store  19581441705 kmers.
+Used 77.084 GB out of 503.670 GB to store  19630234486 kmers.
+Used 77.209 GB out of 503.670 GB to store  19679172101 kmers.
+Used 77.334 GB out of 503.670 GB to store  19727665026 kmers.
+Used 77.459 GB out of 503.670 GB to store  19776455470 kmers.
+Used 77.584 GB out of 503.670 GB to store  19825536075 kmers.
+Used 77.709 GB out of 503.670 GB to store  19875291095 kmers.
+Used 77.834 GB out of 503.670 GB to store  19924337086 kmers.
+Used 77.959 GB out of 503.670 GB to store  19973255410 kmers.
+Used 78.084 GB out of 503.670 GB to store  20022119602 kmers.
+Used 78.209 GB out of 503.670 GB to store  20070476720 kmers.
+Used 78.334 GB out of 503.670 GB to store  20119033994 kmers.
+Used 78.459 GB out of 503.670 GB to store  20168178910 kmers.
+Used 78.584 GB out of 503.670 GB to store  20216931782 kmers.
+Used 78.709 GB out of 503.670 GB to store  20265851000 kmers.
+Used 78.834 GB out of 503.670 GB to store  20314939941 kmers.
+Used 78.959 GB out of 503.670 GB to store  20363700622 kmers.
+Used 79.084 GB out of 503.670 GB to store  20412195058 kmers.
+Used 79.209 GB out of 503.670 GB to store  20460467985 kmers.
+Used 79.334 GB out of 503.670 GB to store  20509240618 kmers.
+Used 79.459 GB out of 503.670 GB to store  20558072517 kmers.
+Used 79.584 GB out of 503.670 GB to store  20606641115 kmers.
+Used 79.709 GB out of 503.670 GB to store  20655776903 kmers.
+Used 79.834 GB out of 503.670 GB to store  20704755696 kmers.
+Used 79.959 GB out of 503.670 GB to store  20754105953 kmers.
+Used 80.084 GB out of 503.670 GB to store  20802963968 kmers.
+Used 80.209 GB out of 503.670 GB to store  20852352943 kmers.
+Used 80.334 GB out of 503.670 GB to store  20901168491 kmers.
+Used 80.460 GB out of 503.670 GB to store  20950324829 kmers.
+Used 80.585 GB out of 503.670 GB to store  20999206704 kmers.
+Used 80.710 GB out of 503.670 GB to store  21047684530 kmers.
+Used 80.835 GB out of 503.670 GB to store  21096877671 kmers.
+Used 80.960 GB out of 503.670 GB to store  21145874891 kmers.
+Used 81.085 GB out of 503.670 GB to store  21194546328 kmers.
+Used 81.210 GB out of 503.670 GB to store  21243670539 kmers.
+Used 81.335 GB out of 503.670 GB to store  21292068657 kmers.
+Used 81.460 GB out of 503.670 GB to store  21340634165 kmers.
+Used 81.585 GB out of 503.670 GB to store  21389691689 kmers.
+Used 81.710 GB out of 503.670 GB to store  21438607040 kmers.
+Used 81.835 GB out of 503.670 GB to store  21487339205 kmers.
+Used 81.960 GB out of 503.670 GB to store  21536791562 kmers.
+Used 82.085 GB out of 503.670 GB to store  21585229154 kmers.
+Used 82.210 GB out of 503.670 GB to store  21634345196 kmers.
+Used 82.335 GB out of 503.670 GB to store  21683547394 kmers.
+Used 82.460 GB out of 503.670 GB to store  21732579699 kmers.
+Used 82.585 GB out of 503.670 GB to store  21780869385 kmers.
+Used 82.710 GB out of 503.670 GB to store  21829648210 kmers.
+Used 82.835 GB out of 503.670 GB to store  21878721190 kmers.
+Used 82.960 GB out of 503.670 GB to store  21927741301 kmers.
+Used 83.085 GB out of 503.670 GB to store  21976373825 kmers.
+Used 83.210 GB out of 503.670 GB to store  22025106348 kmers.
+Used 83.335 GB out of 503.670 GB to store  22074121490 kmers.
+Used 83.460 GB out of 503.670 GB to store  22122450692 kmers.
+Used 83.585 GB out of 503.670 GB to store  22171158088 kmers.
+Used 83.710 GB out of 503.670 GB to store  22220134043 kmers.
+Used 83.835 GB out of 503.670 GB to store  22269251262 kmers.
+Used 83.960 GB out of 503.670 GB to store  22318242569 kmers.
+Used 84.085 GB out of 503.670 GB to store  22367507636 kmers.
+Used 84.210 GB out of 503.670 GB to store  22416628621 kmers.
+Used 84.335 GB out of 503.670 GB to store  22465670325 kmers.
+Used 84.460 GB out of 503.670 GB to store  22514621782 kmers.
+Used 84.585 GB out of 503.670 GB to store  22563500034 kmers.
+Used 84.710 GB out of 503.670 GB to store  22612632509 kmers.
+Used 84.835 GB out of 503.670 GB to store  22661599222 kmers.
+Used 84.961 GB out of 503.670 GB to store  22710615122 kmers.
+Used 85.086 GB out of 503.670 GB to store  22759342042 kmers.
+Used 85.211 GB out of 503.670 GB to store  22808317545 kmers.
+Used 85.336 GB out of 503.670 GB to store  22856897538 kmers.
+Used 85.461 GB out of 503.670 GB to store  22906048889 kmers.
+Used 85.586 GB out of 503.670 GB to store  22954687386 kmers.
+Used 85.711 GB out of 503.670 GB to store  23003284319 kmers.
+Used 85.836 GB out of 503.670 GB to store  23052094560 kmers.
+Used 85.961 GB out of 503.670 GB to store  23100876333 kmers.
+Used 86.086 GB out of 503.670 GB to store  23149646933 kmers.
+Used 86.211 GB out of 503.670 GB to store  23198358492 kmers.
+Used 86.336 GB out of 503.670 GB to store  23247128742 kmers.
+Used 86.461 GB out of 503.670 GB to store  23295971369 kmers.
+Used 86.586 GB out of 503.670 GB to store  23344937145 kmers.
+Used 86.711 GB out of 503.670 GB to store  23393983189 kmers.
+Used 86.836 GB out of 503.670 GB to store  23442758038 kmers.
+Used 86.961 GB out of 503.670 GB to store  23491809892 kmers.
+Used 87.086 GB out of 503.670 GB to store  23541277820 kmers.
+Used 87.211 GB out of 503.670 GB to store  23589959098 kmers.
+Used 87.336 GB out of 503.670 GB to store  23638863086 kmers.
+Used 87.461 GB out of 503.670 GB to store  23687836543 kmers.
+Used 87.586 GB out of 503.670 GB to store  23736584970 kmers.
+Used 87.711 GB out of 503.670 GB to store  23785292190 kmers.
+Used 87.836 GB out of 503.670 GB to store  23834364733 kmers.
+Used 87.961 GB out of 503.670 GB to store  23883300148 kmers.
+Used 88.086 GB out of 503.670 GB to store  23932015916 kmers.
+Used 88.211 GB out of 503.670 GB to store  23980920340 kmers.
+Used 88.336 GB out of 503.670 GB to store  24029761122 kmers.
+Used 88.461 GB out of 503.670 GB to store  24078538015 kmers.
+Used 88.586 GB out of 503.670 GB to store  24127361012 kmers.
+Used 88.711 GB out of 503.670 GB to store  24176018670 kmers.
+Used 88.836 GB out of 503.670 GB to store  24225144034 kmers.
+Used 88.961 GB out of 503.670 GB to store  24274283525 kmers.
+Used 89.086 GB out of 503.670 GB to store  24323071311 kmers.
+Used 89.211 GB out of 503.670 GB to store  24371842689 kmers.
+Used 89.336 GB out of 503.670 GB to store  24420988733 kmers.
+Used 89.462 GB out of 503.670 GB to store  24469593686 kmers.
+Used 89.587 GB out of 503.670 GB to store  24518677530 kmers.
+Used 89.712 GB out of 503.670 GB to store  24567229533 kmers.
+Used 89.837 GB out of 503.670 GB to store  24615947878 kmers.
+Used 89.962 GB out of 503.670 GB to store  24664709861 kmers.
+Used 90.087 GB out of 503.670 GB to store  24713901996 kmers.
+Used 90.212 GB out of 503.670 GB to store  24762592258 kmers.
+Used 90.337 GB out of 503.670 GB to store  24810956499 kmers.
+Used 90.462 GB out of 503.670 GB to store  24859797512 kmers.
+Used 90.587 GB out of 503.670 GB to store  24908535578 kmers.
+Used 90.712 GB out of 503.670 GB to store  24957722713 kmers.
+Used 90.837 GB out of 503.670 GB to store  25006499146 kmers.
+Used 90.962 GB out of 503.670 GB to store  25055306926 kmers.
+Used 91.087 GB out of 503.670 GB to store  25104738125 kmers.
+Used 91.212 GB out of 503.670 GB to store  25153354438 kmers.
+Used 91.337 GB out of 503.670 GB to store  25201403291 kmers.
+Used 91.462 GB out of 503.670 GB to store  25250444976 kmers.
+Used 91.587 GB out of 503.670 GB to store  25300171476 kmers.
+Used 91.712 GB out of 503.670 GB to store  25349058197 kmers.
+Used 91.837 GB out of 503.670 GB to store  25397645396 kmers.
+Used 91.962 GB out of 503.670 GB to store  25446714491 kmers.
+Used 92.087 GB out of 503.670 GB to store  25495237937 kmers.
+Used 92.212 GB out of 503.670 GB to store  25544375013 kmers.
+Used 92.337 GB out of 503.670 GB to store  25593662869 kmers.
+Used 92.462 GB out of 503.670 GB to store  25642289356 kmers.
+Used 92.587 GB out of 503.670 GB to store  25690928890 kmers.
+Used 92.712 GB out of 503.670 GB to store  25740181123 kmers.
+Used 92.837 GB out of 503.670 GB to store  25789170801 kmers.
+Used 92.962 GB out of 503.670 GB to store  25838053998 kmers.
+Used 93.087 GB out of 503.670 GB to store  25886735389 kmers.
+Used 93.212 GB out of 503.670 GB to store  25935734678 kmers.
+Used 93.337 GB out of 503.670 GB to store  25984391990 kmers.
+Used 93.462 GB out of 503.670 GB to store  26033244382 kmers.
+Used 93.587 GB out of 503.670 GB to store  26081707243 kmers.
+Used 93.712 GB out of 503.670 GB to store  26130660058 kmers.
+Used 93.837 GB out of 503.670 GB to store  26179593358 kmers.
+Used 93.962 GB out of 503.670 GB to store  26228082213 kmers.
+Used 94.087 GB out of 503.670 GB to store  26276929677 kmers.
+Used 94.212 GB out of 503.670 GB to store  26326354587 kmers.
+Used 94.337 GB out of 503.670 GB to store  26374969254 kmers.
+Used 94.463 GB out of 503.670 GB to store  26423931243 kmers.
+Used 94.588 GB out of 503.670 GB to store  26472514574 kmers.
+Used 94.713 GB out of 503.670 GB to store  26521020047 kmers.
+Used 94.838 GB out of 503.670 GB to store  26570437581 kmers.
+Used 94.963 GB out of 503.670 GB to store  26618860928 kmers.
+Used 95.088 GB out of 503.670 GB to store  26668028480 kmers.
+Used 95.213 GB out of 503.670 GB to store  26717111116 kmers.
+Used 95.338 GB out of 503.670 GB to store  26765732519 kmers.
+Used 95.463 GB out of 503.670 GB to store  26814600498 kmers.
+Used 95.588 GB out of 503.670 GB to store  26863395539 kmers.
+Used 95.713 GB out of 503.670 GB to store  26912182011 kmers.
+Used 95.838 GB out of 503.670 GB to store  26961242913 kmers.
+Used 95.963 GB out of 503.670 GB to store  27010499159 kmers.
+Used 96.088 GB out of 503.670 GB to store  27059598297 kmers.
+Used 96.213 GB out of 503.670 GB to store  27108390915 kmers.
+Used 96.338 GB out of 503.670 GB to store  27156738046 kmers.
+Used 96.463 GB out of 503.670 GB to store  27205461749 kmers.
+Used 96.588 GB out of 503.670 GB to store  27253913996 kmers.
+Used 96.713 GB out of 503.670 GB to store  27302940760 kmers.
+Used 96.838 GB out of 503.670 GB to store  27352092287 kmers.
+Used 96.963 GB out of 503.670 GB to store  27400947690 kmers.
+Used 97.088 GB out of 503.670 GB to store  27449967847 kmers.
+Used 97.213 GB out of 503.670 GB to store  27498424565 kmers.
+Used 97.338 GB out of 503.670 GB to store  27547175247 kmers.
+Used 97.463 GB out of 503.670 GB to store  27596453646 kmers.
+Used 97.588 GB out of 503.670 GB to store  27645373463 kmers.
+Used 97.714 GB out of 503.670 GB to store  27694094271 kmers.
+Used 97.839 GB out of 503.670 GB to store  27742834045 kmers.
+Used 97.964 GB out of 503.670 GB to store  27791264158 kmers.
+Used 98.089 GB out of 503.670 GB to store  27839906986 kmers.
+Used 98.214 GB out of 503.670 GB to store  27888935272 kmers.
+Used 98.339 GB out of 503.670 GB to store  27937918595 kmers.
+Used 98.464 GB out of 503.670 GB to store  27987160606 kmers.
+Used 98.589 GB out of 503.670 GB to store  28036040028 kmers.
+Used 98.714 GB out of 503.670 GB to store  28084929354 kmers.
+Used 98.839 GB out of 503.670 GB to store  28133539761 kmers.
+Used 98.964 GB out of 503.670 GB to store  28182420241 kmers.
+Used 99.089 GB out of 503.670 GB to store  28231221751 kmers.
+Used 99.214 GB out of 503.670 GB to store  28279961684 kmers.
+Used 99.339 GB out of 503.670 GB to store  28329362792 kmers.
+Used 99.464 GB out of 503.670 GB to store  28378354841 kmers.
+Used 99.589 GB out of 503.670 GB to store  28427097456 kmers.
+Used 99.714 GB out of 503.670 GB to store  28475877195 kmers.
+Used 99.839 GB out of 503.670 GB to store  28524493030 kmers.
+Used 99.964 GB out of 503.670 GB to store  28573468436 kmers.
+Used 100.089 GB out of 503.670 GB to store  28622555049 kmers.
+Used 100.214 GB out of 503.670 GB to store  28671444712 kmers.
+Used 100.339 GB out of 503.670 GB to store  28720514393 kmers.
+Used 100.464 GB out of 503.670 GB to store  28769265368 kmers.
+Used 100.589 GB out of 503.670 GB to store  28817985601 kmers.
+Used 100.714 GB out of 503.670 GB to store  28866796997 kmers.
+Used 100.839 GB out of 503.670 GB to store  28915849926 kmers.
+Used 100.964 GB out of 503.670 GB to store  28964697408 kmers.
+Used 101.089 GB out of 503.670 GB to store  29013742042 kmers.
+Used 101.214 GB out of 503.670 GB to store  29062542870 kmers.
+Used 101.339 GB out of 503.670 GB to store  29111023360 kmers.
+Used 101.464 GB out of 503.670 GB to store  29159856993 kmers.
+Used 101.589 GB out of 503.670 GB to store  29208383766 kmers.
+Used 101.714 GB out of 503.670 GB to store  29257557629 kmers.
+Used 101.839 GB out of 503.670 GB to store  29306233327 kmers.
+Used 101.964 GB out of 503.670 GB to store  29355124849 kmers.
+Used 102.089 GB out of 503.670 GB to store  29403637322 kmers.
+Used 102.214 GB out of 503.670 GB to store  29452818314 kmers.
+Used 102.340 GB out of 503.670 GB to store  29502076104 kmers.
+Used 102.465 GB out of 503.670 GB to store  29550858076 kmers.
+Used 102.590 GB out of 503.670 GB to store  29599975134 kmers.
+Used 102.715 GB out of 503.670 GB to store  29648986624 kmers.
+Used 102.840 GB out of 503.670 GB to store  29697914227 kmers.
+Used 102.965 GB out of 503.670 GB to store  29746396358 kmers.
+Used 103.090 GB out of 503.670 GB to store  29795249270 kmers.
+Used 103.215 GB out of 503.670 GB to store  29844081076 kmers.
+Used 103.340 GB out of 503.670 GB to store  29893158559 kmers.
+Used 103.465 GB out of 503.670 GB to store  29942309786 kmers.
+Used 103.590 GB out of 503.670 GB to store  29991097366 kmers.
+Used 103.715 GB out of 503.670 GB to store  30040344925 kmers.
+Used 103.840 GB out of 503.670 GB to store  30089484366 kmers.
+Used 103.965 GB out of 503.670 GB to store  30137819454 kmers.
+Used 104.090 GB out of 503.670 GB to store  30186259203 kmers.
+Used 104.215 GB out of 503.670 GB to store  30235030346 kmers.
+Used 104.340 GB out of 503.670 GB to store  30283733575 kmers.
+Used 104.465 GB out of 503.670 GB to store  30332819274 kmers.
+Used 104.590 GB out of 503.670 GB to store  30381886527 kmers.
+Used 104.715 GB out of 503.670 GB to store  30430686403 kmers.
+Used 104.840 GB out of 503.670 GB to store  30479538977 kmers.
+Used 104.965 GB out of 503.670 GB to store  30528262432 kmers.
+Used 105.090 GB out of 503.670 GB to store  30577155124 kmers.
+Used 105.215 GB out of 503.670 GB to store  30625828798 kmers.
+Used 105.340 GB out of 503.670 GB to store  30674817623 kmers.
+Used 105.465 GB out of 503.670 GB to store  30723870216 kmers.
+Used 105.590 GB out of 503.670 GB to store  30772406741 kmers.
+Used 105.715 GB out of 503.670 GB to store  30821503837 kmers.
+Used 105.840 GB out of 503.670 GB to store  30870322092 kmers.
+Used 105.965 GB out of 503.670 GB to store  30919072077 kmers.
+Used 106.090 GB out of 503.670 GB to store  30967482798 kmers.
+Used 106.215 GB out of 503.670 GB to store  31016112810 kmers.
+Used 106.340 GB out of 503.670 GB to store  31065276041 kmers.
+Used 106.465 GB out of 503.670 GB to store  31114379544 kmers.
+Used 106.590 GB out of 503.670 GB to store  31163239056 kmers.
+Used 106.715 GB out of 503.670 GB to store  31211518148 kmers.
+Used 106.840 GB out of 503.670 GB to store  31260650501 kmers.
+Used 106.965 GB out of 503.670 GB to store  31309491330 kmers.
+Used 107.090 GB out of 503.670 GB to store  31358066127 kmers.
+Used 107.215 GB out of 503.670 GB to store  31406829238 kmers.
+Used 107.341 GB out of 503.670 GB to store  31455679302 kmers.
+Used 107.466 GB out of 503.670 GB to store  31504467012 kmers.
+Used 107.591 GB out of 503.670 GB to store  31553600009 kmers.
+Used 107.716 GB out of 503.670 GB to store  31602357079 kmers.
+Used 107.841 GB out of 503.670 GB to store  31650939253 kmers.
+Used 107.966 GB out of 503.670 GB to store  31699501490 kmers.
+Used 108.091 GB out of 503.670 GB to store  31748149200 kmers.
+Used 108.216 GB out of 503.670 GB to store  31796979020 kmers.
+Used 108.341 GB out of 503.670 GB to store  31846109002 kmers.
+Used 108.466 GB out of 503.670 GB to store  31894640635 kmers.
+Used 108.591 GB out of 503.670 GB to store  31943280359 kmers.
+Used 108.716 GB out of 503.670 GB to store  31992060236 kmers.
+Used 108.841 GB out of 503.670 GB to store  32041586828 kmers.
+Used 108.966 GB out of 503.670 GB to store  32090357877 kmers.
+Used 109.091 GB out of 503.670 GB to store  32139426897 kmers.
+Used 109.216 GB out of 503.670 GB to store  32188608361 kmers.
+Used 109.341 GB out of 503.670 GB to store  32237368887 kmers.
+Used 109.466 GB out of 503.670 GB to store  32285904135 kmers.
+Used 109.591 GB out of 503.670 GB to store  32334417805 kmers.
+Used 109.716 GB out of 503.670 GB to store  32382880487 kmers.
+Used 109.841 GB out of 503.670 GB to store  32431837805 kmers.
+Used 109.966 GB out of 503.670 GB to store  32480154540 kmers.
+Used 110.091 GB out of 503.670 GB to store  32529480494 kmers.
+Used 110.216 GB out of 503.670 GB to store  32578755468 kmers.
+Used 110.341 GB out of 503.670 GB to store  32627203533 kmers.
+Used 110.466 GB out of 503.670 GB to store  32676375156 kmers.
+Used 110.591 GB out of 503.670 GB to store  32725797158 kmers.
+Used 110.716 GB out of 503.670 GB to store  32774719051 kmers.
+Used 110.841 GB out of 503.670 GB to store  32823582522 kmers.
+Used 110.966 GB out of 503.670 GB to store  32872234796 kmers.
+Used 111.091 GB out of 503.670 GB to store  32920725352 kmers.
+Used 111.216 GB out of 503.670 GB to store  32969624391 kmers.
+Used 111.341 GB out of 503.670 GB to store  33018557877 kmers.
+Used 111.466 GB out of 503.670 GB to store  33067213691 kmers.
+Used 111.591 GB out of 503.670 GB to store  33116156204 kmers.
+Used 111.716 GB out of 503.670 GB to store  33164629649 kmers.
+Used 111.841 GB out of 503.670 GB to store  33213296849 kmers.
+Used 111.966 GB out of 503.670 GB to store  33262296764 kmers.
+Used 112.091 GB out of 503.670 GB to store  33311047097 kmers.
+Used 112.217 GB out of 503.670 GB to store  33359842209 kmers.
+Used 112.342 GB out of 503.670 GB to store  33408597286 kmers.
+Used 112.467 GB out of 503.670 GB to store  33457432967 kmers.
+Used 112.592 GB out of 503.670 GB to store  33506562512 kmers.
+Used 112.717 GB out of 503.670 GB to store  33555611140 kmers.
+Used 112.842 GB out of 503.670 GB to store  33604376754 kmers.
+Used 112.967 GB out of 503.670 GB to store  33653402946 kmers.
+Used 113.092 GB out of 503.670 GB to store  33702087258 kmers.
+Used 113.217 GB out of 503.670 GB to store  33750909448 kmers.
+Used 113.342 GB out of 503.670 GB to store  33799420001 kmers.
+Used 113.467 GB out of 503.670 GB to store  33848301163 kmers.
+Used 113.592 GB out of 503.670 GB to store  33897278622 kmers.
+Used 113.717 GB out of 503.670 GB to store  33946066099 kmers.
+Used 113.842 GB out of 503.670 GB to store  33994879352 kmers.
+Used 113.967 GB out of 503.670 GB to store  34043849784 kmers.
+Used 114.092 GB out of 503.670 GB to store  34092614057 kmers.
+Used 114.217 GB out of 503.670 GB to store  34141061911 kmers.
+Used 114.342 GB out of 503.670 GB to store  34190140067 kmers.
+Used 114.467 GB out of 503.670 GB to store  34239540773 kmers.
+Used 114.592 GB out of 503.670 GB to store  34288482151 kmers.
+Used 114.717 GB out of 503.670 GB to store  34336914050 kmers.
+Used 114.842 GB out of 503.670 GB to store  34386216100 kmers.
+Used 114.967 GB out of 503.670 GB to store  34434976068 kmers.
+Used 115.092 GB out of 503.670 GB to store  34483851393 kmers.
+Used 115.217 GB out of 503.670 GB to store  34532505132 kmers.
+Used 115.342 GB out of 503.670 GB to store  34581775102 kmers.
+Used 115.467 GB out of 503.670 GB to store  34630076549 kmers.
+Used 115.592 GB out of 503.670 GB to store  34678899770 kmers.
+Used 115.717 GB out of 503.670 GB to store  34727376218 kmers.
+Used 115.842 GB out of 503.670 GB to store  34776437100 kmers.
+Used 115.967 GB out of 503.670 GB to store  34825138835 kmers.
+Used 116.092 GB out of 503.670 GB to store  34874315754 kmers.
+Used 116.217 GB out of 503.670 GB to store  34923124238 kmers.
+Used 116.342 GB out of 503.670 GB to store  34971932578 kmers.
+Used 116.467 GB out of 503.670 GB to store  35020605092 kmers.
+Used 116.592 GB out of 503.670 GB to store  35069205570 kmers.
+Used 116.717 GB out of 503.670 GB to store  35117533476 kmers.
+Used 116.842 GB out of 503.670 GB to store  35166607272 kmers.
+Used 116.967 GB out of 503.670 GB to store  35215168703 kmers.
+Used 117.092 GB out of 503.670 GB to store  35264221652 kmers.
+Used 117.217 GB out of 503.670 GB to store  35312890391 kmers.
+Used 117.342 GB out of 503.670 GB to store  35361786977 kmers.
+Used 117.467 GB out of 503.670 GB to store  35410670894 kmers.
+Used 117.592 GB out of 503.670 GB to store  35459532536 kmers.
+Used 117.717 GB out of 503.670 GB to store  35508554006 kmers.
+Used 117.842 GB out of 503.670 GB to store  35557497541 kmers.
+Used 117.967 GB out of 503.670 GB to store  35605994137 kmers.
+Used 118.092 GB out of 503.670 GB to store  35654964152 kmers.
+Used 118.217 GB out of 503.670 GB to store  35703429350 kmers.
+Used 118.342 GB out of 503.670 GB to store  35752721650 kmers.
+Used 118.467 GB out of 503.670 GB to store  35801566120 kmers.
+Used 118.593 GB out of 503.670 GB to store  35850633673 kmers.
+Used 118.718 GB out of 503.670 GB to store  35899618625 kmers.
+Used 118.843 GB out of 503.670 GB to store  35948326969 kmers.
+Used 118.968 GB out of 503.670 GB to store  35997148511 kmers.
+Used 119.093 GB out of 503.670 GB to store  36045694712 kmers.
+Used 119.218 GB out of 503.670 GB to store  36094390955 kmers.
+Used 119.343 GB out of 503.670 GB to store  36143159734 kmers.
+Used 119.468 GB out of 503.670 GB to store  36191912774 kmers.
+Used 119.593 GB out of 503.670 GB to store  36240880362 kmers.
+Used 119.718 GB out of 503.670 GB to store  36289652696 kmers.
+Used 119.843 GB out of 503.670 GB to store  36338537367 kmers.
+Used 119.968 GB out of 503.670 GB to store  36387504245 kmers.
+Used 120.093 GB out of 503.670 GB to store  36436129262 kmers.
+Used 120.218 GB out of 503.670 GB to store  36484843077 kmers.
+Used 120.343 GB out of 503.670 GB to store  36534068935 kmers.
+Used 120.468 GB out of 503.670 GB to store  36582397392 kmers.
+Used 120.593 GB out of 503.670 GB to store  36631489310 kmers.
+Used 120.718 GB out of 503.670 GB to store  36680520037 kmers.
+Used 120.843 GB out of 503.670 GB to store  36729654088 kmers.
+Used 120.968 GB out of 503.670 GB to store  36778933989 kmers.
+Used 121.093 GB out of 503.670 GB to store  36827405373 kmers.
+Used 121.218 GB out of 503.670 GB to store  36875703807 kmers.
+Used 121.343 GB out of 503.670 GB to store  36924384742 kmers.
+Used 121.468 GB out of 503.670 GB to store  36973442216 kmers.
+Used 121.593 GB out of 503.670 GB to store  37022427712 kmers.
+Used 121.718 GB out of 503.670 GB to store  37071146524 kmers.
+Used 121.843 GB out of 503.670 GB to store  37119779445 kmers.
+Used 121.968 GB out of 503.670 GB to store  37168912120 kmers.
+Used 122.093 GB out of 503.670 GB to store  37217302116 kmers.
+Used 122.218 GB out of 503.670 GB to store  37266665475 kmers.
+Used 122.343 GB out of 503.670 GB to store  37315110858 kmers.
+Used 122.468 GB out of 503.670 GB to store  37364078042 kmers.
+Used 122.593 GB out of 503.670 GB to store  37412922141 kmers.
+Used 122.718 GB out of 503.670 GB to store  37461462695 kmers.
+Used 122.843 GB out of 503.670 GB to store  37510434579 kmers.
+Used 122.968 GB out of 503.670 GB to store  37558924684 kmers.
+Used 123.093 GB out of 503.670 GB to store  37607635204 kmers.
+Used 123.218 GB out of 503.670 GB to store  37656190286 kmers.
+Used 123.343 GB out of 503.670 GB to store  37705091834 kmers.
+Used 123.468 GB out of 503.670 GB to store  37753739762 kmers.
+Used 123.593 GB out of 503.670 GB to store  37802386024 kmers.
+Used 123.718 GB out of 503.670 GB to store  37851452558 kmers.
+Used 123.843 GB out of 503.670 GB to store  37899758810 kmers.
+Used 123.968 GB out of 503.670 GB to store  37948621713 kmers.
+Used 124.093 GB out of 503.670 GB to store  37997295663 kmers.
+Used 124.218 GB out of 503.670 GB to store  38046505809 kmers.
+Used 124.343 GB out of 503.670 GB to store  38095779411 kmers.
+Used 124.469 GB out of 503.670 GB to store  38144792115 kmers.
+Used 124.594 GB out of 503.670 GB to store  38193685579 kmers.
+Used 124.719 GB out of 503.670 GB to store  38242866640 kmers.
+Used 124.844 GB out of 503.670 GB to store  38292037487 kmers.
+Used 124.969 GB out of 503.670 GB to store  38340477108 kmers.
+Used 125.094 GB out of 503.670 GB to store  38389213533 kmers.
+Used 125.219 GB out of 503.670 GB to store  38438172391 kmers.
+Used 125.344 GB out of 503.670 GB to store  38486684140 kmers.
+Used 125.469 GB out of 503.670 GB to store  38535647186 kmers.
+Used 125.594 GB out of 503.670 GB to store  38584123997 kmers.
+Used 125.719 GB out of 503.670 GB to store  38633360756 kmers.
+Used 125.844 GB out of 503.670 GB to store  38682440125 kmers.
+Used 125.969 GB out of 503.670 GB to store  38731311636 kmers.
+Used 126.094 GB out of 503.670 GB to store  38779948078 kmers.
+Used 126.219 GB out of 503.670 GB to store  38828832482 kmers.
+Used 126.344 GB out of 503.670 GB to store  38877748036 kmers.
+Used 126.469 GB out of 503.670 GB to store  38926363479 kmers.
+Used 126.594 GB out of 503.670 GB to store  38975203769 kmers.
+Used 126.719 GB out of 503.670 GB to store  39023986525 kmers.
+Used 126.844 GB out of 503.670 GB to store  39072846961 kmers.
+Used 126.969 GB out of 503.670 GB to store  39121630594 kmers.
+Used 127.094 GB out of 503.670 GB to store  39170446100 kmers.
+Used 127.219 GB out of 503.670 GB to store  39219013985 kmers.
+Used 127.344 GB out of 503.670 GB to store  39267798862 kmers.
+Used 127.469 GB out of 503.670 GB to store  39316862287 kmers.
+Used 127.594 GB out of 503.670 GB to store  39365353282 kmers.
+Used 127.719 GB out of 503.670 GB to store  39414356882 kmers.
+Used 127.844 GB out of 503.670 GB to store  39463164754 kmers.
+Used 127.969 GB out of 503.670 GB to store  39512014718 kmers.
+Used 128.094 GB out of 503.670 GB to store  39560622173 kmers.
+Used 128.219 GB out of 503.670 GB to store  39609193322 kmers.
+Used 128.344 GB out of 503.670 GB to store  39658174136 kmers.
+Used 128.469 GB out of 503.670 GB to store  39706800251 kmers.
+Used 128.594 GB out of 503.670 GB to store  39755645193 kmers.
+Used 128.719 GB out of 503.670 GB to store  39804399337 kmers.
+Used 128.844 GB out of 503.670 GB to store  39853328010 kmers.
+Used 128.969 GB out of 503.670 GB to store  39902428251 kmers.
+Used 129.094 GB out of 503.670 GB to store  39951548320 kmers.
+Used 129.219 GB out of 503.670 GB to store  39999949552 kmers.
+Used 129.345 GB out of 503.670 GB to store  40048763266 kmers.
+Used 129.470 GB out of 503.670 GB to store  40097835040 kmers.
+Used 129.595 GB out of 503.670 GB to store  40146801379 kmers.
+Used 129.720 GB out of 503.670 GB to store  40195600521 kmers.
+Used 129.845 GB out of 503.670 GB to store  40244187038 kmers.
+Used 129.970 GB out of 503.670 GB to store  40293247061 kmers.
+Used 130.095 GB out of 503.670 GB to store  40342409011 kmers.
+Used 130.220 GB out of 503.670 GB to store  40391239958 kmers.
+Used 130.345 GB out of 503.670 GB to store  40439523370 kmers.
+Used 130.470 GB out of 503.670 GB to store  40488164969 kmers.
+Used 130.595 GB out of 503.670 GB to store  40537012304 kmers.
+Used 130.720 GB out of 503.670 GB to store  40585315474 kmers.
+Used 130.845 GB out of 503.670 GB to store  40634079374 kmers.
+Used 130.970 GB out of 503.670 GB to store  40683148787 kmers.
+Used 131.095 GB out of 503.670 GB to store  40732427245 kmers.
+Used 131.220 GB out of 503.670 GB to store  40781131305 kmers.
+Used 131.345 GB out of 503.670 GB to store  40829561651 kmers.
+Used 131.470 GB out of 503.670 GB to store  40878693058 kmers.
+Used 131.595 GB out of 503.670 GB to store  40927331099 kmers.
+Used 131.720 GB out of 503.670 GB to store  40975838496 kmers.
+Used 131.845 GB out of 503.670 GB to store  41024409046 kmers.
+Used 131.970 GB out of 503.670 GB to store  41073321418 kmers.
+Used 132.095 GB out of 503.670 GB to store  41122091072 kmers.
+Used 132.220 GB out of 503.670 GB to store  41171319739 kmers.
+Used 132.345 GB out of 503.670 GB to store  41219676031 kmers.
+Used 132.470 GB out of 503.670 GB to store  41268293626 kmers.
+Used 132.595 GB out of 503.670 GB to store  41317314071 kmers.
+Used 132.720 GB out of 503.670 GB to store  41366243815 kmers.
+Used 132.845 GB out of 503.670 GB to store  41415023054 kmers.
+Used 132.970 GB out of 503.670 GB to store  41463857535 kmers.
+Used 133.095 GB out of 503.670 GB to store  41512423734 kmers.
+Used 133.220 GB out of 503.670 GB to store  41561585250 kmers.
+Used 133.345 GB out of 503.670 GB to store  41610156439 kmers.
+Used 133.470 GB out of 503.670 GB to store  41659572078 kmers.
+Used 133.595 GB out of 503.670 GB to store  41708444520 kmers.
+Used 133.720 GB out of 503.670 GB to store  41757354154 kmers.
+Used 133.845 GB out of 503.670 GB to store  41806132462 kmers.
+Used 133.970 GB out of 503.670 GB to store  41855117022 kmers.
+Used 134.095 GB out of 503.670 GB to store  41903742240 kmers.
+Used 134.220 GB out of 503.670 GB to store  41952490003 kmers.
+Used 134.345 GB out of 503.670 GB to store  42001127694 kmers.
+Used 134.470 GB out of 503.670 GB to store  42049971067 kmers.
+Used 134.595 GB out of 503.670 GB to store  42098879462 kmers.
+Used 134.720 GB out of 503.670 GB to store  42147604655 kmers.
+Used 134.845 GB out of 503.670 GB to store  42196515323 kmers.
+Used 134.970 GB out of 503.670 GB to store  42245624863 kmers.
+Used 135.095 GB out of 503.670 GB to store  42294156486 kmers.
+Used 135.220 GB out of 503.670 GB to store  42343068804 kmers.
+Used 135.345 GB out of 503.670 GB to store  42391935001 kmers.
+Used 135.470 GB out of 503.670 GB to store  42440438530 kmers.
+Used 135.595 GB out of 503.670 GB to store  42489191678 kmers.
+Used 135.720 GB out of 503.670 GB to store  42538168805 kmers.
+Used 135.845 GB out of 503.670 GB to store  42586929896 kmers.
+Used 135.970 GB out of 503.670 GB to store  42635989166 kmers.
+Used 136.096 GB out of 503.670 GB to store  42684578873 kmers.
+Used 136.221 GB out of 503.670 GB to store  42733385265 kmers.
+Used 136.346 GB out of 503.670 GB to store  42782393900 kmers.
+Used 136.471 GB out of 503.670 GB to store  42831489423 kmers.
+Used 136.596 GB out of 503.670 GB to store  42880051230 kmers.
+Used 136.721 GB out of 503.670 GB to store  42928748063 kmers.
+Used 136.846 GB out of 503.670 GB to store  42976927174 kmers.
+Used 136.971 GB out of 503.670 GB to store  43025185562 kmers.
+Used 137.096 GB out of 503.670 GB to store  43074215561 kmers.
+Used 137.221 GB out of 503.670 GB to store  43123332544 kmers.
+Used 137.346 GB out of 503.670 GB to store  43172400772 kmers.
+Used 137.471 GB out of 503.670 GB to store  43221445856 kmers.
+Used 137.596 GB out of 503.670 GB to store  43270284921 kmers.
+Used 137.721 GB out of 503.670 GB to store  43318891570 kmers.
+Used 137.846 GB out of 503.670 GB to store  43368043200 kmers.
+Used 137.971 GB out of 503.670 GB to store  43417381199 kmers.
+Used 138.096 GB out of 503.670 GB to store  43466058335 kmers.
+Used 138.221 GB out of 503.670 GB to store  43514534820 kmers.
+Used 138.346 GB out of 503.670 GB to store  43562800670 kmers.
+Used 138.471 GB out of 503.670 GB to store  43611665323 kmers.
+Used 138.596 GB out of 503.670 GB to store  43660845852 kmers.
+Used 138.721 GB out of 503.670 GB to store  43709746536 kmers.
+Used 138.846 GB out of 503.670 GB to store  43758353329 kmers.
+Used 138.971 GB out of 503.670 GB to store  43807231858 kmers.
+Used 139.096 GB out of 503.670 GB to store  43856069687 kmers.
+Used 139.221 GB out of 503.670 GB to store  43904759769 kmers.
+Used 139.346 GB out of 503.670 GB to store  43953564363 kmers.
+Used 139.471 GB out of 503.670 GB to store  44002240940 kmers.
+Used 139.596 GB out of 503.670 GB to store  44051088829 kmers.
+Used 139.721 GB out of 503.670 GB to store  44100026274 kmers.
+Used 139.846 GB out of 503.670 GB to store  44148810546 kmers.
+Used 139.971 GB out of 503.670 GB to store  44197857195 kmers.
+Used 140.096 GB out of 503.670 GB to store  44246743006 kmers.
+Used 140.221 GB out of 503.670 GB to store  44295359739 kmers.
+Used 140.346 GB out of 503.670 GB to store  44344361678 kmers.
+Used 140.471 GB out of 503.670 GB to store  44392903023 kmers.
+Used 140.596 GB out of 503.670 GB to store  44441620900 kmers.
+Used 140.721 GB out of 503.670 GB to store  44490934796 kmers.
+Used 140.846 GB out of 503.670 GB to store  44539812466 kmers.
+Used 140.971 GB out of 503.670 GB to store  44588822843 kmers.
+Used 141.096 GB out of 503.670 GB to store  44637807339 kmers.
+Used 141.221 GB out of 503.670 GB to store  44686588364 kmers.
+Used 141.346 GB out of 503.670 GB to store  44735172442 kmers.
+Used 141.471 GB out of 503.670 GB to store  44783926354 kmers.
+Used 141.596 GB out of 503.670 GB to store  44832736603 kmers.
+Used 141.721 GB out of 503.670 GB to store  44881595271 kmers.
+Used 141.847 GB out of 503.670 GB to store  44930094384 kmers.
+Used 141.972 GB out of 503.670 GB to store  44979100340 kmers.
+Used 142.097 GB out of 503.670 GB to store  45027601554 kmers.
+Used 142.222 GB out of 503.670 GB to store  45076499813 kmers.
+Used 142.347 GB out of 503.670 GB to store  45124939155 kmers.
+Used 142.472 GB out of 503.670 GB to store  45173314741 kmers.
+Used 142.597 GB out of 503.670 GB to store  45222726777 kmers.
+Used 142.722 GB out of 503.670 GB to store  45271755686 kmers.
+Used 142.847 GB out of 503.670 GB to store  45320566020 kmers.
+Used 142.972 GB out of 503.670 GB to store  45369096937 kmers.
+Used 143.097 GB out of 503.670 GB to store  45418144215 kmers.
+Used 143.222 GB out of 503.670 GB to store  45467063521 kmers.
+Used 143.347 GB out of 503.670 GB to store  45515633386 kmers.
+Used 143.472 GB out of 503.670 GB to store  45564302295 kmers.
+Used 143.597 GB out of 503.670 GB to store  45613439936 kmers.
+Used 143.722 GB out of 503.670 GB to store  45662318660 kmers.
+Used 143.847 GB out of 503.670 GB to store  45711286136 kmers.
+Used 143.972 GB out of 503.670 GB to store  45760015669 kmers.
+Used 144.097 GB out of 503.670 GB to store  45809131138 kmers.
+Used 144.222 GB out of 503.670 GB to store  45857711506 kmers.
+Used 144.347 GB out of 503.670 GB to store  45906139198 kmers.
+Used 144.472 GB out of 503.670 GB to store  45954975727 kmers.
+Used 144.597 GB out of 503.670 GB to store  46003491826 kmers.
+Used 144.722 GB out of 503.670 GB to store  46052334743 kmers.
+Used 144.847 GB out of 503.670 GB to store  46101120370 kmers.
+Used 144.972 GB out of 503.670 GB to store  46149674696 kmers.
+Used 145.097 GB out of 503.670 GB to store  46198437691 kmers.
+Used 145.222 GB out of 503.670 GB to store  46247269959 kmers.
+Used 145.347 GB out of 503.670 GB to store  46296336774 kmers.
+Used 145.472 GB out of 503.670 GB to store  46344977344 kmers.
+Used 145.597 GB out of 503.670 GB to store  46393942769 kmers.
+Used 145.722 GB out of 503.670 GB to store  46442760417 kmers.
+Used 145.847 GB out of 503.670 GB to store  46491587318 kmers.
+Used 145.972 GB out of 503.670 GB to store  46540726908 kmers.
+Used 146.097 GB out of 503.670 GB to store  46588827308 kmers.
+Used 146.222 GB out of 503.670 GB to store  46637717995 kmers.
+Used 146.347 GB out of 503.670 GB to store  46686680762 kmers.
+Used 146.472 GB out of 503.670 GB to store  46735375509 kmers.
+Used 146.597 GB out of 503.670 GB to store  46784087466 kmers.
+Used 146.722 GB out of 503.670 GB to store  46832812640 kmers.
+Used 146.847 GB out of 503.670 GB to store  46881790677 kmers.
+Used 146.972 GB out of 503.670 GB to store  46930580764 kmers.
+Used 147.097 GB out of 503.670 GB to store  46979146711 kmers.
+Used 147.222 GB out of 503.670 GB to store  47028168319 kmers.
+Used 147.347 GB out of 503.670 GB to store  47076689027 kmers.
+Used 147.472 GB out of 503.670 GB to store  47125752149 kmers.
+Used 147.597 GB out of 503.670 GB to store  47174612886 kmers.
+Used 147.722 GB out of 503.670 GB to store  47223347284 kmers.
+Used 147.848 GB out of 503.670 GB to store  47272340702 kmers.
+Used 147.973 GB out of 503.670 GB to store  47321090358 kmers.
+Used 148.098 GB out of 503.670 GB to store  47369903857 kmers.
+Used 148.223 GB out of 503.670 GB to store  47418984337 kmers.
+Used 148.348 GB out of 503.670 GB to store  47467892830 kmers.
+Used 148.473 GB out of 503.670 GB to store  47516956263 kmers.
+Used 148.598 GB out of 503.670 GB to store  47566179947 kmers.
+Used 148.723 GB out of 503.670 GB to store  47614583653 kmers.
+Used 148.848 GB out of 503.670 GB to store  47662906599 kmers.
+Used 148.973 GB out of 503.670 GB to store  47711483472 kmers.
+Used 149.098 GB out of 503.670 GB to store  47760533182 kmers.
+Used 149.223 GB out of 503.670 GB to store  47809563991 kmers.
+Used 149.348 GB out of 503.670 GB to store  47857977745 kmers.
+Used 149.473 GB out of 503.670 GB to store  47907008569 kmers.
+Used 149.598 GB out of 503.670 GB to store  47955677774 kmers.
+Used 149.723 GB out of 503.670 GB to store  48004895590 kmers.
+Used 149.848 GB out of 503.670 GB to store  48053587208 kmers.
+Used 149.973 GB out of 503.670 GB to store  48102172258 kmers.
+Used 150.098 GB out of 503.670 GB to store  48150911758 kmers.
+Used 150.223 GB out of 503.670 GB to store  48200013522 kmers.
+Used 150.348 GB out of 503.670 GB to store  48249119751 kmers.
+Used 150.473 GB out of 503.670 GB to store  48297777896 kmers.
+Used 150.598 GB out of 503.670 GB to store  48346372028 kmers.
+Used 150.723 GB out of 503.670 GB to store  48395535793 kmers.
+Used 150.848 GB out of 503.670 GB to store  48444170257 kmers.
+Used 150.973 GB out of 503.670 GB to store  48492770898 kmers.
+Used 151.098 GB out of 503.670 GB to store  48541515606 kmers.
+Used 151.223 GB out of 503.670 GB to store  48590382679 kmers.
+Used 151.348 GB out of 503.670 GB to store  48638809988 kmers.
+Used 151.473 GB out of 503.670 GB to store  48687904952 kmers.
+Used 151.598 GB out of 503.670 GB to store  48736587290 kmers.
+Used 151.723 GB out of 503.670 GB to store  48785533634 kmers.
+Used 151.848 GB out of 503.670 GB to store  48834355868 kmers.
+Used 151.973 GB out of 503.670 GB to store  48883140292 kmers.
+Used 152.098 GB out of 503.670 GB to store  48932026882 kmers.
+Used 152.223 GB out of 503.670 GB to store  48980818048 kmers.
+Used 152.349 GB out of 503.670 GB to store  49029341377 kmers.
+Used 152.474 GB out of 503.670 GB to store  49078803014 kmers.
+Used 152.599 GB out of 503.670 GB to store  49127704922 kmers.
+Used 152.724 GB out of 503.670 GB to store  49175980709 kmers.
+Used 152.849 GB out of 503.670 GB to store  49225240040 kmers.
+Used 152.974 GB out of 503.670 GB to store  49273877986 kmers.
+Used 153.099 GB out of 503.670 GB to store  49322815418 kmers.
+Used 153.224 GB out of 503.670 GB to store  49371427018 kmers.
+Used 153.349 GB out of 503.670 GB to store  49420150626 kmers.
+Used 153.474 GB out of 503.670 GB to store  49468812586 kmers.
+Used 153.599 GB out of 503.670 GB to store  49517420919 kmers.
+Used 153.724 GB out of 503.670 GB to store  49566357630 kmers.
+Used 153.849 GB out of 503.670 GB to store  49615115035 kmers.
+Used 153.974 GB out of 503.670 GB to store  49663957541 kmers.
+Used 154.099 GB out of 503.670 GB to store  49712386214 kmers.
+Used 154.224 GB out of 503.670 GB to store  49761223658 kmers.
+Used 154.349 GB out of 503.670 GB to store  49809738102 kmers.
+Used 154.474 GB out of 503.670 GB to store  49858717535 kmers.
+Used 154.599 GB out of 503.670 GB to store  49907724784 kmers.
+Used 154.724 GB out of 503.670 GB to store  49956501436 kmers.
+Used 154.849 GB out of 503.670 GB to store  50005023752 kmers.
+Used 154.974 GB out of 503.670 GB to store  50054041428 kmers.
+Used 155.099 GB out of 503.670 GB to store  50102972639 kmers.
+Used 155.224 GB out of 503.670 GB to store  50152079448 kmers.
+Used 155.349 GB out of 503.670 GB to store  50201138295 kmers.
+Used 155.474 GB out of 503.670 GB to store  50249974116 kmers.
+Used 155.599 GB out of 503.670 GB to store  50298241326 kmers.
+Used 155.724 GB out of 503.670 GB to store  50347090488 kmers.
+Used 155.849 GB out of 503.670 GB to store  50396390640 kmers.
+Used 155.974 GB out of 503.670 GB to store  50445190434 kmers.
+Used 156.099 GB out of 503.670 GB to store  50493996369 kmers.
+Used 156.224 GB out of 503.670 GB to store  50542941993 kmers.
+Used 156.349 GB out of 503.670 GB to store  50591771352 kmers.
+Used 156.474 GB out of 503.670 GB to store  50640664906 kmers.
+Used 156.599 GB out of 503.670 GB to store  50689373407 kmers.
+Used 156.724 GB out of 503.670 GB to store  50738125246 kmers.
+Used 156.849 GB out of 503.670 GB to store  50786534138 kmers.
+Used 156.974 GB out of 503.670 GB to store  50835263500 kmers.
+Used 157.099 GB out of 503.670 GB to store  50884069016 kmers.
+Used 157.224 GB out of 503.670 GB to store  50933125119 kmers.
+Used 157.349 GB out of 503.670 GB to store  50982422048 kmers.
+Used 157.474 GB out of 503.670 GB to store  51031337793 kmers.
+Used 157.600 GB out of 503.670 GB to store  51079563227 kmers.
+Used 157.725 GB out of 503.670 GB to store  51128546074 kmers.
+Used 157.850 GB out of 503.670 GB to store  51177703965 kmers.
+Used 157.975 GB out of 503.670 GB to store  51225993676 kmers.
+Used 158.100 GB out of 503.670 GB to store  51274638372 kmers.
+Used 158.225 GB out of 503.670 GB to store  51323133319 kmers.
+Used 158.350 GB out of 503.670 GB to store  51372165755 kmers.
+Used 158.475 GB out of 503.670 GB to store  51421134236 kmers.
+Used 158.600 GB out of 503.670 GB to store  51469841458 kmers.
+Used 158.725 GB out of 503.670 GB to store  51518408643 kmers.
+Used 158.850 GB out of 503.670 GB to store  51567379031 kmers.
+Used 158.975 GB out of 503.670 GB to store  51616186345 kmers.
+Used 159.100 GB out of 503.670 GB to store  51665052712 kmers.
+Used 159.225 GB out of 503.670 GB to store  51713904490 kmers.
+Used 159.350 GB out of 503.670 GB to store  51762572158 kmers.
+Used 159.475 GB out of 503.670 GB to store  51811591236 kmers.
+Used 159.600 GB out of 503.670 GB to store  51860330209 kmers.
+Used 159.725 GB out of 503.670 GB to store  51909006116 kmers.
+Used 159.850 GB out of 503.670 GB to store  51958044705 kmers.
+Used 159.975 GB out of 503.670 GB to store  52007133948 kmers.
+Used 160.100 GB out of 503.670 GB to store  52055696621 kmers.
+Used 160.225 GB out of 503.670 GB to store  52104583566 kmers.
+Used 160.350 GB out of 503.670 GB to store  52153352644 kmers.
+Used 160.475 GB out of 503.670 GB to store  52202028647 kmers.
+Used 160.600 GB out of 503.670 GB to store  52250840776 kmers.
+Used 160.725 GB out of 503.670 GB to store  52299160201 kmers.
+Used 160.850 GB out of 503.670 GB to store  52348215730 kmers.
+Used 160.975 GB out of 503.670 GB to store  52396663702 kmers.
+Used 161.100 GB out of 503.670 GB to store  52445332450 kmers.
+Used 161.225 GB out of 503.670 GB to store  52494341424 kmers.
+Used 161.350 GB out of 503.670 GB to store  52543353099 kmers.
+Used 161.475 GB out of 503.670 GB to store  52592215031 kmers.
+Used 161.600 GB out of 503.670 GB to store  52641284400 kmers.
+Used 161.725 GB out of 503.670 GB to store  52690150963 kmers.
+Used 161.850 GB out of 503.670 GB to store  52738833000 kmers.
+Used 161.975 GB out of 503.670 GB to store  52787616993 kmers.
+Used 162.100 GB out of 503.670 GB to store  52836776542 kmers.
+Used 162.225 GB out of 503.670 GB to store  52885795433 kmers.
+Used 162.350 GB out of 503.670 GB to store  52934463238 kmers.
+Used 162.475 GB out of 503.670 GB to store  52983226694 kmers.
+Used 162.600 GB out of 503.670 GB to store  53032214684 kmers.
+Used 162.725 GB out of 503.670 GB to store  53080745040 kmers.
+Used 162.850 GB out of 503.670 GB to store  53129498697 kmers.
+Used 162.975 GB out of 503.670 GB to store  53178513565 kmers.
+Used 163.101 GB out of 503.670 GB to store  53227242656 kmers.
+Used 163.226 GB out of 503.670 GB to store  53276522648 kmers.
+Used 163.351 GB out of 503.670 GB to store  53325014236 kmers.
+Used 163.476 GB out of 503.670 GB to store  53373845946 kmers.
+Used 163.601 GB out of 503.670 GB to store  53422708016 kmers.
+Used 163.726 GB out of 503.670 GB to store  53471261760 kmers.
+Used 163.851 GB out of 503.670 GB to store  53519910284 kmers.
+Used 163.976 GB out of 503.670 GB to store  53568724464 kmers.
+Used 164.101 GB out of 503.670 GB to store  53617297008 kmers.
+Used 164.226 GB out of 503.670 GB to store  53666529609 kmers.
+Used 164.351 GB out of 503.670 GB to store  53715149467 kmers.
+Used 164.476 GB out of 503.670 GB to store  53763811994 kmers.
+Used 164.601 GB out of 503.670 GB to store  53812738291 kmers.
+Used 164.726 GB out of 503.670 GB to store  53861953953 kmers.
+Used 164.851 GB out of 503.670 GB to store  53910619239 kmers.
+Used 164.976 GB out of 503.670 GB to store  53959386499 kmers.
+Used 165.101 GB out of 503.670 GB to store  54008312034 kmers.
+Used 165.226 GB out of 503.670 GB to store  54056950463 kmers.
+Used 165.351 GB out of 503.670 GB to store  54105580625 kmers.
+Used 165.476 GB out of 503.670 GB to store  54154103405 kmers.
+Used 165.601 GB out of 503.670 GB to store  54202861720 kmers.
+Used 165.726 GB out of 503.670 GB to store  54251504341 kmers.
+Used 165.851 GB out of 503.670 GB to store  54300602200 kmers.
+Used 165.976 GB out of 503.670 GB to store  54350018422 kmers.
+Used 166.101 GB out of 503.670 GB to store  54398896186 kmers.
+Used 166.226 GB out of 503.670 GB to store  54447150593 kmers.
+Used 166.351 GB out of 503.670 GB to store  54495479442 kmers.
+Used 166.476 GB out of 503.670 GB to store  54544177736 kmers.
+Used 166.601 GB out of 503.670 GB to store  54593325262 kmers.
+Used 166.726 GB out of 503.670 GB to store  54642180976 kmers.
+Used 166.851 GB out of 503.670 GB to store  54690862750 kmers.
+Used 166.976 GB out of 503.670 GB to store  54739893709 kmers.
+Used 167.101 GB out of 503.670 GB to store  54789065741 kmers.
+Used 167.226 GB out of 503.670 GB to store  54837752165 kmers.
+Used 167.351 GB out of 503.670 GB to store  54886571802 kmers.
+Used 167.476 GB out of 503.670 GB to store  54935534239 kmers.
+Used 167.601 GB out of 503.670 GB to store  54984110181 kmers.
+Used 167.726 GB out of 503.670 GB to store  55033094933 kmers.
+Used 167.851 GB out of 503.670 GB to store  55081665755 kmers.
+Used 167.976 GB out of 503.670 GB to store  55130009184 kmers.
+Used 168.101 GB out of 503.670 GB to store  55178776869 kmers.
+Used 168.226 GB out of 503.670 GB to store  55227403523 kmers.
+Used 168.351 GB out of 503.670 GB to store  55276472109 kmers.
+Used 168.476 GB out of 503.670 GB to store  55325060972 kmers.
+Used 168.601 GB out of 503.670 GB to store  55373811925 kmers.
+Used 168.726 GB out of 503.670 GB to store  55422422454 kmers.
+Used 168.851 GB out of 503.670 GB to store  55470844474 kmers.
+Used 168.976 GB out of 503.670 GB to store  55519769870 kmers.
+Used 169.101 GB out of 503.670 GB to store  55568328745 kmers.
+Used 169.226 GB out of 503.670 GB to store  55617752184 kmers.
+Used 169.351 GB out of 503.670 GB to store  55666710646 kmers.
+Used 169.477 GB out of 503.670 GB to store  55715890559 kmers.
+Used 169.602 GB out of 503.670 GB to store  55764832775 kmers.
+Used 169.727 GB out of 503.670 GB to store  55813304994 kmers.
+Used 169.852 GB out of 503.670 GB to store  55862254031 kmers.
+Used 169.977 GB out of 503.670 GB to store  55910974967 kmers.
+Used 170.102 GB out of 503.670 GB to store  55959807173 kmers.
+Used 170.227 GB out of 503.670 GB to store  56008245779 kmers.
+Used 170.352 GB out of 503.670 GB to store  56057392911 kmers.
+Used 170.477 GB out of 503.670 GB to store  56106480356 kmers.
+Used 170.602 GB out of 503.670 GB to store  56155428291 kmers.
+Used 170.727 GB out of 503.670 GB to store  56204388308 kmers.
+Used 170.852 GB out of 503.670 GB to store  56253315522 kmers.
+Used 170.977 GB out of 503.670 GB to store  56302054202 kmers.
+Used 171.102 GB out of 503.670 GB to store  56350597967 kmers.
+Used 171.227 GB out of 503.670 GB to store  56399122713 kmers.
+Used 171.352 GB out of 503.670 GB to store  56447847772 kmers.
+Used 171.477 GB out of 503.670 GB to store  56496608625 kmers.
+Used 171.602 GB out of 503.670 GB to store  56545224257 kmers.
+Used 171.727 GB out of 503.670 GB to store  56594302437 kmers.
+Used 171.852 GB out of 503.670 GB to store  56643426071 kmers.
+Used 171.977 GB out of 503.670 GB to store  56691938802 kmers.
+Used 172.102 GB out of 503.670 GB to store  56740792101 kmers.
+Used 172.227 GB out of 503.670 GB to store  56789409482 kmers.
+Used 172.352 GB out of 503.670 GB to store  56838621184 kmers.
+Used 172.477 GB out of 503.670 GB to store  56887403920 kmers.
+Used 172.602 GB out of 503.670 GB to store  56936510899 kmers.
+Used 172.727 GB out of 503.670 GB to store  56985229118 kmers.
+Used 172.852 GB out of 503.670 GB to store  57034057015 kmers.
+Used 172.977 GB out of 503.670 GB to store  57082391891 kmers.
+Used 173.102 GB out of 503.670 GB to store  57131507090 kmers.
+Used 173.227 GB out of 503.670 GB to store  57179957548 kmers.
+Used 173.352 GB out of 503.670 GB to store  57228707528 kmers.
+Used 173.477 GB out of 503.670 GB to store  57277829512 kmers.
+Used 173.602 GB out of 503.670 GB to store  57326585023 kmers.
+Used 173.727 GB out of 503.670 GB to store  57375755069 kmers.
+Used 173.852 GB out of 503.670 GB to store  57424739809 kmers.
+Used 173.977 GB out of 503.670 GB to store  57473132648 kmers.
+Used 174.102 GB out of 503.670 GB to store  57522133345 kmers.
+Used 174.228 GB out of 503.670 GB to store  57570231719 kmers.
+Used 174.353 GB out of 503.670 GB to store  57619627622 kmers.
+Used 174.478 GB out of 503.670 GB to store  57668749119 kmers.
+Used 174.603 GB out of 503.670 GB to store  57717515385 kmers.
+Used 174.728 GB out of 503.670 GB to store  57766307492 kmers.
+Used 174.853 GB out of 503.670 GB to store  57815255418 kmers.
+Used 174.978 GB out of 503.670 GB to store  57863770430 kmers.
+Used 175.103 GB out of 503.670 GB to store  57912893087 kmers.
+Used 175.228 GB out of 503.670 GB to store  57960955035 kmers.
+Used 175.353 GB out of 503.670 GB to store  58010025655 kmers.
+Used 175.478 GB out of 503.670 GB to store  58058470663 kmers.
+Used 175.603 GB out of 503.670 GB to store  58107454059 kmers.
+Used 175.728 GB out of 503.670 GB to store  58156009190 kmers.
+Used 175.853 GB out of 503.670 GB to store  58204916044 kmers.
+Used 175.978 GB out of 503.670 GB to store  58253924070 kmers.
+Used 176.103 GB out of 503.670 GB to store  58302720606 kmers.
+Used 176.228 GB out of 503.670 GB to store  58351490379 kmers.
+Used 176.353 GB out of 503.670 GB to store  58399712230 kmers.
+Used 176.478 GB out of 503.670 GB to store  58448750858 kmers.
+Used 176.603 GB out of 503.670 GB to store  58497369112 kmers.
+Used 176.728 GB out of 503.670 GB to store  58546314373 kmers.
+Used 176.853 GB out of 503.670 GB to store  58594674846 kmers.
+Used 176.978 GB out of 503.670 GB to store  58643461773 kmers.
+Used 177.103 GB out of 503.670 GB to store  58692502867 kmers.
+Used 177.228 GB out of 503.670 GB to store  58741373825 kmers.
+Used 177.353 GB out of 503.670 GB to store  58790498390 kmers.
+Used 177.478 GB out of 503.670 GB to store  58839673553 kmers.
+Used 177.603 GB out of 503.670 GB to store  58888407364 kmers.
+Used 177.728 GB out of 503.670 GB to store  58937163275 kmers.
+Used 177.853 GB out of 503.670 GB to store  58986221407 kmers.
+Used 177.978 GB out of 503.670 GB to store  59034778586 kmers.
+Used 178.103 GB out of 503.670 GB to store  59083670498 kmers.
+Used 178.228 GB out of 503.670 GB to store  59132317153 kmers.
+Used 178.353 GB out of 503.670 GB to store  59180851548 kmers.
+Used 178.478 GB out of 503.670 GB to store  59229816237 kmers.
+Used 178.603 GB out of 503.670 GB to store  59278761630 kmers.
+Used 178.728 GB out of 503.670 GB to store  59327260069 kmers.
+Used 178.853 GB out of 503.670 GB to store  59376400238 kmers.
+Used 178.978 GB out of 503.670 GB to store  59424807196 kmers.
+Used 179.103 GB out of 503.670 GB to store  59473657964 kmers.
+Used 179.228 GB out of 503.670 GB to store  59521875626 kmers.
+Used 179.353 GB out of 503.670 GB to store  59571004852 kmers.
+Used 179.478 GB out of 503.670 GB to store  59619998949 kmers.
+Used 179.603 GB out of 503.670 GB to store  59668831934 kmers.
+Used 179.728 GB out of 503.670 GB to store  59717178008 kmers.
+Used 179.853 GB out of 503.670 GB to store  59766366315 kmers.
+Used 179.978 GB out of 503.670 GB to store  59815204287 kmers.
+Used 180.104 GB out of 503.670 GB to store  59863966196 kmers.
+Used 180.229 GB out of 503.670 GB to store  59912639442 kmers.
+Used 180.354 GB out of 503.670 GB to store  59961984125 kmers.
+Used 180.479 GB out of 503.670 GB to store  60010827559 kmers.
+Used 180.604 GB out of 503.670 GB to store  60059255833 kmers.
+Used 180.729 GB out of 503.670 GB to store  60108099255 kmers.
+Used 180.854 GB out of 503.670 GB to store  60156440043 kmers.
+Used 180.979 GB out of 503.670 GB to store  60205168060 kmers.
+Used 181.104 GB out of 503.670 GB to store  60254156074 kmers.
+Used 181.229 GB out of 503.670 GB to store  60303261414 kmers.
+Used 181.354 GB out of 503.670 GB to store  60352014360 kmers.
+Used 181.479 GB out of 503.670 GB to store  60400525383 kmers.
+Used 181.604 GB out of 503.670 GB to store  60449460709 kmers.
+Used 181.729 GB out of 503.670 GB to store  60497736499 kmers.
+Used 181.854 GB out of 503.670 GB to store  60546913792 kmers.
+Used 181.979 GB out of 503.670 GB to store  60595826308 kmers.
+Used 182.104 GB out of 503.670 GB to store  60644765019 kmers.
+Used 182.229 GB out of 503.670 GB to store  60693317843 kmers.
+Used 182.354 GB out of 503.670 GB to store  60742070810 kmers.
+Used 182.479 GB out of 503.670 GB to store  60790994559 kmers.
+Used 182.604 GB out of 503.670 GB to store  60839797375 kmers.
+Used 182.729 GB out of 503.670 GB to store  60888990864 kmers.
+Used 182.854 GB out of 503.670 GB to store  60937724385 kmers.
+Used 182.979 GB out of 503.670 GB to store  60986365572 kmers.
+Used 183.104 GB out of 503.670 GB to store  61035369776 kmers.
+Used 183.229 GB out of 503.670 GB to store  61084139885 kmers.
+Used 183.354 GB out of 503.670 GB to store  61132852309 kmers.
+Used 183.479 GB out of 503.670 GB to store  61180967701 kmers.
+Used 183.604 GB out of 503.670 GB to store  61229625194 kmers.
+Used 183.729 GB out of 503.670 GB to store  61278634366 kmers.
+Used 183.854 GB out of 503.670 GB to store  61327615692 kmers.
+Used 183.979 GB out of 503.670 GB to store  61377025238 kmers.
+Used 184.104 GB out of 503.670 GB to store  61425666648 kmers.
+Used 184.229 GB out of 503.670 GB to store  61474332435 kmers.
+Used 184.354 GB out of 503.670 GB to store  61522754422 kmers.
+Used 184.479 GB out of 503.670 GB to store  61571679581 kmers.
+Used 184.604 GB out of 503.670 GB to store  61620316912 kmers.
+Used 184.729 GB out of 503.670 GB to store  61668850084 kmers.
+Used 184.854 GB out of 503.670 GB to store  61717392963 kmers.
+Used 184.979 GB out of 503.670 GB to store  61766064737 kmers.
+Used 185.104 GB out of 503.670 GB to store  61815310905 kmers.
+Used 185.229 GB out of 503.670 GB to store  61863827749 kmers.
+Used 185.354 GB out of 503.670 GB to store  61912447032 kmers.
+Used 185.479 GB out of 503.670 GB to store  61961207228 kmers.
+Used 185.604 GB out of 503.670 GB to store  62009868106 kmers.
+Used 185.729 GB out of 503.670 GB to store  62059075563 kmers.
+Used 185.854 GB out of 503.670 GB to store  62107764168 kmers.
+Used 185.979 GB out of 503.670 GB to store  62156912092 kmers.
+Used 186.104 GB out of 503.670 GB to store  62205270594 kmers.
+Used 186.229 GB out of 503.670 GB to store  62254353105 kmers.
+Used 186.354 GB out of 503.670 GB to store  62303137870 kmers.
+Used 186.479 GB out of 503.670 GB to store  62352023206 kmers.
+Used 186.604 GB out of 503.670 GB to store  62401320750 kmers.
+Used 186.729 GB out of 503.670 GB to store  62450054838 kmers.
+Used 186.855 GB out of 503.670 GB to store  62498957718 kmers.
+Used 186.980 GB out of 503.670 GB to store  62547463062 kmers.
+Used 187.105 GB out of 503.670 GB to store  62595801357 kmers.
+Used 187.230 GB out of 503.670 GB to store  62644992361 kmers.
+Used 187.355 GB out of 503.670 GB to store  62693440422 kmers.
+Used 187.480 GB out of 503.670 GB to store  62742281195 kmers.
+Used 187.605 GB out of 503.670 GB to store  62791212992 kmers.
+Used 187.730 GB out of 503.670 GB to store  62840280903 kmers.
+Used 187.855 GB out of 503.670 GB to store  62888695672 kmers.
+Used 187.980 GB out of 503.670 GB to store  62937544729 kmers.
+Used 188.105 GB out of 503.670 GB to store  62986299437 kmers.
+Used 188.230 GB out of 503.670 GB to store  63035229302 kmers.
+Used 188.355 GB out of 503.670 GB to store  63084069985 kmers.
+Used 188.480 GB out of 503.670 GB to store  63132565713 kmers.
+Used 188.605 GB out of 503.670 GB to store  63181270459 kmers.
+Used 188.730 GB out of 503.670 GB to store  63229991777 kmers.
+Used 188.855 GB out of 503.670 GB to store  63278924949 kmers.
+Used 188.980 GB out of 503.670 GB to store  63328090074 kmers.
+Used 189.105 GB out of 503.670 GB to store  63376857605 kmers.
+Used 189.230 GB out of 503.670 GB to store  63425469649 kmers.
+Used 189.355 GB out of 503.670 GB to store  63474486747 kmers.
+Used 189.480 GB out of 503.670 GB to store  63522921232 kmers.
+Used 189.605 GB out of 503.670 GB to store  63571584319 kmers.
+Used 189.730 GB out of 503.670 GB to store  63620677273 kmers.
+Used 189.855 GB out of 503.670 GB to store  63669878097 kmers.
+Used 189.980 GB out of 503.670 GB to store  63718785663 kmers.
+Used 190.105 GB out of 503.670 GB to store  63767293415 kmers.
+Used 190.230 GB out of 503.670 GB to store  63816433771 kmers.
+Used 190.355 GB out of 503.670 GB to store  63864873521 kmers.
+Used 190.480 GB out of 503.670 GB to store  63913802376 kmers.
+Used 190.605 GB out of 503.670 GB to store  63962530107 kmers.
+Used 190.730 GB out of 503.670 GB to store  64011492589 kmers.
+Used 190.855 GB out of 503.670 GB to store  64059891524 kmers.
+Used 190.980 GB out of 503.670 GB to store  64109157169 kmers.
+Used 191.105 GB out of 503.670 GB to store  64158006893 kmers.
+Used 191.230 GB out of 503.670 GB to store  64206172215 kmers.
+Used 191.356 GB out of 503.670 GB to store  64254881364 kmers.
+Used 191.481 GB out of 503.670 GB to store  64303874897 kmers.
+Used 191.606 GB out of 503.670 GB to store  64353109302 kmers.
+Used 191.731 GB out of 503.670 GB to store  64402167137 kmers.
+Used 191.856 GB out of 503.670 GB to store  64450856237 kmers.
+Used 191.981 GB out of 503.670 GB to store  64499321892 kmers.
+Used 192.106 GB out of 503.670 GB to store  64548178131 kmers.
+Used 192.231 GB out of 503.670 GB to store  64597169533 kmers.
+Used 192.356 GB out of 503.670 GB to store  64646242187 kmers.
+Used 192.481 GB out of 503.670 GB to store  64694936295 kmers.
+Used 192.606 GB out of 503.670 GB to store  64743529848 kmers.
+Used 192.731 GB out of 503.670 GB to store  64792291936 kmers.
+Used 192.856 GB out of 503.670 GB to store  64841273420 kmers.
+Used 192.981 GB out of 503.670 GB to store  64889783637 kmers.
+Used 193.106 GB out of 503.670 GB to store  64938765944 kmers.
+Used 193.231 GB out of 503.670 GB to store  64987689461 kmers.
+Used 193.356 GB out of 503.670 GB to store  65036517568 kmers.
+Used 193.481 GB out of 503.670 GB to store  65085469719 kmers.
+Used 193.606 GB out of 503.670 GB to store  65133952167 kmers.
+Used 193.731 GB out of 503.670 GB to store  65182517469 kmers.
+Used 193.856 GB out of 503.670 GB to store  65231152568 kmers.
+Used 193.981 GB out of 503.670 GB to store  65279919847 kmers.
+Used 194.106 GB out of 503.670 GB to store  65328993995 kmers.
+Used 194.231 GB out of 503.670 GB to store  65377565254 kmers.
+Used 194.356 GB out of 503.670 GB to store  65426530316 kmers.
+Used 194.481 GB out of 503.670 GB to store  65475778141 kmers.
+Used 194.606 GB out of 503.670 GB to store  65524051723 kmers.
+Used 194.731 GB out of 503.670 GB to store  65572422929 kmers.
+Used 194.856 GB out of 503.670 GB to store  65621774294 kmers.
+Used 194.981 GB out of 503.670 GB to store  65670664469 kmers.
+Used 195.106 GB out of 503.670 GB to store  65719742904 kmers.
+Used 195.231 GB out of 503.670 GB to store  65767913654 kmers.
+Used 195.356 GB out of 503.670 GB to store  65816562937 kmers.
+Used 195.481 GB out of 503.670 GB to store  65865431948 kmers.
+Used 195.606 GB out of 503.670 GB to store  65914109104 kmers.
+Used 195.731 GB out of 503.670 GB to store  65962894411 kmers.
+Used 195.856 GB out of 503.670 GB to store  66011663089 kmers.
+Used 195.981 GB out of 503.670 GB to store  66060487081 kmers.
+Used 196.106 GB out of 503.670 GB to store  66109664731 kmers.
+Used 196.231 GB out of 503.670 GB to store  66158453208 kmers.
+Used 196.357 GB out of 503.670 GB to store  66207505979 kmers.
+Used 196.482 GB out of 503.670 GB to store  66256060886 kmers.
+Used 196.607 GB out of 503.670 GB to store  66304587060 kmers.
+Used 196.732 GB out of 503.670 GB to store  66353726653 kmers.
+Used 196.857 GB out of 503.670 GB to store  66402527775 kmers.
+Used 196.982 GB out of 503.670 GB to store  66451358496 kmers.
+Used 197.107 GB out of 503.670 GB to store  66499894026 kmers.
+Used 197.232 GB out of 503.670 GB to store  66548693200 kmers.
+Used 197.357 GB out of 503.670 GB to store  66597416864 kmers.
+Used 197.482 GB out of 503.670 GB to store  66646620997 kmers.
+Used 197.607 GB out of 503.670 GB to store  66695340718 kmers.
+Used 197.732 GB out of 503.670 GB to store  66744075914 kmers.
+Used 197.857 GB out of 503.670 GB to store  66793073893 kmers.
+Used 197.982 GB out of 503.670 GB to store  66841696157 kmers.
+Used 198.107 GB out of 503.670 GB to store  66890435354 kmers.
+Used 198.232 GB out of 503.670 GB to store  66939057901 kmers.
+Used 198.357 GB out of 503.670 GB to store  66987802298 kmers.
+Used 198.482 GB out of 503.670 GB to store  67036819325 kmers.
+Used 198.607 GB out of 503.670 GB to store  67085681043 kmers.
+Used 198.732 GB out of 503.670 GB to store  67134575964 kmers.
+Used 198.857 GB out of 503.670 GB to store  67182958846 kmers.
+Used 198.982 GB out of 503.670 GB to store  67232101526 kmers.
+Used 199.107 GB out of 503.670 GB to store  67281068050 kmers.
+Used 199.232 GB out of 503.670 GB to store  67329630711 kmers.
+Used 199.357 GB out of 503.670 GB to store  67378335325 kmers.
+Used 199.482 GB out of 503.670 GB to store  67427008788 kmers.
+Used 199.607 GB out of 503.670 GB to store  67475744052 kmers.
+Used 199.732 GB out of 503.670 GB to store  67524846875 kmers.
+Used 199.857 GB out of 503.670 GB to store  67573815552 kmers.
+Used 199.982 GB out of 503.670 GB to store  67623029253 kmers.
+Used 200.107 GB out of 503.670 GB to store  67671330592 kmers.
+Used 200.232 GB out of 503.670 GB to store  67720172042 kmers.
+Used 200.357 GB out of 503.670 GB to store  67768872022 kmers.
+Used 200.482 GB out of 503.670 GB to store  67817253069 kmers.
+Used 200.607 GB out of 503.670 GB to store  67866087333 kmers.
+Used 200.732 GB out of 503.670 GB to store  67914815162 kmers.
+Used 200.857 GB out of 503.670 GB to store  67964030154 kmers.
+Used 200.982 GB out of 503.670 GB to store  68013130146 kmers.
+Used 201.107 GB out of 503.670 GB to store  68061630757 kmers.
+Used 201.232 GB out of 503.670 GB to store  68110131998 kmers.
+Used 201.357 GB out of 503.670 GB to store  68158590615 kmers.
+Used 201.482 GB out of 503.670 GB to store  68207667172 kmers.
+Used 201.607 GB out of 503.670 GB to store  68256546872 kmers.
+Used 201.732 GB out of 503.670 GB to store  68305675408 kmers.
+Used 201.857 GB out of 503.670 GB to store  68354376473 kmers.
+Used 201.983 GB out of 503.670 GB to store  68402688555 kmers.
+Used 202.108 GB out of 503.670 GB to store  68451175857 kmers.
+Used 202.233 GB out of 503.670 GB to store  68500404137 kmers.
+Used 202.358 GB out of 503.670 GB to store  68549516879 kmers.
+Used 202.483 GB out of 503.670 GB to store  68598112749 kmers.
+Used 202.608 GB out of 503.670 GB to store  68647547004 kmers.
+Used 202.733 GB out of 503.670 GB to store  68696229063 kmers.
+Used 202.858 GB out of 503.670 GB to store  68744845783 kmers.
+Used 202.983 GB out of 503.670 GB to store  68793558563 kmers.
+Used 203.108 GB out of 503.670 GB to store  68842538185 kmers.
+Used 203.233 GB out of 503.670 GB to store  68891283801 kmers.
+Used 203.358 GB out of 503.670 GB to store  68939749269 kmers.
+Used 203.483 GB out of 503.670 GB to store  68988194487 kmers.
+Used 203.608 GB out of 503.670 GB to store  69037101855 kmers.
+Used 203.733 GB out of 503.670 GB to store  69085835525 kmers.
+Used 203.858 GB out of 503.670 GB to store  69134334510 kmers.
+Used 203.983 GB out of 503.670 GB to store  69183562090 kmers.
+Used 204.108 GB out of 503.670 GB to store  69232140504 kmers.
+Used 204.233 GB out of 503.670 GB to store  69281093830 kmers.
+Used 204.358 GB out of 503.670 GB to store  69329672800 kmers.
+Used 204.483 GB out of 503.670 GB to store  69378634719 kmers.
+Used 204.608 GB out of 503.670 GB to store  69427601667 kmers.
+Used 204.733 GB out of 503.670 GB to store  69476567677 kmers.
+Used 204.858 GB out of 503.670 GB to store  69525241753 kmers.
+Used 204.983 GB out of 503.670 GB to store  69574131546 kmers.
+Used 205.108 GB out of 503.670 GB to store  69622732182 kmers.
+Used 205.233 GB out of 503.670 GB to store  69671600665 kmers.
+Used 205.358 GB out of 503.670 GB to store  69720354483 kmers.
+Used 205.483 GB out of 503.670 GB to store  69769489122 kmers.
+Used 205.608 GB out of 503.670 GB to store  69818215752 kmers.
+Used 205.733 GB out of 503.670 GB to store  69866956485 kmers.
+Used 205.858 GB out of 503.670 GB to store  69915257882 kmers.
+Used 205.983 GB out of 503.670 GB to store  69964143251 kmers.
+Used 206.108 GB out of 503.670 GB to store  70013377243 kmers.
+Used 206.233 GB out of 503.670 GB to store  70062092220 kmers.
+Used 206.358 GB out of 503.670 GB to store  70110622626 kmers.
+Used 206.483 GB out of 503.670 GB to store  70159346827 kmers.
+Used 206.609 GB out of 503.670 GB to store  70208375621 kmers.
+Used 206.734 GB out of 503.670 GB to store  70257265929 kmers.
+Used 206.859 GB out of 503.670 GB to store  70305656246 kmers.
+Used 206.984 GB out of 503.670 GB to store  70354377883 kmers.
+Used 207.109 GB out of 503.670 GB to store  70403502500 kmers.
+Used 207.234 GB out of 503.670 GB to store  70452041365 kmers.
+Used 207.359 GB out of 503.670 GB to store  70500952876 kmers.
+Used 207.484 GB out of 503.670 GB to store  70549708520 kmers.
+Used 207.609 GB out of 503.670 GB to store  70598446044 kmers.
+Used 207.734 GB out of 503.670 GB to store  70646772872 kmers.
+Used 207.859 GB out of 503.670 GB to store  70695796402 kmers.
+Used 207.984 GB out of 503.670 GB to store  70744823565 kmers.
+Used 208.109 GB out of 503.670 GB to store  70793868656 kmers.
+Used 208.234 GB out of 503.670 GB to store  70842048359 kmers.
+Used 208.359 GB out of 503.670 GB to store  70890953242 kmers.
+Used 208.484 GB out of 503.670 GB to store  70939711003 kmers.
+Used 208.609 GB out of 503.670 GB to store  70988933288 kmers.
+Used 208.734 GB out of 503.670 GB to store  71037377331 kmers.
+Used 208.859 GB out of 503.670 GB to store  71086252972 kmers.
+Used 208.984 GB out of 503.670 GB to store  71135548186 kmers.
+Used 209.109 GB out of 503.670 GB to store  71183840835 kmers.
+Used 209.234 GB out of 503.670 GB to store  71232421326 kmers.
+Used 209.359 GB out of 503.670 GB to store  71281581491 kmers.
+Used 209.484 GB out of 503.670 GB to store  71330594264 kmers.
+Used 209.609 GB out of 503.670 GB to store  71379709143 kmers.
+Used 209.734 GB out of 503.670 GB to store  71428315385 kmers.
+Used 209.859 GB out of 503.670 GB to store  71477150700 kmers.
+Used 209.984 GB out of 503.670 GB to store  71525925885 kmers.
+Used 210.109 GB out of 503.670 GB to store  71574769848 kmers.
+Used 210.234 GB out of 503.670 GB to store  71623680335 kmers.
+Used 210.359 GB out of 503.670 GB to store  71672164582 kmers.
+Used 210.484 GB out of 503.670 GB to store  71721046418 kmers.
+Used 210.609 GB out of 503.670 GB to store  71769637006 kmers.
+Used 210.734 GB out of 503.670 GB to store  71818106277 kmers.
+Used 210.859 GB out of 503.670 GB to store  71867195348 kmers.
+Used 210.984 GB out of 503.670 GB to store  71916454150 kmers.
+Used 211.109 GB out of 503.670 GB to store  71965327392 kmers.
+Used 211.234 GB out of 503.670 GB to store  72014176707 kmers.
+Used 211.359 GB out of 503.670 GB to store  72062470149 kmers.
+Used 211.484 GB out of 503.670 GB to store  72111067588 kmers.
+Used 211.609 GB out of 503.670 GB to store  72159584749 kmers.
+Used 211.734 GB out of 503.670 GB to store  72208715427 kmers.
+Used 211.860 GB out of 503.670 GB to store  72257756428 kmers.
+Used 211.985 GB out of 503.670 GB to store  72306547335 kmers.
+Used 212.110 GB out of 503.670 GB to store  72355493078 kmers.
+Used 212.235 GB out of 503.670 GB to store  72404190657 kmers.
+Used 212.360 GB out of 503.670 GB to store  72452999340 kmers.
+Used 212.485 GB out of 503.670 GB to store  72501695786 kmers.
+Used 212.610 GB out of 503.670 GB to store  72550168986 kmers.
+Used 212.735 GB out of 503.670 GB to store  72598966067 kmers.
+Used 212.860 GB out of 503.670 GB to store  72647953890 kmers.
+Used 212.985 GB out of 503.670 GB to store  72696302381 kmers.
+Used 213.110 GB out of 503.670 GB to store  72745936547 kmers.
+Used 213.235 GB out of 503.670 GB to store  72794827345 kmers.
+Used 213.360 GB out of 503.670 GB to store  72843103883 kmers.
+Used 213.485 GB out of 503.670 GB to store  72891778986 kmers.
+Used 213.610 GB out of 503.670 GB to store  72940458657 kmers.
+Used 213.735 GB out of 503.670 GB to store  72989460675 kmers.
+Used 213.860 GB out of 503.670 GB to store  73038403105 kmers.
+Used 213.985 GB out of 503.670 GB to store  73087544528 kmers.
+Used 214.110 GB out of 503.670 GB to store  73135966111 kmers.
+Used 214.235 GB out of 503.670 GB to store  73185036437 kmers.
+Used 214.360 GB out of 503.670 GB to store  73233814088 kmers.
+Used 214.485 GB out of 503.670 GB to store  73282293650 kmers.
+Used 214.610 GB out of 503.670 GB to store  73330665816 kmers.
+Used 214.735 GB out of 503.670 GB to store  73379589907 kmers.
+Used 214.860 GB out of 503.670 GB to store  73427799419 kmers.
+Used 214.985 GB out of 503.670 GB to store  73476744470 kmers.
+Used 215.110 GB out of 503.670 GB to store  73525583862 kmers.
+Used 215.235 GB out of 503.670 GB to store  73574423017 kmers.
+Used 215.360 GB out of 503.670 GB to store  73623416762 kmers.
+Used 215.485 GB out of 503.670 GB to store  73671853741 kmers.
+Used 215.610 GB out of 503.670 GB to store  73720708186 kmers.
+Used 215.735 GB out of 503.670 GB to store  73769713785 kmers.
+Used 215.860 GB out of 503.670 GB to store  73818468036 kmers.
+Used 215.985 GB out of 503.670 GB to store  73867746536 kmers.
+Used 216.110 GB out of 503.670 GB to store  73916905154 kmers.
+Used 216.235 GB out of 503.670 GB to store  73965185378 kmers.
+Used 216.360 GB out of 503.670 GB to store  74013678932 kmers.
+Used 216.485 GB out of 503.670 GB to store  74062515479 kmers.
+Used 216.610 GB out of 503.670 GB to store  74111091467 kmers.
+Used 216.735 GB out of 503.670 GB to store  74160347521 kmers.
+Used 216.860 GB out of 503.670 GB to store  74209475995 kmers.
+Used 216.985 GB out of 503.670 GB to store  74257893809 kmers.
+Used 217.110 GB out of 503.670 GB to store  74306456091 kmers.
+Used 217.235 GB out of 503.670 GB to store  74355526891 kmers.
+Used 217.361 GB out of 503.670 GB to store  74404591871 kmers.
+Used 217.486 GB out of 503.670 GB to store  74453748984 kmers.
+Used 217.611 GB out of 503.670 GB to store  74502366466 kmers.
+Used 217.736 GB out of 503.670 GB to store  74551231932 kmers.
+Used 217.861 GB out of 503.670 GB to store  74599752445 kmers.
+Used 217.986 GB out of 503.670 GB to store  74648794460 kmers.
+Used 218.111 GB out of 503.670 GB to store  74697117514 kmers.
+Used 218.236 GB out of 503.670 GB to store  74745854089 kmers.
+Used 218.361 GB out of 503.670 GB to store  74795208385 kmers.
+Used 218.486 GB out of 503.670 GB to store  74844029166 kmers.
+Used 218.611 GB out of 503.670 GB to store  74892700478 kmers.
+Used 218.736 GB out of 503.670 GB to store  74941396941 kmers.
+Used 218.861 GB out of 503.670 GB to store  74990019878 kmers.
+Used 218.986 GB out of 503.670 GB to store  75038825928 kmers.
+Used 219.111 GB out of 503.670 GB to store  75087594629 kmers.
+Used 219.236 GB out of 503.670 GB to store  75136406954 kmers.
+Used 219.361 GB out of 503.670 GB to store  75185678972 kmers.
+Used 219.486 GB out of 503.670 GB to store  75234243606 kmers.
+Used 219.611 GB out of 503.670 GB to store  75283197235 kmers.
+Used 219.736 GB out of 503.670 GB to store  75331556160 kmers.
+Used 219.861 GB out of 503.670 GB to store  75380493959 kmers.
+Used 219.986 GB out of 503.670 GB to store  75429188157 kmers.
+Used 220.111 GB out of 503.670 GB to store  75478007468 kmers.
+Used 220.236 GB out of 503.670 GB to store  75527042219 kmers.
+Used 220.361 GB out of 503.670 GB to store  75575943630 kmers.
+Used 220.486 GB out of 503.670 GB to store  75624330389 kmers.
+Used 220.611 GB out of 503.670 GB to store  75673370279 kmers.
+Used 220.736 GB out of 503.670 GB to store  75722196158 kmers.
+Used 220.861 GB out of 503.670 GB to store  75770783622 kmers.
+Used 220.986 GB out of 503.670 GB to store  75819758296 kmers.
+Used 221.111 GB out of 503.670 GB to store  75868792220 kmers.
+Used 221.236 GB out of 503.670 GB to store  75917355824 kmers.
+Used 221.361 GB out of 503.670 GB to store  75965980316 kmers.
+Used 221.486 GB out of 503.670 GB to store  76015207569 kmers.
+Used 221.611 GB out of 503.670 GB to store  76063714562 kmers.
+Used 221.736 GB out of 503.670 GB to store  76112542409 kmers.
+Used 221.862 GB out of 503.670 GB to store  76161150313 kmers.
+Used 221.987 GB out of 503.670 GB to store  76209885573 kmers.
+Used 222.112 GB out of 503.670 GB to store  76258634545 kmers.
+Used 222.237 GB out of 503.670 GB to store  76307685565 kmers.
+Used 222.362 GB out of 503.670 GB to store  76356786554 kmers.
+Used 222.487 GB out of 503.670 GB to store  76405643250 kmers.
+Used 222.612 GB out of 503.670 GB to store  76454155812 kmers.
+Used 222.737 GB out of 503.670 GB to store  76502497176 kmers.
+Used 222.862 GB out of 503.670 GB to store  76551169090 kmers.
+Used 222.987 GB out of 503.670 GB to store  76600092533 kmers.
+Used 223.112 GB out of 503.670 GB to store  76649043221 kmers.
+Used 223.237 GB out of 503.670 GB to store  76697706766 kmers.
+Used 223.362 GB out of 503.670 GB to store  76746502512 kmers.
+Used 223.487 GB out of 503.670 GB to store  76795274963 kmers.
+Used 223.612 GB out of 503.670 GB to store  76844132472 kmers.
+Used 223.737 GB out of 503.670 GB to store  76892718128 kmers.
+Used 223.862 GB out of 503.670 GB to store  76941448630 kmers.
+Used 223.987 GB out of 503.670 GB to store  76990325524 kmers.
+Used 224.112 GB out of 503.670 GB to store  77039164802 kmers.
+Used 224.237 GB out of 503.670 GB to store  77087966773 kmers.
+Used 224.362 GB out of 503.670 GB to store  77136852655 kmers.
+Used 224.487 GB out of 503.670 GB to store  77185393478 kmers.
+Used 224.612 GB out of 503.670 GB to store  77234512382 kmers.
+Used 224.737 GB out of 503.670 GB to store  77283010842 kmers.
+Used 224.862 GB out of 503.670 GB to store  77332031768 kmers.
+Used 224.987 GB out of 503.670 GB to store  77380928273 kmers.
+Used 225.112 GB out of 503.670 GB to store  77429744756 kmers.
+Used 225.237 GB out of 503.670 GB to store  77478166058 kmers.
+Used 225.362 GB out of 503.670 GB to store  77526985093 kmers.
+Used 225.487 GB out of 503.670 GB to store  77575579371 kmers.
+Used 225.612 GB out of 503.670 GB to store  77624670906 kmers.
+Used 225.737 GB out of 503.670 GB to store  77672939735 kmers.
+Used 225.862 GB out of 503.670 GB to store  77721827722 kmers.
+Used 225.987 GB out of 503.670 GB to store  77770793159 kmers.
+Used 226.112 GB out of 503.670 GB to store  77819265292 kmers.
+Used 226.237 GB out of 503.670 GB to store  77868181377 kmers.
+Used 226.362 GB out of 503.670 GB to store  77916779279 kmers.
+Used 226.487 GB out of 503.670 GB to store  77965611912 kmers.
+Used 226.612 GB out of 503.670 GB to store  78014912917 kmers.
+Used 226.737 GB out of 503.670 GB to store  78063931000 kmers.
+Used 226.862 GB out of 503.670 GB to store  78112450711 kmers.
+Used 226.988 GB out of 503.670 GB to store  78161544292 kmers.
+Used 227.113 GB out of 503.670 GB to store  78209960483 kmers.
+Used 227.238 GB out of 503.670 GB to store  78258755764 kmers.
+Used 227.363 GB out of 503.670 GB to store  78307552011 kmers.
+Used 227.488 GB out of 503.670 GB to store  78356419582 kmers.
+Used 227.613 GB out of 503.670 GB to store  78404971136 kmers.
+Used 227.738 GB out of 503.670 GB to store  78453789243 kmers.
+Used 227.863 GB out of 503.670 GB to store  78502371079 kmers.
+Used 227.988 GB out of 503.670 GB to store  78551504062 kmers.
+Used 228.113 GB out of 503.670 GB to store  78599967512 kmers.
+Used 228.238 GB out of 503.670 GB to store  78648625827 kmers.
+Used 228.363 GB out of 503.670 GB to store  78697539352 kmers.
+Used 228.488 GB out of 503.670 GB to store  78746759566 kmers.
+Used 228.613 GB out of 503.670 GB to store  78795415951 kmers.
+Used 228.738 GB out of 503.670 GB to store  78844286431 kmers.
+Used 228.863 GB out of 503.670 GB to store  78893432130 kmers.
+Used 228.988 GB out of 503.670 GB to store  78942226633 kmers.
+Used 229.113 GB out of 503.670 GB to store  78990878417 kmers.
+Used 229.238 GB out of 503.670 GB to store  79039640260 kmers.
+Used 229.363 GB out of 503.670 GB to store  79088650086 kmers.
+Used 229.488 GB out of 503.670 GB to store  79137311618 kmers.
+Used 229.613 GB out of 503.670 GB to store  79186023934 kmers.
+Used 229.738 GB out of 503.670 GB to store  79234846452 kmers.
+Used 229.863 GB out of 503.670 GB to store  79283617472 kmers.
+Used 229.988 GB out of 503.670 GB to store  79332474912 kmers.
+Used 230.113 GB out of 503.670 GB to store  79381291160 kmers.
+Used 230.238 GB out of 503.670 GB to store  79430482148 kmers.
+Used 230.363 GB out of 503.670 GB to store  79478841832 kmers.
+Used 230.488 GB out of 503.670 GB to store  79527125768 kmers.
+Used 230.613 GB out of 503.670 GB to store  79575686392 kmers.
+Used 230.738 GB out of 503.670 GB to store  79624157881 kmers.
+Used 230.863 GB out of 503.670 GB to store  79673346524 kmers.
+Used 230.989 GB out of 503.670 GB to store  79722074972 kmers.
+Used 231.114 GB out of 503.670 GB to store  79770868730 kmers.
+Used 231.239 GB out of 503.670 GB to store  79819209017 kmers.
+Used 231.364 GB out of 503.670 GB to store  79868265072 kmers.
+Used 231.489 GB out of 503.670 GB to store  79917433949 kmers.
+Used 231.614 GB out of 503.670 GB to store  79966307351 kmers.
+Used 231.739 GB out of 503.670 GB to store  80015201612 kmers.
+Used 231.864 GB out of 503.670 GB to store  80064089420 kmers.
+Used 231.989 GB out of 503.670 GB to store  80113171646 kmers.
+Used 232.114 GB out of 503.670 GB to store  80161936041 kmers.
+Used 232.239 GB out of 503.670 GB to store  80210126382 kmers.
+Used 232.364 GB out of 503.670 GB to store  80259119998 kmers.
+Used 232.489 GB out of 503.670 GB to store  80308235272 kmers.
+Used 232.614 GB out of 503.670 GB to store  80357582336 kmers.
+Used 232.739 GB out of 503.670 GB to store  80406206425 kmers.
+Used 232.864 GB out of 503.670 GB to store  80454972512 kmers.
+Used 232.989 GB out of 503.670 GB to store  80503914237 kmers.
+Used 233.114 GB out of 503.670 GB to store  80552774253 kmers.
+Used 233.239 GB out of 503.670 GB to store  80601915337 kmers.
+Used 233.364 GB out of 503.670 GB to store  80650164392 kmers.
+Used 233.489 GB out of 503.670 GB to store  80698874950 kmers.
+Used 233.614 GB out of 503.670 GB to store  80747721152 kmers.
+Used 233.739 GB out of 503.670 GB to store  80796459511 kmers.
+Used 233.864 GB out of 503.670 GB to store  80845256206 kmers.
+Used 233.989 GB out of 503.670 GB to store  80893535537 kmers.
+Used 234.114 GB out of 503.670 GB to store  80942459652 kmers.
+Used 234.239 GB out of 503.670 GB to store  80991188434 kmers.
+Used 234.364 GB out of 503.670 GB to store  81040032830 kmers.
+Used 234.489 GB out of 503.670 GB to store  81088901594 kmers.
+Used 234.614 GB out of 503.670 GB to store  81138050164 kmers.
+Used 234.739 GB out of 503.670 GB to store  81187026110 kmers.
+Used 234.864 GB out of 503.670 GB to store  81235520207 kmers.
+Used 234.989 GB out of 503.670 GB to store  81284006091 kmers.
+Used 235.114 GB out of 503.670 GB to store  81332787525 kmers.
+Used 235.239 GB out of 503.670 GB to store  81381771781 kmers.
+Used 235.364 GB out of 503.670 GB to store  81430120079 kmers.
+Used 235.489 GB out of 503.670 GB to store  81479435406 kmers.
+Used 235.614 GB out of 503.670 GB to store  81528183811 kmers.
+Used 235.740 GB out of 503.670 GB to store  81576399637 kmers.
+Used 235.865 GB out of 503.670 GB to store  81625403818 kmers.
+Used 235.990 GB out of 503.670 GB to store  81674055983 kmers.
+Used 236.115 GB out of 503.670 GB to store  81722629132 kmers.
+Used 236.240 GB out of 503.670 GB to store  81771234574 kmers.
+Used 236.365 GB out of 503.670 GB to store  81819928672 kmers.
+Used 236.490 GB out of 503.670 GB to store  81868853873 kmers.
+Used 236.615 GB out of 503.670 GB to store  81917938170 kmers.
+Used 236.740 GB out of 503.670 GB to store  81966475754 kmers.
+Used 236.865 GB out of 503.670 GB to store  82015355319 kmers.
+Used 236.990 GB out of 503.670 GB to store  82064276352 kmers.
+Used 237.115 GB out of 503.670 GB to store  82112503881 kmers.
+Used 237.240 GB out of 503.670 GB to store  82161239324 kmers.
+Used 237.365 GB out of 503.670 GB to store  82210142054 kmers.
+Used 237.490 GB out of 503.670 GB to store  82259021174 kmers.
+Used 237.615 GB out of 503.670 GB to store  82307808867 kmers.
+Used 237.740 GB out of 503.670 GB to store  82356537341 kmers.
+Used 237.865 GB out of 503.670 GB to store  82405297820 kmers.
+Used 237.990 GB out of 503.670 GB to store  82454710480 kmers.
+Used 238.115 GB out of 503.670 GB to store  82503388532 kmers.
+Used 238.240 GB out of 503.670 GB to store  82552173863 kmers.
+Used 238.365 GB out of 503.670 GB to store  82601073288 kmers.
+Used 238.490 GB out of 503.670 GB to store  82649896881 kmers.
+Used 238.615 GB out of 503.670 GB to store  82698645943 kmers.
+Used 238.740 GB out of 503.670 GB to store  82747333555 kmers.
+Used 238.865 GB out of 503.670 GB to store  82795800451 kmers.
+Used 238.990 GB out of 503.670 GB to store  82844727843 kmers.
+Used 239.115 GB out of 503.670 GB to store  82893255384 kmers.
+Used 239.240 GB out of 503.670 GB to store  82942379545 kmers.
+Used 239.365 GB out of 503.670 GB to store  82991074339 kmers.
+Used 239.490 GB out of 503.670 GB to store  83039798069 kmers.
+Used 239.615 GB out of 503.670 GB to store  83088556598 kmers.
+Used 239.740 GB out of 503.670 GB to store  83137116059 kmers.
+Used 239.865 GB out of 503.670 GB to store  83186180099 kmers.
+Used 239.990 GB out of 503.670 GB to store  83235115462 kmers.
+Used 240.115 GB out of 503.670 GB to store  83283602447 kmers.
+Used 240.240 GB out of 503.670 GB to store  83332666306 kmers.
+Used 240.365 GB out of 503.670 GB to store  83381448529 kmers.
+Used 240.490 GB out of 503.670 GB to store  83430025300 kmers.
+Used 240.615 GB out of 503.670 GB to store  83478609000 kmers.
+Used 240.740 GB out of 503.670 GB to store  83527282892 kmers.
+Used 240.866 GB out of 503.670 GB to store  83576556668 kmers.
+Used 240.991 GB out of 503.670 GB to store  83625311800 kmers.
+Used 241.116 GB out of 503.670 GB to store  83674423136 kmers.
+Used 241.241 GB out of 503.670 GB to store  83723227517 kmers.
+Used 241.366 GB out of 503.670 GB to store  83771789229 kmers.
+Used 241.491 GB out of 503.670 GB to store  83820427130 kmers.
+Used 241.616 GB out of 503.670 GB to store  83869207912 kmers.
+Used 241.741 GB out of 503.670 GB to store  83917760466 kmers.
+Used 241.866 GB out of 503.670 GB to store  83966339260 kmers.
+Used 241.991 GB out of 503.670 GB to store  84015552773 kmers.
+Used 242.116 GB out of 503.670 GB to store  84064641821 kmers.
+Used 242.241 GB out of 503.670 GB to store  84113562482 kmers.
+Used 242.366 GB out of 503.670 GB to store  84162491957 kmers.
+Used 242.491 GB out of 503.670 GB to store  84211440560 kmers.
+Used 242.616 GB out of 503.670 GB to store  84259836632 kmers.
+Used 242.741 GB out of 503.670 GB to store  84308760452 kmers.
+Used 242.866 GB out of 503.670 GB to store  84357794657 kmers.
+Used 242.991 GB out of 503.670 GB to store  84407003571 kmers.
+Used 243.116 GB out of 503.670 GB to store  84455667389 kmers.
+Used 243.241 GB out of 503.670 GB to store  84504085892 kmers.
+Used 243.366 GB out of 503.670 GB to store  84552875309 kmers.
+Used 243.491 GB out of 503.670 GB to store  84601691970 kmers.
+Used 243.616 GB out of 503.670 GB to store  84650518992 kmers.
+Used 243.741 GB out of 503.670 GB to store  84699660571 kmers.
+Used 243.866 GB out of 503.670 GB to store  84748304489 kmers.
+Used 243.991 GB out of 503.670 GB to store  84797266945 kmers.
+Used 244.116 GB out of 503.670 GB to store  84845224334 kmers.
+Used 244.241 GB out of 503.670 GB to store  84894522610 kmers.
+Used 244.366 GB out of 503.670 GB to store  84943179528 kmers.
+Used 244.491 GB out of 503.670 GB to store  84992088520 kmers.
+Used 244.616 GB out of 503.670 GB to store  85040744229 kmers.
+Used 244.741 GB out of 503.670 GB to store  85089218330 kmers.
+Used 244.866 GB out of 503.670 GB to store  85138156313 kmers.
+Used 244.991 GB out of 503.670 GB to store  85186898523 kmers.
+Used 245.116 GB out of 503.670 GB to store  85235635150 kmers.
+Used 245.241 GB out of 503.670 GB to store  85284548626 kmers.
+Used 245.366 GB out of 503.670 GB to store  85333321300 kmers.
+Used 245.491 GB out of 503.670 GB to store  85382136019 kmers.
+Used 245.616 GB out of 503.670 GB to store  85430998303 kmers.
+Used 245.741 GB out of 503.670 GB to store  85479659123 kmers.
+Used 245.866 GB out of 503.670 GB to store  85528668560 kmers.
+Used 245.991 GB out of 503.670 GB to store  85577403356 kmers.
+Used 246.117 GB out of 503.670 GB to store  85626485200 kmers.
+Used 246.242 GB out of 503.670 GB to store  85675118878 kmers.
+Used 246.367 GB out of 503.670 GB to store  85723830226 kmers.
+Used 246.492 GB out of 503.670 GB to store  85772931935 kmers.
+Used 246.617 GB out of 503.670 GB to store  85821583671 kmers.
+Used 246.742 GB out of 503.670 GB to store  85870279557 kmers.
+Used 246.867 GB out of 503.670 GB to store  85919337331 kmers.
+Used 246.992 GB out of 503.670 GB to store  85968327151 kmers.
+Used 247.117 GB out of 503.670 GB to store  86016910549 kmers.
+Used 247.242 GB out of 503.670 GB to store  86065381027 kmers.
+Used 247.367 GB out of 503.670 GB to store  86114334127 kmers.
+Used 247.492 GB out of 503.670 GB to store  86163018444 kmers.
+Used 247.617 GB out of 503.670 GB to store  86212188463 kmers.
+Used 247.742 GB out of 503.670 GB to store  86260702547 kmers.
+Used 247.867 GB out of 503.670 GB to store  86309019600 kmers.
+Used 247.992 GB out of 503.670 GB to store  86358173101 kmers.
+Used 248.117 GB out of 503.670 GB to store  86406692269 kmers.
+Used 248.242 GB out of 503.670 GB to store  86455977775 kmers.
+Used 248.367 GB out of 503.670 GB to store  86504779282 kmers.
+Used 248.492 GB out of 503.670 GB to store  86553739908 kmers.
+Used 248.617 GB out of 503.670 GB to store  86602405022 kmers.
+Used 248.742 GB out of 503.670 GB to store  86651470614 kmers.
+Used 248.867 GB out of 503.670 GB to store  86700099325 kmers.
+Used 248.992 GB out of 503.670 GB to store  86748765950 kmers.
+Used 249.117 GB out of 503.670 GB to store  86797574768 kmers.
+Used 249.242 GB out of 503.670 GB to store  86846488405 kmers.
+Used 249.367 GB out of 503.670 GB to store  86894890556 kmers.
+Used 249.492 GB out of 503.670 GB to store  86943801296 kmers.
+Used 249.617 GB out of 503.670 GB to store  86992249481 kmers.
+Used 249.742 GB out of 503.670 GB to store  87041262061 kmers.
+Used 249.867 GB out of 503.670 GB to store  87089633128 kmers.
+Used 249.992 GB out of 503.670 GB to store  87138511471 kmers.
+Used 250.117 GB out of 503.670 GB to store  87187510366 kmers.
+Used 250.242 GB out of 503.670 GB to store  87236716012 kmers.
+Used 250.367 GB out of 503.670 GB to store  87285151947 kmers.
+Used 250.493 GB out of 503.670 GB to store  87334007103 kmers.
+Used 250.618 GB out of 503.670 GB to store  87382518453 kmers.
+Used 250.743 GB out of 503.670 GB to store  87431370834 kmers.
+Used 250.868 GB out of 503.670 GB to store  87480156803 kmers.
+Used 250.993 GB out of 503.670 GB to store  87528841380 kmers.
+Used 251.118 GB out of 503.670 GB to store  87577580197 kmers.
+Used 251.243 GB out of 503.670 GB to store  87625999806 kmers.
+Used 251.368 GB out of 503.670 GB to store  87674731392 kmers.
+Used 251.493 GB out of 503.670 GB to store  87723594887 kmers.
+Used 251.618 GB out of 503.670 GB to store  87771959936 kmers.
+Used 251.743 GB out of 503.670 GB to store  87820587356 kmers.
+Used 251.868 GB out of 503.670 GB to store  87869363198 kmers.
+Used 251.993 GB out of 503.670 GB to store  87918256694 kmers.
+Used 252.118 GB out of 503.670 GB to store  87967387654 kmers.
+Used 252.243 GB out of 503.670 GB to store  88016206327 kmers.
+Used 252.368 GB out of 503.670 GB to store  88064807932 kmers.
+Used 252.493 GB out of 503.670 GB to store  88113472237 kmers.
+Used 252.618 GB out of 503.670 GB to store  88162577034 kmers.
+Used 252.743 GB out of 503.670 GB to store  88211027703 kmers.
+Used 252.868 GB out of 503.670 GB to store  88260119961 kmers.
+Used 252.993 GB out of 503.670 GB to store  88308953237 kmers.
+Used 253.118 GB out of 503.670 GB to store  88358188943 kmers.
+Used 253.243 GB out of 503.670 GB to store  88406931320 kmers.
+Used 253.368 GB out of 503.670 GB to store  88455765952 kmers.
+Used 253.493 GB out of 503.670 GB to store  88504652507 kmers.
+Used 253.618 GB out of 503.670 GB to store  88553508844 kmers.
+Used 253.743 GB out of 503.670 GB to store  88601878706 kmers.
+Used 253.868 GB out of 503.670 GB to store  88650512842 kmers.
+Used 253.993 GB out of 503.670 GB to store  88699913239 kmers.
+Used 254.118 GB out of 503.670 GB to store  88748756958 kmers.
+Used 254.243 GB out of 503.670 GB to store  88797467040 kmers.
+Used 254.368 GB out of 503.670 GB to store  88846187698 kmers.
+Used 254.493 GB out of 503.670 GB to store  88894855961 kmers.
+Used 254.618 GB out of 503.670 GB to store  88943705803 kmers.
+Used 254.743 GB out of 503.670 GB to store  88992144412 kmers.
+Used 254.868 GB out of 503.670 GB to store  89040649902 kmers.
+
+Writing results to '/ibex/user/zhanh0m/proj/cs249/raw/reads.meryl', using 32 threads.
+finishIteration()--
+
+Finished counting.
+Bye.
+
+No haplotype dbs provided.
+Running Merqury in non-trio mode...
+
+asm1: lizard.asm.bp.p_ctg.fa
+out : merqury/lizard
+
+
+Get spectra-cn plots and QV stats
+
+
+[M::mm_idx_gen::25.889*1.31] collected minimizers
+[M::mm_idx_gen::27.333*1.98] sorted minimizers
+[M::main::27.333*1.98] loaded/built the index for 88 target sequence(s)
+[M::mm_mapopt_update::28.899*1.92] mid_occ = 213
+[M::mm_idx_stat] kmer size: 19; skip: 10; is_hpc: 1; #seq: 88
+[M::mm_idx_stat::29.943*1.89] distinct minimizers: 79764223 (51.25% are singletons); average occurrences: 2.935; average spacing: 7.716; total length: 1806549621
+[M::worker_pipeline::48.395*8.41] mapped 28846 sequences
+[M::worker_pipeline::62.899*13.05] mapped 28888 sequences
+[M::worker_pipeline::74.478*15.79] mapped 28977 sequences
+[M::worker_pipeline::86.189*17.78] mapped 29052 sequences
+[M::worker_pipeline::98.574*19.27] mapped 28911 sequences
+[M::worker_pipeline::109.180*20.43] mapped 28941 sequences
+[M::worker_pipeline::121.473*21.30] mapped 28858 sequences
+[M::worker_pipeline::132.882*22.12] mapped 28827 sequences
+[M::worker_pipeline::144.454*22.80] mapped 28886 sequences
+[M::worker_pipeline::156.065*23.35] mapped 28803 sequences
+[M::worker_pipeline::167.905*23.83] mapped 28866 sequences
+[M::worker_pipeline::179.131*24.28] mapped 28908 sequences
+[M::worker_pipeline::191.267*24.59] mapped 28875 sequences
+[M::worker_pipeline::204.634*24.76] mapped 28913 sequences
+[M::worker_pipeline::215.663*25.08] mapped 28852 sequences
+[M::worker_pipeline::227.242*25.39] mapped 28941 sequences
+[M::worker_pipeline::263.354*24.29] mapped 28966 sequences
+[M::worker_pipeline::264.848*24.17] mapped 28938 sequences
+[M::worker_pipeline::283.255*24.19] mapped 28931 sequences
+[M::worker_pipeline::294.519*24.45] mapped 28906 sequences
+[M::worker_pipeline::305.631*24.67] mapped 29146 sequences
+[M::worker_pipeline::317.860*24.82] mapped 29144 sequences
+[M::worker_pipeline::329.625*25.01] mapped 29201 sequences
+[M::worker_pipeline::341.824*25.18] mapped 29205 sequences
+[M::worker_pipeline::352.849*25.37] mapped 29221 sequences
+[M::worker_pipeline::364.522*25.50] mapped 29218 sequences
+[M::worker_pipeline::375.804*25.66] mapped 29114 sequences
+[M::worker_pipeline::389.072*25.69] mapped 29181 sequences
+[M::worker_pipeline::402.229*25.76] mapped 29281 sequences
+[M::worker_pipeline::413.257*25.91] mapped 29229 sequences
+[M::worker_pipeline::423.930*26.04] mapped 29202 sequences
+[M::worker_pipeline::436.217*26.16] mapped 29211 sequences
+[M::worker_pipeline::447.584*26.27] mapped 29189 sequences
+[M::worker_pipeline::484.607*25.59] mapped 29270 sequences
+[M::worker_pipeline::485.551*25.54] mapped 29175 sequences
+[M::worker_pipeline::502.650*25.47] mapped 29124 sequences
+[M::worker_pipeline::514.070*25.57] mapped 29101 sequences
+[M::worker_pipeline::526.160*25.68] mapped 29198 sequences
+[M::worker_pipeline::537.622*25.79] mapped 29173 sequences
+[M::worker_pipeline::548.800*25.89] mapped 29080 sequences
+[M::worker_pipeline::560.819*26.01] mapped 29093 sequences
+[M::worker_pipeline::571.542*26.11] mapped 29073 sequences
+[M::worker_pipeline::584.339*26.16] mapped 29029 sequences
+[M::worker_pipeline::595.402*26.25] mapped 28987 sequences
+[M::worker_pipeline::606.929*26.34] mapped 28975 sequences
+[M::worker_pipeline::618.527*26.41] mapped 29063 sequences
+[M::worker_pipeline::630.551*26.48] mapped 28981 sequences
+[M::worker_pipeline::642.106*26.55] mapped 29075 sequences
+[M::worker_pipeline::653.527*26.62] mapped 28984 sequences
+[M::worker_pipeline::689.745*26.14] mapped 28965 sequences
+[M::worker_pipeline::690.627*26.11] mapped 28917 sequences
+[M::worker_pipeline::710.077*25.98] mapped 28922 sequences
+[M::worker_pipeline::721.502*26.06] mapped 28926 sequences
+[M::worker_pipeline::733.117*26.13] mapped 28839 sequences
+[M::worker_pipeline::745.202*26.20] mapped 28958 sequences
+[M::worker_pipeline::756.733*26.25] mapped 29060 sequences
+[M::worker_pipeline::768.483*26.30] mapped 29097 sequences
+[M::worker_pipeline::780.253*26.38] mapped 29150 sequences
+[M::worker_pipeline::791.593*26.44] mapped 29077 sequences
+[M::worker_pipeline::802.698*26.51] mapped 28994 sequences
+[M::worker_pipeline::813.927*26.56] mapped 30890 sequences
+[M::worker_pipeline::825.120*26.62] mapped 31184 sequences
+[M::worker_pipeline::836.287*26.68] mapped 31153 sequences
+[M::worker_pipeline::847.330*26.74] mapped 31157 sequences
+[M::worker_pipeline::859.374*26.78] mapped 31255 sequences
+[M::worker_pipeline::870.368*26.84] mapped 31175 sequences
+[M::worker_pipeline::906.560*26.47] mapped 31256 sequences
+[M::worker_pipeline::907.435*26.44] mapped 31206 sequences
+[M::worker_pipeline::923.458*26.42] mapped 31382 sequences
+[M::worker_pipeline::935.221*26.47] mapped 31285 sequences
+[M::worker_pipeline::947.713*26.52] mapped 31375 sequences
+[M::worker_pipeline::958.680*26.56] mapped 31285 sequences
+[M::worker_pipeline::970.155*26.62] mapped 31394 sequences
+[M::worker_pipeline::981.562*26.67] mapped 31423 sequences
+[M::worker_pipeline::992.647*26.71] mapped 31349 sequences
+[M::worker_pipeline::1004.770*26.75] mapped 31355 sequences
+[M::worker_pipeline::1016.506*26.80] mapped 31370 sequences
+[M::worker_pipeline::1027.679*26.84] mapped 31358 sequences
+[M::worker_pipeline::1039.669*26.87] mapped 31268 sequences
+[M::worker_pipeline::1050.334*26.91] mapped 31458 sequences
+[M::worker_pipeline::1061.998*26.95] mapped 31311 sequences
+[M::worker_pipeline::1072.977*26.99] mapped 31328 sequences
+[M::worker_pipeline::1103.654*26.82] mapped 31292 sequences
+[M::worker_pipeline::1104.564*26.80] mapped 31261 sequences
+[M::worker_pipeline::1120.856*26.76] mapped 31324 sequences
+[M::worker_pipeline::1131.877*26.80] mapped 31286 sequences
+[M::worker_pipeline::1143.351*26.84] mapped 31290 sequences
+[M::worker_pipeline::1154.943*26.88] mapped 31269 sequences
+[M::worker_pipeline::1166.398*26.91] mapped 31204 sequences
+[M::worker_pipeline::1177.539*26.95] mapped 31336 sequences
+[M::worker_pipeline::1190.722*26.94] mapped 31326 sequences
+[M::worker_pipeline::1202.400*26.98] mapped 31266 sequences
+[M::worker_pipeline::1213.023*27.01] mapped 31274 sequences
+[M::worker_pipeline::1224.646*27.04] mapped 31258 sequences
+[M::worker_pipeline::1235.348*27.07] mapped 31328 sequences
+[M::worker_pipeline::1247.091*27.10] mapped 31259 sequences
+[M::worker_pipeline::1258.160*27.13] mapped 31265 sequences
+[M::worker_pipeline::1269.764*27.15] mapped 31257 sequences
+[M::worker_pipeline::1280.853*27.18] mapped 31221 sequences
+[M::worker_pipeline::1310.683*27.04] mapped 31228 sequences
+[M::worker_pipeline::1311.603*27.02] mapped 31184 sequences
+[M::worker_pipeline::1328.007*26.99] mapped 31169 sequences
+[M::worker_pipeline::1339.549*27.02] mapped 31229 sequences
+[M::worker_pipeline::1351.249*27.05] mapped 31182 sequences
+[M::worker_pipeline::1362.259*27.09] mapped 31192 sequences
+[M::worker_pipeline::1374.252*27.11] mapped 31192 sequences
+[M::worker_pipeline::1385.158*27.13] mapped 31089 sequences
+[M::worker_pipeline::1397.104*27.15] mapped 31262 sequences
+[M::worker_pipeline::1408.800*27.18] mapped 31076 sequences
+[M::worker_pipeline::1420.267*27.20] mapped 31156 sequences
+[M::worker_pipeline::1431.983*27.23] mapped 31118 sequences
+[M::worker_pipeline::1442.593*27.25] mapped 31127 sequences
+[M::worker_pipeline::1454.162*27.27] mapped 31134 sequences
+[M::worker_pipeline::1465.747*27.30] mapped 31087 sequences
+[M::worker_pipeline::1477.363*27.32] mapped 31138 sequences
+[M::worker_pipeline::1488.691*27.34] mapped 31157 sequences
+[M::worker_pipeline::1519.161*27.20] mapped 31001 sequences
+[M::worker_pipeline::1520.176*27.18] mapped 30762 sequences
+[M::worker_pipeline::1536.507*27.16] mapped 30536 sequences
+[M::worker_pipeline::1548.808*27.17] mapped 30486 sequences
+[M::worker_pipeline::1560.070*27.20] mapped 30483 sequences
+[M::worker_pipeline::1570.997*27.22] mapped 30422 sequences
+[M::worker_pipeline::1582.708*27.24] mapped 30420 sequences
+[M::worker_pipeline::1594.304*27.26] mapped 30659 sequences
+[M::worker_pipeline::1605.935*27.28] mapped 30921 sequences
+[M::worker_pipeline::1617.525*27.31] mapped 30845 sequences
+[M::worker_pipeline::1628.920*27.33] mapped 30836 sequences
+[M::worker_pipeline::1640.847*27.34] mapped 30844 sequences
+[M::worker_pipeline::1652.220*27.35] mapped 30807 sequences
+[M::worker_pipeline::1663.607*27.37] mapped 30980 sequences
+[M::worker_pipeline::1674.578*27.40] mapped 30899 sequences
+[M::worker_pipeline::1685.788*27.42] mapped 30788 sequences
+[M::worker_pipeline::1717.242*27.29] mapped 30807 sequences
+[M::worker_pipeline::1718.258*27.27] mapped 30956 sequences
+[M::worker_pipeline::1735.441*27.24] mapped 30949 sequences
+[M::worker_pipeline::1747.447*27.27] mapped 30915 sequences
+[M::worker_pipeline::1758.884*27.29] mapped 31014 sequences
+[M::worker_pipeline::1770.744*27.31] mapped 30976 sequences
+[M::worker_pipeline::1782.947*27.31] mapped 31101 sequences
+[M::worker_pipeline::1794.820*27.33] mapped 31083 sequences
+[M::worker_pipeline::1806.314*27.35] mapped 31025 sequences
+[M::worker_pipeline::1818.213*27.36] mapped 31052 sequences
+[M::worker_pipeline::1829.908*27.38] mapped 31090 sequences
+[M::worker_pipeline::1841.051*27.39] mapped 30942 sequences
+[M::worker_pipeline::1853.336*27.40] mapped 31019 sequences
+[M::worker_pipeline::1863.902*27.43] mapped 30853 sequences
+[M::worker_pipeline::1875.419*27.44] mapped 30869 sequences
+[M::worker_pipeline::1886.713*27.46] mapped 30651 sequences
+[M::worker_pipeline::1898.266*27.47] mapped 30582 sequences
+[M::worker_pipeline::1924.610*27.42] mapped 30611 sequences
+[M::worker_pipeline::1925.699*27.40] mapped 30639 sequences
+[M::worker_pipeline::1942.386*27.37] mapped 30571 sequences
+[M::worker_pipeline::1953.625*27.39] mapped 30652 sequences
+[M::worker_pipeline::1965.150*27.41] mapped 30679 sequences
+[M::worker_pipeline::1976.729*27.42] mapped 30928 sequences
+[M::worker_pipeline::1991.050*27.40] mapped 30901 sequences
+[M::worker_pipeline::2003.298*27.41] mapped 31167 sequences
+[M::worker_pipeline::2014.697*27.43] mapped 31162 sequences
+[M::worker_pipeline::2026.239*27.45] mapped 31198 sequences
+[M::worker_pipeline::2037.462*27.47] mapped 31211 sequences
+[M::worker_pipeline::2048.551*27.49] mapped 31078 sequences
+[M::worker_pipeline::2059.726*27.50] mapped 31202 sequences
+[M::worker_pipeline::2071.448*27.52] mapped 31176 sequences
+[M::worker_pipeline::2082.922*27.53] mapped 31163 sequences
+[M::worker_pipeline::2094.014*27.55] mapped 31136 sequences
+[M::worker_pipeline::2124.780*27.45] mapped 31159 sequences
+[M::worker_pipeline::2125.849*27.44] mapped 31224 sequences
+[M::worker_pipeline::2142.506*27.42] mapped 31179 sequences
+[M::worker_pipeline::2155.585*27.42] mapped 31185 sequences
+[M::worker_pipeline::2167.453*27.43] mapped 31108 sequences
+[M::worker_pipeline::2178.487*27.45] mapped 31184 sequences
+[M::worker_pipeline::2189.889*27.47] mapped 31227 sequences
+[M::worker_pipeline::2200.841*27.48] mapped 31126 sequences
+[M::worker_pipeline::2212.509*27.50] mapped 31112 sequences
+[M::worker_pipeline::2224.201*27.51] mapped 31049 sequences
+[M::worker_pipeline::2236.150*27.52] mapped 31063 sequences
+[M::worker_pipeline::2247.854*27.54] mapped 31084 sequences
+[M::worker_pipeline::2259.224*27.55] mapped 31157 sequences
+[M::worker_pipeline::2262.109*27.55] mapped 11823 sequences
+[M::main] Version: 2.24-r1155-dirty
+[M::main] CMD: minimap2 -t 32 -ax map-pb /ibex/user/zhanh0m/proj/cs249/raw/lizard.asm.bp.p_ctg.fa /ibex/reference/course/cs249/lizard/input/pacbio/lizard_liver.fastq.gz
+[M::main] Real time: 2262.243 sec; CPU: 62317.671 sec; Peak RSS: 15.884 GB
+[bam_sort_core] merging from 160 files and 16 in-memory blocks...

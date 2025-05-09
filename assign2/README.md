@@ -528,6 +528,14 @@ Finally, the assembly results are shown below:
 
 Here we use `QUAST`, `BUSCO`, `Merqury`, and `Flagger` to evaluate our assembly.
 
+Before execution, we found that `Flagger` is not installed on IBEX, so we run the following command lines:
+```shell
+cd /ibex/user/zhanh0m/proj/cs249/softw/
+git clone https://github.com/mobinasri/flagger.git
+cd flagger
+make
+```
+
 The sbatch script is shown below (named `step_2.slurm` in our project location, also is attached
 [here](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/exec/step_2.slurm)):
 
@@ -539,7 +547,7 @@ The sbatch script is shown below (named `step_2.slurm` in our project location, 
 #SBATCH --error=run.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=120G
+#SBATCH --mem=400G
 #SBATCH --time=48:00:00
 #SBATCH --partition=batch
 
@@ -548,7 +556,7 @@ module load busco
 module load merqury
 module load minimap2
 module load samtools
-module load flagger
+module load inspector
 
 fasta_file="/ibex/user/zhanh0m/proj/cs249/raw/lizard.asm.bp.p_ctg.fa"
 reads_file="/ibex/reference/course/cs249/lizard/input/pacbio/lizard_liver.fastq.gz"
@@ -557,7 +565,7 @@ project_folder="/ibex/user/zhanh0m/proj/cs249/"
 quast_output="${project_folder}quast/"
 merqury_output="${project_folder}merqury/"
 merqury_database="${project_folder}raw/reads.meryl"
-flagger_output="${project_folder}flagger/"
+inspector_output="${project_folder}inspector/"
 samtool_output="${project_folder}raw/aln.sorted.bam"
 
 # Step 1: QUAST
@@ -572,19 +580,23 @@ busco -i "$fasta_file" -o busco -l "sauropsida_odb10" -m genome -c 32 --out_path
 if [ ! -d "$merqury_database" ]; then
     meryl k=21 count output "$merqury_database" "$reads_file"
 fi
-merqury.sh "$merqury_database" "$fasta_file" "$merqury_output"
+merqury.sh "$merqury_database" "$fasta_file" "$merqury_output/lizard"
 
-# Step 4: Flagger
+# Step 4: Inspector
 minimap2 -t 32 -ax map-hifi "$fasta_file" "$reads_file" | samtools sort -@ 16 -o "$samtool_output"
 samtools index "$samtool_output"
-flagger -r "$fasta_file" -b "$samtool_output" -o "$flagger_output"
+inspector -r "$fasta_file" -b "$samtool_output" -o "$inspector_output"
 ```
 
 All the reports (from different tools) as shown in `assign2/results/hifiasm` folder, specifically:
 
-- QUAST: [quast_report.txt](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/quast_report.txt)
-- BUSCO: [busco_report.json](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/busco_report.json)
-- Merqury:
-- Flagger:
+- QUAST: [report.txt](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/quast[report].txt)
+- BUSCO: [report.json](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/busco[report].json)
+- Merqury: [spectra-cn.hist](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[spectra-cn].hist) 
+, [lizard.qv](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[lizard].qv)
+, [lizard.lizard.asm.bp.p_ctg.qv](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[lizard.lizard.asm.bp.p_ctg].qv)
+, [lizard.lizard.asm.bp.p_ctg.only.hist](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[lizard.lizard.asm.bp.p_ctg.only].hist)
+, and [lizard.completeness.stats](https://github.com/HaolingZHANG/CS-249/blob/main/assign2/results/hifiasm/merqury[lizard.completeness].stats)
+- Inspector:
 
 TODO
