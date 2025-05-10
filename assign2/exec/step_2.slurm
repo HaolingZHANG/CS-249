@@ -12,8 +12,6 @@
 module load quast
 module load busco
 module load merqury
-module load minimap2
-module load samtools
 module load inspector
 
 fasta_file="/ibex/user/zhanh0m/proj/cs249/raw/lizard.asm.bp.p_ctg.fa"

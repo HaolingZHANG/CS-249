@@ -1870,7 +1870,52 @@ Total reads in cleaned FASTQ: 2716940
 [M::ha_analyze_count] left: none
 [M::ha_analyze_count] right: none
 [M::ha_pt_gen] peak_hom: 82; peak_het: -1
-[M::ha_ct_shrink::5176.534*14.26] ==> counted 64176511 distinct minimizer k-mers
+[M::ha_ct_shrink::12224.617*15.07] ==> counted 64113279 distinct minimizer k-mers
 [M::ha_pt_gen::] counting in normal mode
-[M::yak_count] collected 1150023204 minimizers
-[M::ha_pt_gen::5323.282*14.22] ==> indexed 1144996615 positions, counted 64176511 distinct minimizer k-mers
+[M::yak_count] collected 1149965859 minimizers
+[M::ha_pt_gen::12371.779*15.04] ==> indexed 1145263127 positions, counted 64113279 distinct minimizer k-mers
+[M::ha_print_ovlp_stat_0] # overlaps: 93516785
+[M::ha_print_ovlp_stat_0] # strong overlaps: 52222426
+[M::ha_print_ovlp_stat_0] # weak overlaps: 41294359
+[M::ha_print_ovlp_stat_0] # exact overlaps: 91435480
+[M::ha_print_ovlp_stat_0] # inexact overlaps: 2081305
+[M::ha_print_ovlp_stat_0] # overlaps without large indels: 93166271
+[M::ha_print_ovlp_stat_0] # reverse overlaps: 32379162
+[M::ha_print_ovlp_stat_0] # running time: 975.275
+[M::ha_assemble::13348.828*15.10@38.656GB] ==> found overlaps for the final round
+[M::ha_opt_update_cov_min] updated max_n_chain to 410
+Writing reads to disk...
+Reads has been written.
+Writing ma_hit_ts to disk...
+ma_hit_ts has been written.
+Writing ma_hit_ts to disk...
+ma_hit_ts has been written.
+bin files have been written.
+[M::purge_dups] homozygous read coverage threshold: 81
+[M::purge_dups] purge duplication coverage threshold: 102
+[M::ug_ext_gfa::] # tips::10581
+Writing raw unitig GFA to disk...
+[M::ug_ext_gfa::] # tips::1
+Writing processed unitig GFA to disk...
+[M::purge_dups] homozygous read coverage threshold: 81
+[M::purge_dups] purge duplication coverage threshold: 102
+[M::mc_solve:: # edges: 45136]
+[M::mc_solve_core_adv::6.155] ==> Partition
+[M::adjust_utg_by_primary] primary contig coverage range: [68, infinity]
+Writing /ibex/user/zhanh0m/proj/cs249a/raw/lizard.asm.bp.p_ctg.gfa to disk...
+[M::reduce_hamming_error_adv::0.172] # inserted edges: 0, # fixed bubbles: 0
+[M::adjust_utg_by_trio] primary contig coverage range: [68, infinity]
+[M::recall_arcs] # transitive arcs::74
+[M::recall_arcs] # new arcs::7566, # old arcs::5334
+[M::clean_trio_untig_graph] # adjusted arcs::0
+[M::adjust_utg_by_trio] primary contig coverage range: [68, infinity]
+[M::recall_arcs] # transitive arcs::176
+[M::recall_arcs] # new arcs::7506, # old arcs::5382
+[M::clean_trio_untig_graph] # adjusted arcs::0
+[M::output_trio_graph_joint] dedup_base::184038996, miss_base::0
+Writing /ibex/user/zhanh0m/proj/cs249a/raw/lizard.asm.bp.hap1.p_ctg.gfa to disk...
+Writing /ibex/user/zhanh0m/proj/cs249a/raw/lizard.asm.bp.hap2.p_ctg.gfa to disk...
+Inconsistency threshold for low-quality regions in BED files: 70%
+[M::main] Version: 0.25.0-r726
+[M::main] CMD: hifiasm -o /ibex/user/zhanh0m/proj/cs249a/raw/lizard.asm -t 16 /ibex/user/zhanh0m/proj/cs249a/clean_2/reads.fastq
+[M::main] Real time: 13677.181 sec; CPU: 201972.251 sec; Peak RSS: 38.656 GB

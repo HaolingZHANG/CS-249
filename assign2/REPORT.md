@@ -612,8 +612,7 @@ The execution log is attached
 Since `Hifiasm` did not produce a FASTA file, we manually converted the output using the following command line:
 
 ```shell
-cd raw
-awk '/^S/{print ">"$2"\n"$3}' lizard.asm.bp.p_ctg.gfa > lizard.asm.bp.p_ctg.fa
+awk '/^S/{print ">"$2"\n"$3}' raw/lizard.asm.bp.p_ctg.gfa > raw/lizard.asm.bp.p_ctg.fa
 ```
 
 Finally, the assembly results are shown below:
